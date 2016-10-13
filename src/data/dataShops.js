@@ -4,8 +4,7 @@
 
 
 
-var shops = {
-    data: [
+var shops = [
         {
             id : 1,
             name : 'Lidl', 
@@ -58,5 +57,5 @@ var shops = {
 
 
     ]
-};
+
 export default shops
