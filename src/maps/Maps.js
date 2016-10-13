@@ -23,12 +23,14 @@ export default class Shops extends React.Component {
                     {
                         id: 1,
                         name: 'Lidl',
-                        location: {lat: 54.356504, lng: 18.588442}
+                        location: {lat: 54.356504, lng: 18.588442},
+                        icon: '/img/lidl-icon.png' 
                     },
                     {
                         id: 2,
                         name: 'Biedronka',
-                        location: {lat: 54.321204, lng: 18.782442}
+                        location: {lat: 54.321204, lng: 18.782442},
+                        icon: '/img/biedronka-icon.png'
                     }
 
                 ]
@@ -45,7 +47,7 @@ export default class Shops extends React.Component {
                     center={[54.352401, 18.647500]}
                     zoom={9}>
                     {this.state.shops.map(function (shop) {
-                        return <Place key={shop.id} {...shop.location} text={'A'} />
+                        return <Place key={shop.id}  {...shop.location} icon={shop.icon} />
                     })}
                 </GoogleMap>
             </div>
