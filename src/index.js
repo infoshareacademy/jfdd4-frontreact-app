@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Maps from './maps/Maps';
+import Maps from './maps/Maps0';
 import Login from './login/Login';
 
 import './index.css';
@@ -16,3 +16,5 @@ ReactDOM.render(
     </Router>,
     document.getElementById('root')
 );
+
+
