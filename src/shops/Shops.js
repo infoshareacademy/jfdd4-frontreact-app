@@ -30,4 +30,4 @@ export default class Shops extends React.Component {
     }
 
 }
-export default shops
+// export default shops
