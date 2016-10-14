@@ -31,6 +31,18 @@ export default class Shops extends React.Component {
                         name: 'Biedronka',
                         location: {lat: 54.321204, lng: 18.782442},
                         icon: '/img/biedronka-icon.png'
+                    }  ,
+                    {
+                        id: 4,
+                        name: 'Lidl',
+                        location: {lat: 54.467204, lng: 18.773442},
+                        icon: '/img/lidl-icon.png'
+                    } ,
+                    {
+                        id: 3,
+                        name: 'Biedronka',
+                        location: {lat: 54.399204, lng: 18.792942},
+                        icon: '/img/biedronka-icon.png'
                     }
 
                 ]
