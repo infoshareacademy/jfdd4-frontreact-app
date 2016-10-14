@@ -4,8 +4,8 @@
 
 
 
-var shops = {
-    data: [
+var shops = [
+  
         {
             id : 1,
             name : 'Lidl', 
@@ -31,7 +31,7 @@ var shops = {
    
         {
             id: 3,
-            name: 'Lidl',
+            name: 'Tesco',
             location: {lat:54.354616, lng:18.638935},
             opened: 'pn-nd od 6:00 do 24:00'
         },
@@ -58,5 +58,5 @@ var shops = {
 
 
     ]
-};
+
 export default shops

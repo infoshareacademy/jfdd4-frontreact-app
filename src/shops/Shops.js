@@ -1,6 +1,33 @@
 
 
 import React from 'react'
+import shops from '../data/dataShops'
 
-export default (props) => <h1>Shops</h1>
 
+
+export default class Shops extends React.Component {
+    constructor() {
+        super()
+
+        this.state = {
+            shops: []
+        }
+    }
+
+
+    componentWillMount() {
+
+    }
+
+    render() {
+        return (
+            <ul>
+                <h1>Shops</h1>
+                {shops.map(function (shops) {
+                    return <li key={shops.id}>{shops.id} {shops.name} {shops.location.lat} {shops.location.lng} {shops.opened}</li>
+                })}
+            </ul>
+        )
+    }
+
+}
