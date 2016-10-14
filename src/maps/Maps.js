@@ -17,14 +17,13 @@ export default class Shops extends React.Component {
 
     componentWillMount() {
         var context = this;
-        setTimeout(function () {
-            context.setState({
+           context.setState({
                 shops: [
                     {
                         id: 1,
                         name: 'Lidl',
                         location: {lat: 54.357904, lng: 18.588182},
-                        icon: '/img/lidl-icon.png' 
+                        icon: '/img/lidl-icon.png'
                     },
                     {
                         id: 2,
@@ -48,19 +47,19 @@ export default class Shops extends React.Component {
                 ]
 
             })
-        }, 1000)
     }
 
     render() {
         return (
-            <div style={{width: '600px', height: '300px'}}>
+            <div style={{width: '800px', height: '500px'}}>
                 <GoogleMap
                    
                     center={[54.352401, 18.647500]}
-                    zoom={15}>
+                    zoom={11}>
                     {this.state.shops.map(function (shop) {
                         return <Place key={shop.id}  {...shop.location} icon={shop.icon} />
                     })}
+                    
                 </GoogleMap>
             </div>
         )
