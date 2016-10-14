@@ -1,4 +1,68 @@
-
+/**
+ * Created by karol on 12.10.16.
+ */
 import React from 'react'
+import GoogleMap from 'google-map-react'
+import Place from './place/Place'
+// import $ from 'jquery'
 
-export default (props) => <h1>Maps</h1>
+export default class Shops extends React.Component {
+    constructor() {
+        super()
+
+        this.state = {
+            shops: []
+        }
+    }
+
+    componentWillMount() {
+        var context = this;
+        setTimeout(function () {
+            context.setState({
+                shops: [
+                    {
+                        id: 1,
+                        name: 'Lidl',
+                        location: {lat: 54.356504, lng: 18.588442},
+                        icon: '/img/lidl-icon.png' 
+                    },
+                    {
+                        id: 2,
+                        name: 'Biedronka',
+                        location: {lat: 54.321204, lng: 18.782442},
+                        icon: '/img/biedronka-icon.png'
+                    }  ,
+                    {
+                        id: 4,
+                        name: 'Lidl',
+                        location: {lat: 54.467204, lng: 18.773442},
+                        icon: '/img/lidl-icon.png'
+                    } ,
+                    {
+                        id: 3,
+                        name: 'Biedronka',
+                        location: {lat: 54.399204, lng: 18.792942},
+                        icon: '/img/biedronka-icon.png'
+                    }
+
+                ]
+
+            })
+        }, 1000)
+    }
+
+    render() {
+        return (
+            <div style={{width: '600px', height: '300px'}}>
+                <GoogleMap
+                   
+                    center={[54.352401, 18.647500]}
+                    zoom={9}>
+                    {this.state.shops.map(function (shop) {
+                        return <Place key={shop.id}  {...shop.location} icon={shop.icon} />
+                    })}
+                </GoogleMap>
+            </div>
+        )
+    }
+}
