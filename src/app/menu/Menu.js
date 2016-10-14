@@ -5,7 +5,7 @@ import Item from './item/Item'
 
 export default (props) =>
     <ul className="App-Menu">
-        <Item path={`/`} activeWhenMatchingExactly={true}>Dashboard</Item>
+        <Item path={`/`} activeWhenMatchingExactly={true}>*</Item>
         <Item path={`/products`}>Products</Item>
         <Item path={`/shops`}>Shops</Item>
         <Item path={`/maps`}>Maps</Item>

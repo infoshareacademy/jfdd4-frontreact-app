@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
 import './App.css';
-import { Link } from 'react-router'
+import Menu from './menu/Menu'
 
 class App extends Component {
     render() {
         return (
             <div className="App">
                 <p>
-                    <Link to={`/products`}>Products</Link>
-                    <br />
-                    <Link to={`/shops`}>Shops</Link>
-                    <br />
-                    <Link to={`/maps`}>Maps</Link>
+                    <Menu />
                 </p>
-                {this.props.children}
+                <div className="App-content">
+                    {this.props.children}
+                </div>
             </div>
         );
     }
