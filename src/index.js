@@ -1,18 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import Maps from './maps/Maps';
-import Login from './login/Login';
-
+import App from './app/App';
 import './index.css';
+import Products from './products/Products';
+import Shops from './shops/Shops';
+import Maps from './maps/Maps';
 
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, Route, Link, browserHistory } from 'react-router'
 
 ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={App} />
-        <Route path="/maps" component={Maps} />
-        <Route path="/login" component={Login} />
-    </Router>,
-    document.getElementById('root')
+        <Route path="/products" component={Products}/>
+        <Route path="/shops" component={Shops}/>
+        <Route path="/maps" component={Maps}/>
+  </Router>,
+  document.getElementById('root')
 );
