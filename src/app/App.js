@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import Menu from './menu/Menu'
+import Menu from './menu/Menu';
+import Content from './Content'
+
 
 class App extends Component {
     render() {
         return (
-            <div className="App">
-                <p>
-                    <Menu />
-                </p>
-                <div className="App-content">
-                    {this.props.children}
-                </div>
+            <div>
+                <Menu />
+                <Content layout={this.props.children} />
             </div>
         );
     }
