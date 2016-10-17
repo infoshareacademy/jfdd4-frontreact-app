@@ -26,9 +26,8 @@ export default class Shops extends React.Component {
         return (
             <div style={{width: '800px', height: '500px'}}>
                 <GoogleMap
-                   
                     center={[54.352401, 18.647500]}
-                    zoom={11}>
+                    zoom={12}>
                     {this.state.shops.map(function (shop) {
                         return <Place key={shop.id}  {...shop.location} icon={shop.icon} text={shop.text} />
                     })}
