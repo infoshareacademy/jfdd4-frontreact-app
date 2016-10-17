@@ -3,16 +3,8 @@ import './Menu.css'
 import Item from './item/Item'
 import { Navbar, Nav } from 'react-bootstrap';
 import { LinkContainer } from 'react-bootstrap';
-import Logo from './header/Logo';
-import './header/Logo.css';
 
-// export default (props) =>
-//     <ul className="App-Menu">
-//         <Item path={`/`} activeWhenMatchingExactly={true}>Strona Glowna</Item>
-//         <Item path={`/products`}><Button>Produkty</Button></Item>
-//         <Item path={`/shops`}>Sklepy</Item>
-//         <Item path={`/maps`}>Mapy</Item>
-//     </ul>
+import './header/Logo.css';
 
 export default class Menu extends Component {
     render() {
@@ -20,7 +12,6 @@ export default class Menu extends Component {
             <Navbar>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <Logo/>
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
