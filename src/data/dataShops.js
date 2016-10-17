@@ -1,50 +1,55 @@
-/**
- * Created by piotrszablewski on 12.10.16.
- */
+var initialState = {
+    data: [],
+    filters : {
+        none: function () {return true},
+        shops: function (shop) {return shop.name === 'shops'}
+    }
+}
 
 
-
-var shops = {
-    data: [
+var finalState = {
+    shops: [
         {
             id : 1,
             name : 'Lidl', 
-            location: {lat:54.356504,lng:18.588442},
-            opened : 'pn-nd od 8:00 do 21:00'
-            icon: ''
+            location: {lat:54.389993,lng:18.591996},
+            adres: 'Hynka 67, Gdańsk',
+            opened : 'od 8:00 do 21:00',
+            icon: '/img/lidl-icon.png'
+
         },
         {
             id : 2,
             name : 'Biedronka',
-            location: {lat:54.342656,lng:18.615378},
-            opened : 'pn-nd od 8:00 do 21:00'
+            location: {lat:54.411593,lng:18.584894},
+            adres: 'Czerwony Dwór 19, Gdańsk',
+            opened : 'od 8:00 do 21:00',
+            icon: '/img/biedronka-icon.png'
         },
+        
         {
             id: 3,
-            name: 'Lidl',
-            location: {lat:54.354616, lng:18.638935},
-            opened: 'pn-nd od 6:00 do 24:00'
+            name: 'Tesco',
+            location: {lat:54.410236, lng:18.600062},
+            opened: 'od 6:00 do 24:00',
+            adres: 'Obrońców Wybrzeża 21, Gdańsk',
+            icon: '/img/tesco-icon.png'
         },
         {
             id: 4,
             name: 'Stokrotka',
-            location: {lat:54.356504,lng:18.588442},
-            opened: 'pn-nd od 76:00 do 24:00'
+            location: {lat:54.404339,lng:18.597892},
+            opened: 'od 6:00 do 24:00',
+            adres: 'Kołobrzeska 44M, Gdańsk',
+            icon: '/img/stokrotka-icon.png'
         },
-
-
-        {
-            id: 5,
-            name: 'U Jadzi',
-            location: {lat:54.354616,lng:18.638935},
-            opened: 'pn-nd od 76:00 do 24:00'
-        }
-
-
-        
-
-
-
+        // {
+        //     id: 5,
+        //     name: 'U Jadzi',
+        //     location: {lat:54.354616,lng:18.638935},
+        //     opened: 'pn-nd od 6:00 do 24:00'
+        // }
     ]
 };
-export default shops
+
+export {initialState, finalState}
