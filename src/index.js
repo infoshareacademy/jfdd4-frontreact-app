@@ -6,7 +6,7 @@ import Products from './products/Products';
 import Shops from './shops/Shops';
 import Maps from './maps/Maps';
 
-import { Router, Route, Link, browserHistory } from 'react-router'
+import { Router, Route, browserHistory } from 'react-router'
 
 ReactDOM.render(
     <Router history={browserHistory}>
