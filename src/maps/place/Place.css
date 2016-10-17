@@ -3,3 +3,16 @@ img
     width: 50px;
     height: 50px;
 }
+#text
+{
+    opacity: 0;
+}
+#text:hover
+{
+
+    opacity: 1;
+    display: block;
+    width: 100px;
+    height: 75px;
+    background: white;
+}
