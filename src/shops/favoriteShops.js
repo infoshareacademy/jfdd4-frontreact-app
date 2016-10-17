@@ -9,7 +9,7 @@ export function getFavoriteShops() {
 
 
 export function markShopAsFavorite(shop) {
-    var favoriteShops = getFavoriteShops()
+    var favoriteShops = getFavoriteShops();
   
 
     if (favoriteShops.indexOf(shop.id) === -1) {

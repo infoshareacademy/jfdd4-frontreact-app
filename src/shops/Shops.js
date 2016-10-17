@@ -2,7 +2,7 @@
 
 import React from 'react'
 import shops from '../data/dataShops'
-import { markShopAsFavorite } from'./favoriteShops'
+import { markShopAsFavorite, getFavoriteShops } from'./favoriteShops'
 
 
 export default class Shops extends React.Component {
@@ -20,18 +20,21 @@ export default class Shops extends React.Component {
     }
 
     render() {
+        var favourites = getFavoriteShops();
+        var forceUpdate = this.forceUpdate.bind(this);
+        console.log(favourites);
         return (
             <ul>
                 <h1>Shops</h1>
                 {shops.map(function (shop) {
                     return (
-                        <li key={shop.id}>
+                        <li className={favourites.find(shopId => shopId === shop.id) ? 'favourite' : ''} key={shop.id}>
                             {shop.id}
                             {shop.name}
                             {shop.location.lat}
                             {shop.location.lng}
                             {shop.opened}
-                            <button onClick={() => markShopAsFavorite(shop)}>Ulubione</button>
+                            <button onClick={() => {markShopAsFavorite(shop);forceUpdate()}}>Ulubione</button>
                         </li>
                     )
                 })}
@@ -40,16 +43,3 @@ export default class Shops extends React.Component {
     }
 
 }
-// export function getFavoritesStudents() {
-//     return JSON.parse(localStorage.getItem('favoritesStudents')) || []
-// }
-//
-// export function markStudentAsFavorite(student) {
-//     var favoriteStudents = getFavoritesStudents()
-//     var studentId = student.studentId
-//
-//     if (favoriteStudents.indexOf(id) === -1) {
-//         favoriteStudents.push(id);
-//     }
-//     localStorage.setItem('favoritesStudents', JSON.stringify(favoriteStudents))
-// }
