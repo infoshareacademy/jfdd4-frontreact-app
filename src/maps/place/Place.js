@@ -7,5 +7,6 @@ export default (props) =>
         <div id="text" >
             <p>Adres: {props.adres}</p>
             <p>Otwarte codziennie w godzinach : {props.opened}</p>
-        </div>       
+        </div>
+        <div 
     </div>

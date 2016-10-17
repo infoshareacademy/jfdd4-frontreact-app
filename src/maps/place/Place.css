@@ -5,18 +5,15 @@ img
 }
 #text
 {
+    width: 120px;
+    height: 100px;
     opacity: 0;
-    height: 0;
-    width: 0;
-    transition: height 0.85s;
-    transition: width 0.85s;
     transition: opacity 2s;
 }
 #text:hover
 {
 
     opacity: 1;
-    display: block;
     width: 120px;
     height: 100px;
     background: white;
