@@ -1,19 +1,19 @@
 /**
  * Created by piotrszablewski on 17.10.16.
  */
-import React from 'react'
 
-export function getfavoriteShops() {
+
+export function getFavoriteShops() {
     return JSON.parse(localStorage.getItem('favoriteShops')) || []
 }
 
 
-export function markShopsAsFavorite(shops) {
-    var favoriteShops = getFavoritesShops()
-    var shopsId = shops.shopsid
+export function markShopAsFavorite(shop) {
+    var favoriteShops = getFavoriteShops()
+  
 
-    if (favoriteShops.indexOf(id) === -1) {
-        favoriteShops.push(id);
+    if (favoriteShops.indexOf(shop.id) === -1) {
+        favoriteShops.push(shop.id);
     }
     localStorage.setItem('favoriteShops', JSON.stringify(favoriteShops))
 }

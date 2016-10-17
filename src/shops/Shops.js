@@ -2,7 +2,7 @@
 
 import React from 'react'
 import shops from '../data/dataShops'
-import markShopsAsFavorite from'./favoriteShops'
+import { markShopAsFavorite } from'./favoriteShops'
 
 
 export default class Shops extends React.Component {
@@ -23,8 +23,17 @@ export default class Shops extends React.Component {
         return (
             <ul>
                 <h1>Shops</h1>
-                {shops.map(function (shops) {
-                    return <li key={shops.id}>{shops.id} {shops.name} {shops.location.lat} {shops.location.lng} {shops.opened} <button onclick={markShopsAsFavorite()}>Ulubione</button></li>
+                {shops.map(function (shop) {
+                    return (
+                        <li key={shop.id}>
+                            {shop.id}
+                            {shop.name}
+                            {shop.location.lat}
+                            {shop.location.lng}
+                            {shop.opened}
+                            <button onClick={() => markShopAsFavorite(shop)}>Ulubione</button>
+                        </li>
+                    )
                 })}
             </ul>
         )
