@@ -1,6 +1,6 @@
 import React from 'react'
 import { finalState } from '../data/dataShops'
-import { markShopAsFavorite, getFavoriteShops } from'./favoriteShops'
+import { markShopAsFavorite, getFavoriteShops } from'../Favorites/favoriteShops'
 
 export default class Shops extends React.Component {
     constructor() {
