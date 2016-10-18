@@ -65,12 +65,6 @@ var finalState = {
             info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut consequat diam. Pellentesque sed velit pharetra, condimentum arcu non, gravida est. Suspendisse viverra, libero eu semper consectetur, enim erat dignissim sem, eu placerat sapien justo non dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed ullamcorper porttitor est in ullamcorper.',
             pic: '/img/zabka.jpg',
             link: 'http://zabka.pl/pl'
-        },
-        {
-            id: 5,
-            name: 'U Jadzi',
-            location: {lat:54.354616,lng:18.638935},
-            opened: 'pn-nd od 6:00 do 24:00'
         }
     ]
 };

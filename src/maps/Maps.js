@@ -14,7 +14,8 @@ export default class Shops extends React.Component {
         super()
 
         this.state = {
-            shops: []
+            shops: [],
+
         }
     }
 
@@ -23,24 +24,40 @@ export default class Shops extends React.Component {
         context.setState({shops: finalState.shops})
     }
 
+
     render() {
+
+        var scope = this;
+
+        var selectShop = function (shopId) {
+            scope.setState({
+                selectedShop: scope.state.shops.find(function (s) {
+                    return s.id == shopId;
+                })
+            });
+        };
+
+        var shop = this.state.selectedShop || {};
+        console.log('onrender', shop);
+
         return (
             <div style={{width: '100%', height: '500px'}}>
                 <GoogleMap
                     bootstrapURLKeys={{key: 'AIzaSyCIGFuueBb3ewt-Ewe7ySfhE9ZdHVjdPsc'}}
                     center={[54.408636, 18.588977]}
                     zoom={13}>
-                    {this.state.shops.map(function (shop) {
-                        return <Place key={shop.id}  {...shop.location} icon={shop.icon} adres={shop.adres}
+                    {this.state.shops.map(
+                        (shop) =>
+                            <Place handleClick={() => this.setState({ activeShopId: shop.id})}
+                                      key={shop.id}  selectShop={selectShop} shopId={shop.id} {...shop.location} icon={shop.icon} adres={shop.adres}
                                       opened={shop.opened}/>
-                    })}
+                    )}
+
                 </GoogleMap>
                 <div id="infoBar">
-                    {this.state.shops.map(function (shop) {
-                        return <Info key={shop.id}  {...shop.location} pic={shop.pic} link={shop.link} info={shop.info} icon={shop.icon} adres={shop.adres}
-                                      opened={shop.opened}/>
-                    })
-                    }
+                    <Info key={shop.id}  {...shop.location} pic={shop.pic} link={shop.link} info={shop.info} icon={shop.icon} adres={shop.adres}
+                          opened={shop.opened}/>
+
                 </div>
             </div>
         )
