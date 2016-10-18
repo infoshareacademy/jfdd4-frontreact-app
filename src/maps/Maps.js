@@ -5,7 +5,6 @@ import Place from './place/Place'
 import Info from './info/Info'
 import {finalState} from '../data/dataShops'
 
-export default (props) => <h1>Maps</h1>
 
 export default class Shops extends React.Component {
     constructor() {
