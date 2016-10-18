@@ -1,4 +1,3 @@
-
 import React from 'react'
 import FilterButton from './filter-button/FilterButton'
 import {initialState, finalState} from '../data/dataProducts'

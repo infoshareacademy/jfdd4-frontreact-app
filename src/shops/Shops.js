@@ -1,17 +1,13 @@
-
-
 import React from 'react'
-import shops from '../data/dataShops'
+import { finalState } from '../data/dataShops'
 import { markShopAsFavorite, getFavoriteShops } from'./favoriteShops'
-
-import {initialState, finalState} from '../data/dataShops'
 
 export default class Shops extends React.Component {
     constructor() {
         super()
 
         this.state = {
-            shops: []
+            shops: finalState.shops
         }
     }
 
@@ -27,7 +23,7 @@ export default class Shops extends React.Component {
         return (
             <ul>
                 <h1>Shops</h1>
-                {shops.map(function (shop) {
+                {this.state.shops.map(function (shop) {
                     return (
                         <li className={favourites.find(shopId => shopId === shop.id) ? 'favourite' : ''} key={shop.id}>
                             {shop.id}
