@@ -60,8 +60,8 @@ export default class Shops extends React.Component {
                     })}
                 </GoogleMap>
 
-                <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog">
+                <a href="#openModal">Open Modal</a>
+                <div id="openModal" class="modalDialog">
                         <div class="modal-content">
                             <Info key={shop.id}  {...shop.location} pic={shop.pic} link={shop.link} info={shop.info}
                                   icon={shop.icon} adres={shop.adres}
@@ -73,7 +73,7 @@ export default class Shops extends React.Component {
 
                     </div>
                 </div>
-            </div>
+           
         )
     }
 }    
