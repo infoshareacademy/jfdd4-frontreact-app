@@ -1,6 +1,8 @@
 import React from 'react'
 import FilterButton from './filter-button/FilterButton'
 import {initialState, finalState} from '../data/dataProducts'
+import { Well } from 'react-bootstrap'
+// import { getFavoriteProducts, favoriteProduct} from '../marketFavorites/favoriteProducts'
 
 
 
@@ -56,7 +58,8 @@ export default class Products extends React.Component {
         
         return (
             <div>
-                <h1>Produkty</h1>
+                <Well>
+                <div className="alert alert-success" role="alert"><h3><center>Produkty</center></h3></div>
                 <p>
                     {filterButton(this._handleNoneFilterClick, 'none', this.state.activeFilter, 'wszystko')}
                     {filterButton(this._handleIsCerealFilterClick, 'IsCereal', this.state.activeFilter, 'kasze')}
@@ -83,6 +86,7 @@ export default class Products extends React.Component {
                         }
                     )}
                 </ul>
+                    </Well>
             </div>
         )
     }

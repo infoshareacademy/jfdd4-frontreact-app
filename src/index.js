@@ -20,13 +20,12 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={App} >
-        <IndexRoute component={Dashboard} />
-        <Route path="/products" component={Products}/>
-        <Route path="/shops" component={Shops}/>
-        <Route path="/maps" component={Maps}/>
-        <Route path="/favorites" component={Favorites}/>
-
-    </Route>
+            <IndexRoute component={Dashboard} />
+            <Route path="/products" component={Products}/>
+            <Route path="/shops" component={Shops}/>
+            <Route path="/maps" component={Maps}/>
+            <Route path="/favorites" component={Favorites}/>
+        </Route>
   </Router>,
   document.getElementById('root')
 );

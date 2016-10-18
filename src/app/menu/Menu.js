@@ -11,9 +11,9 @@ export default class Menu extends Component {
             <Navbar>
                 <Navbar.Header>
                     <Navbar.Brand>
-                    </Navbar.Brand>
+                        </Navbar.Brand>
                     <Navbar.Toggle />
-                </Navbar.Header>
+                    </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>
                         <Nav><Item path={`/`}>Strona Glowna</Item></Nav>

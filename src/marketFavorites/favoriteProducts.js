@@ -1,8 +1,8 @@
-function getFavoriteProducts() {
+export function getFavoriteProducts() {
     return JSON.parse(localStorage.getItem('favoritesProducts')) || []
 }
 //podpiac pod contener
-function favoriteProduct (products) {
+export function favoriteProduct (products) {
     var favoriteProducts = getFavoriteProducts()
     var productId = product.productId
 
@@ -12,6 +12,3 @@ function favoriteProduct (products) {
     }
     localStorage.setItem('favoritesProducts', JSON.stringify(favoriteProduct))
 }
-//podpiac pod onClick
-export default getFavoriteProducts()
-export default favoriteProduct()

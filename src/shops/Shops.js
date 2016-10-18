@@ -1,7 +1,7 @@
 import React from 'react'
 import { finalState } from '../data/dataShops'
 import { markShopAsFavorite, getFavoriteShops } from'../marketFavorites/favoriteShops'
-
+import { Well } from 'react-bootstrap'
 export default class Shops extends React.Component {
     constructor() {
         super()
@@ -21,7 +21,7 @@ export default class Shops extends React.Component {
         var forceUpdate = this.forceUpdate.bind(this);
         console.log(favourites);
         return (
-            <ul>
+            <Well>
                 <h1>Shops</h1>
                 {this.state.shops.map(function (shop) {
                     return (
@@ -35,7 +35,7 @@ export default class Shops extends React.Component {
                         </li>
                     )
                 })}
-            </ul>
+            </Well>
         )
     }
 
