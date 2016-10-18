@@ -4,6 +4,7 @@
 import React from 'react'
 import GoogleMap from 'google-map-react'
 import Place from './place/Place'
+import Info from './info/Info'
 import {finalState} from '../data/dataShops'
 
 // import $ from 'jquery'
@@ -24,7 +25,7 @@ export default class Shops extends React.Component {
 
     render() {
         return (
-            <div style={{width: '700px', height: '500px'}}>
+            <div style={{width: '100%', height: '500px'}}>
                 <GoogleMap
                     bootstrapURLKeys={{key: 'AIzaSyCIGFuueBb3ewt-Ewe7ySfhE9ZdHVjdPsc'}}
                     center={[54.408636, 18.588977]}
@@ -36,7 +37,7 @@ export default class Shops extends React.Component {
                 </GoogleMap>
                 <div id="infoBar">
                     {this.state.shops.map(function (shop) {
-                        return <Place key={shop.id}  {...shop.location} icon={shop.icon} adres={shop.adres}
+                        return <Info key={shop.id}  {...shop.location} pic={shop.pic} link={shop.link} info={shop.info} icon={shop.icon} adres={shop.adres}
                                       opened={shop.opened}/>
                     })
                     }

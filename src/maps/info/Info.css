@@ -1,0 +1,25 @@
+/**/
+/*Created by karol on 18.10.16.*/
+/**/
+
+#info
+{
+    width: 580px;
+    height: 300px;
+    float: right;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#pic
+{
+    float: left;
+    height: 135px;
+    width: 210px;
+}
+#text_maxi
+{
+    float: left;
+    height: 300px;
+    width: 370px;
+ }
