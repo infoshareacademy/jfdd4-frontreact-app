@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './Menu.css'
 import Item from './item/Item'
 import { Navbar, Nav } from 'react-bootstrap';
-import { LinkContainer } from 'react-bootstrap';
 
 import './header/Logo.css';
 
@@ -23,6 +22,7 @@ export default class Menu extends Component {
                         <Nav><Item path={`/maps`}>Mapy</Item></Nav>
                     </Nav>
                     <Nav pullRight>
+                        <Nav><Item path={`/favorites`}>Ulubione </Item></Nav>
                         <Nav><Item path={`#`}>Wyloguj</Item></Nav>
                     </Nav>
                 </Navbar.Collapse>
