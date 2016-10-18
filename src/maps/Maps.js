@@ -20,8 +20,6 @@ export default class Shops extends React.Component {
             shops: [],
 
         }
-
-
     }
 
     componentWillMount() {
@@ -73,7 +71,7 @@ export default class Shops extends React.Component {
 
                     </div>
                 </div>
-           
+
         )
     }
-}    
+}

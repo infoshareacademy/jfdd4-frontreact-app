@@ -1,73 +1,90 @@
 import React from 'react'
-import products from '../data/dataProducts'
-import {Button} from 'react-bootstrap'
+import FilterButton from './filter-button/FilterButton'
+import {initialState, finalState} from '../data/dataProducts'
 
+
+
+function filterButton(handleClick, activeFilter, myFilter, category){
+    return (
+        <FilterButton handleClick={handleClick}
+                      myFilter={myFilter}
+                      activeFilter={activeFilter}>
+            {category}
+        </FilterButton>
+    )
+}
 
 export default class Products extends React.Component {
     constructor() {
         super()
+        this.state = initialState
+        this._handleNoneFilterClick = this._handleFilterClick.bind(this, 'none')
+        this._handleIsCerealFilterClick = this._handleFilterClick.bind(this, 'IsCereal')
+        this._handleIsOilsFilterClick = this._handleFilterClick.bind(this, 'IsOils')
+        this._handleIsRiceFilterClick = this._handleFilterClick.bind(this, 'IsRice')
+        this._handleIsFruitFilterClick = this._handleFilterClick.bind(this, 'IsFruit')
+        this._handleIsFishFilterClick = this._handleFilterClick.bind(this, 'IsFish')
+        this._handleIsBreadFilterClick = this._handleFilterClick.bind(this, 'IsBread')
+        this._handlePrice1FilterClick = this._handleFilterClick.bind(this, 'Price1')
+        this._handlePrice2FilterClick = this._handleFilterClick.bind(this, 'Price2')
+        this._handlePrice3FilterClick = this._handleFilterClick.bind(this, 'Price3')
+        
+    }
 
-        this.state = {
-            products: [],
-            filters: {
-                none: function () {
-                    return true
-                },
-                kategoria: function (product) {
-                    return product.Category === 'Category'
-                },
-                sklep: function (product) {
-                    return product.Shops === 'Shops'
-                },
-                cena: function (product) {
-                    return product.Price === 'Price'
-                }
-            }
-        }
+    componentWillMount() {
+        var context = this;
+        setTimeout(function () {
+            context.setState(finalState)
+        }, 0);
     }
 
 
-componentWillMount() {
-}
+    _handleFilterClick(filterName) {
+        this.setState({ activeFilter: filterName})
+    }
 
-render() {
-    console.debug('Rendering...');
-    var isLoading = this.state.isLoading,
-        allProducts = this.state.products,
-        allFilters = this.state.filters,
-        activeFilterName = this.state.activeFilter,
-        selectedFilter = allFilters[activeFilterName],
-        filteredProducts = allProducts.filter(selectedFilter);
-    return (
-        <div>
+    render() {
+
+        var isLoading = this.state.isLoading,
+            allProducts = this.state.products,
+            allFilters = this.state.filters,
+            activeFilterName = this.state.activeFilter,
+            selectedFilter = allFilters[activeFilterName],
+            filteredProducts = allProducts.filter(selectedFilter)
+        
+        
+        
+        return (
             <div>
-                <button onClick={() => this.setState({activeFilter: 'none'})}
-                        className={this.state.activeFilter === 'none' ? 'active': ''}>
-                    wszystkie
-                </button>
-
-                <button onClick={() => this.setState({activeFilter: 'kategoria'})}
-                        className={this.state.activeFilter === '' ? 'active': ''}>
-                    kategoria
-                </button>
-
-                <button onClick={() => this.setState({activeFilter: 'sklep'})}
-                        className={this.state.activeFilter === '' ? 'active': ''}>
-                    sklep
-                </button>
-                <button onClick={() => this.setState({activeFilter: 'cena'})}
-                        className={this.state.activeFilter === '' ? 'active': ''}>
-                    cena
-                </button>
-
+                <h1>Produkty</h1>
+                <p>
+                    {filterButton(this._handleNoneFilterClick, 'none', this.state.activeFilter, 'wszystko')}
+                    {filterButton(this._handleIsCerealFilterClick, 'IsCereal', this.state.activeFilter, 'kasze')}
+                    {filterButton(this._handleIsOilsFilterClick, 'IsOils', this.state.activeFilter, 'olej')}
+                    {filterButton(this._handleIsRiceFilterClick, 'IsRice', this.state.activeFilter, 'ryż')}
+                    {filterButton(this._handleIsFruitFilterClick, 'IsFruit', this.state.activeFilter, 'suszone owoce')}
+                    {filterButton(this._handleIsFishFilterClick, 'IsFish', this.state.activeFilter, 'ryby')}
+                    {filterButton(this._handleIsBreadFilterClick, 'IsBread', this.state.activeFilter, 'pieczywo')}
+                </p>
+                <p>
+                    {filterButton(this._handlePrice1FilterClick, 'Price1', this.state.activeFilter, 'cena do 4.99zł')}
+                    {filterButton(this._handlePrice2FilterClick, 'Price2', this.state.activeFilter, 'cena od 5.00 do 9.99zł')}
+                    {filterButton(this._handlePrice3FilterClick, 'Price3', this.state.activeFilter, 'cena od 10.00zł')}
+                </p>
+                <ul>
+                    {filteredProducts.map(
+                        function (product) {
+                            if (activeFilterName === 'Price1' || activeFilterName === 'Price2' || activeFilterName === 'Price3') {
+                                return <li key={product.id}>{product.name}{product.price}</li>
+                            }
+                            else {
+                                return <li key={product.id}>{product.name}</li>
+                            }
+                        }
+                    )}
+                </ul>
             </div>
-            {/*<h1>Produkty</h1>*/}
-            <ul>
-                {products.map(function (products) {
-                    return <li>{products.ID}{products.Name}{products.Price}{products.Shops}</li>
-                })}
-            </ul>
-        </div>
         )
     }
 }
+
