@@ -7,6 +7,9 @@ import Place from './place/Place'
 import Info from './info/Info'
 import {finalState} from '../data/dataShops'
 
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
+
 // import $ from 'jquery'
 
 export default class Shops extends React.Component {
@@ -17,6 +20,8 @@ export default class Shops extends React.Component {
             shops: [],
 
         }
+
+
     }
 
     componentWillMount() {
@@ -35,6 +40,8 @@ export default class Shops extends React.Component {
                     return s.id == shopId;
                 })
             });
+            // debugger;
+            // alert('shop selected',shopId);
         };
 
         var shop = this.state.selectedShop || {};
@@ -46,20 +53,27 @@ export default class Shops extends React.Component {
                     bootstrapURLKeys={{key: 'AIzaSyCIGFuueBb3ewt-Ewe7ySfhE9ZdHVjdPsc'}}
                     center={[54.408636, 18.588977]}
                     zoom={13}>
-                    {this.state.shops.map(
-                        (shop) =>
-                            <Place handleClick={() => this.setState({ activeShopId: shop.id})}
-                                      key={shop.id}  selectShop={selectShop} shopId={shop.id} {...shop.location} icon={shop.icon} adres={shop.adres}
+                    {this.state.shops.map(function (shop) {
+                        return <Place key={shop.id} selectShop={selectShop} shopId={shop.id} {...shop.location}
+                                      icon={shop.icon} adres={shop.adres}
                                       opened={shop.opened}/>
-                    )}
-
+                    })}
                 </GoogleMap>
-                <div id="infoBar">
-                    <Info key={shop.id}  {...shop.location} pic={shop.pic} link={shop.link} info={shop.info} icon={shop.icon} adres={shop.adres}
-                          opened={shop.opened}/>
 
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <Info key={shop.id}  {...shop.location} pic={shop.pic} link={shop.link} info={shop.info}
+                                  icon={shop.icon} adres={shop.adres}
+                                  opened={shop.opened}/>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         )
     }
-}
+}    

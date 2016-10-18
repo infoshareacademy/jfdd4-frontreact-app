@@ -16,7 +16,9 @@
     float: left;
     height: 135px;
     width: 210px;
+    cursor: pointer;
 }
+
 #text_maxi
 {
     float: left;
