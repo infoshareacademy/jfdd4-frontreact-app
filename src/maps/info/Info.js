@@ -6,7 +6,7 @@ import './Info.css'
 
 export default (props) =>
     <div id="info">
-        <img id="pic" src={props.pic} />
+        <img id="pic1" src={props.pic} />
         <div id="text_maxi" >
             <p>Adres: {props.adres}</p>
             <p>Otwarte codziennie w godzinach : {props.opened}</p>

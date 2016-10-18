@@ -6,12 +6,12 @@
 {
     width: 580px;
     height: 300px;
-    float: right;
+    float: left;
     margin-right: auto;
     margin-left: auto;
 }
 
-#pic
+#pic1
 {
     float: left;
     height: 135px;
