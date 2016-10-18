@@ -11,6 +11,6 @@ export default (props) =>
             <p>Adres: {props.adres}</p>
             <p>Otwarte codziennie w godzinach : {props.opened}</p>
             <p>{props.info}</p>
-            <p>{props.link}</p>
+            <a href={props.link}>Strona Sklepu</a>
         </div>
     </div>
