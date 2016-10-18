@@ -11,7 +11,7 @@ import Maps from './maps/Maps';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { Router, Route, browserHistory } from 'react-router'
 
 ReactDOM.render(
     <Router history={browserHistory}>
@@ -20,8 +20,6 @@ ReactDOM.render(
         <Route path="/products" component={Products}/>
         <Route path="/shops" component={Shops}/>
         <Route path="/maps" component={Maps}/>
-
-    </Route>
   </Router>,
   document.getElementById('root')
 );
