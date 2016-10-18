@@ -18,8 +18,8 @@ export default class Shops extends React.Component {
     }
 
     componentWillMount() {
-           var context = this;
-               context.setState({ shops: finalState.shops})
+        var context = this;
+        context.setState({shops: finalState.shops})
     }
 
     render() {
@@ -30,9 +30,17 @@ export default class Shops extends React.Component {
                     center={[54.408636, 18.588977]}
                     zoom={13}>
                     {this.state.shops.map(function (shop) {
-                        return <Place key={shop.id}  {...shop.location} icon={shop.icon} adres={shop.adres} opened={shop.opened} />
+                        return <Place key={shop.id}  {...shop.location} icon={shop.icon} adres={shop.adres}
+                                      opened={shop.opened}/>
                     })}
                 </GoogleMap>
+                <div id="infoBar">
+                    {this.state.shops.map(function (shop) {
+                        return <Place key={shop.id}  {...shop.location} icon={shop.icon} adres={shop.adres}
+                                      opened={shop.opened}/>
+                    })
+                    }
+                </div>
             </div>
         )
     }
