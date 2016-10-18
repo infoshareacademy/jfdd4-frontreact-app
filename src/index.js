@@ -6,7 +6,7 @@ import Dashboard from './dashboard/Dashboard';
 import Products from './products/Products';
 import Shops from './shops/Shops';
 import Maps from './maps/Maps';
-import Favorites from './favorites/Favorites';
+import Favorites from './favorites/Favorites'
 
 
 import 'bootstrap/dist/css/bootstrap.css';
