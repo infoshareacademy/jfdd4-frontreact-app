@@ -4,7 +4,8 @@
 import React from 'react'
 import './Availability.css'
 import {finalState} from '../../data/dataProducts'
-import showShop from 'showShop/showShop'
+import {finalState as shopsData} from '../../data/dataShops'
+
 
 export default class Products extends React.Component {
     constructor() {
@@ -28,16 +29,25 @@ export default class Products extends React.Component {
 
         return (
             <div>
-                <h1>Produkty</h1>
+                <h1>Sklepy w których dostaniesz następujące produkty</h1>
                 <div id="ww">{this.state.products.map(function (products) {
-                    return <button id="B" key={products.id}>
+                    return <div id="B" key={products.id}>
                         {products.name}
-                    </button>
+                        {products.shops}
+                        {shopsData
+                            .shops
+                            .filter(
+                                shop =>
+                                    products.shops.indexOf(shop.id) !== -1
+                            )
+                            .map(
+                                shop => <span>{shop.name}</span>
+                            )
+                        }
+                    </div>
                 })}
                 </div>
-                <showShop>
-
-                </showShop>
+              
             </div>
         )
     }
