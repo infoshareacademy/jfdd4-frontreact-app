@@ -15,14 +15,13 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
 
-
-
 ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={App} >
         <IndexRoute component={Dashboard} />
         <Route path="/products" component={Products}/>
         <Route path="/shops" component={Shops}/>
+        <Route path="/shops/:viewVariant" component={Shops}/>
         <Route path="/maps" component={Maps}/>
         <Route path="/favorites" component={Favorites}/>
 

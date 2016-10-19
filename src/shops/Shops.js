@@ -8,6 +8,7 @@ import {
     initialState as initialProductsState,
     finalState as finalProductsState
 } from '../data/dataProducts'
+import { Link } from 'react-router'
 
 export default class Shops extends React.Component {
     constructor() {
@@ -15,6 +16,8 @@ export default class Shops extends React.Component {
 
         this.state = {
             shops: finalShopsState.shops,
+
+
             shopsData: initialShopsState,
             productsData: initialProductsState
         }
@@ -40,14 +43,22 @@ export default class Shops extends React.Component {
             favourites = getFavoriteShops(),
             forceUpdate = this.forceUpdate.bind(this),
             shopsData = this.state.shopsData,
-            productsData = this.state.productsData;
+            productsData = this.state.productsData,
+            viewVariant = this.props.params.viewVariant;
+
+        console.log(this.props.params.viewVariant);
 
         return (
             <div>
                 <h1>Sklepy</h1>
                 <p>
-                    {<button >Pokaż dostępne produkty</button>}
-                    {<button >Pokaż wszystkie sklepy</button>}
+                    <Link to={'/shops/with-products'}>
+                        {this.props.children}
+                        <button>Pokaż dostępne produkty</button>
+                    </Link>
+
+                    <button >Pokaż wszystkie sklepy</button>
+
                 </p>
                 <ul>
                     {this.state.shops.map(function (shop) {
@@ -56,23 +67,25 @@ export default class Shops extends React.Component {
                                 {shop.id}
                                 {shop.name}
                                 {<button onClick={() => {markShopAsFavorite(shop); forceUpdate()}}>Ulubione</button>}
-                                <ul>
-                                    {productsData.products.filter(function (product) {
-                                        for( var i = 0; i < product.shops.length; i++ ){
-                                            if (product.shops[i] === shop.id) {
-                                                return true;
+                                {viewVariant === 'with-products' ?
+                                    <ul>
+                                        {productsData.products.filter(function (product) {
+                                            for( var i = 0; i < product.shops.length; i++ ){
+                                                if (product.shops[i] === shop.id) {
+                                                    return true;
+                                                }
                                             }
+                                            return false;
+                                        }).map(function(product) {
+                                            return (
+                                                <li  key={product.id}>
+                                                    {product.name}
+
+                                                </li>
+                                            )
+                                        })
                                         }
-                                        return false;
-                                    }).map(function(product) {
-                                        return (
-                                            <li  key={product.id}>
-                                                {product.name}
-                                            </li>
-                                        )
-                                    })
-                                    }
-                                </ul>
+                                    </ul> : null}
                             </li>
                         )
                     })}

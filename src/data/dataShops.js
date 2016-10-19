@@ -2,7 +2,6 @@ var initialState = {
     data: [],
     filters : {
         none: function () {return true},
-        // shops: function (shop) {return shop.name === 'shops'}
     }
 }
 
