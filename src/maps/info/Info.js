@@ -6,11 +6,12 @@ import './Info.css'
 
 export default (props) =>
     <div id="info">
-        <img id="pic1" src={props.pic} data-toggle="modal" data-target="#myModal" />
+        <img id="pic1" src={props.pic}/>
         <div id="text_maxi" >
-            <p>Adres: {props.adres}</p>
             <p>Otwarte codziennie w godzinach : {props.opened}</p>
+            <p></p>
             <p>{props.info}</p>
-            <a href={props.link}>Strona Sklepu</a>
+            <p></p>
+            <a target="_blank" href={props.link}>Strona Sklepu</a>
         </div>
     </div>

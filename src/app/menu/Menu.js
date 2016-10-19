@@ -17,13 +17,20 @@ export default class Menu extends Component {
                 <Navbar.Collapse>
                     <Nav>
                         <Nav><Item path={`/`}>Strona Glowna</Item></Nav>
-                        <Nav><Item path={`/products`}>Produkty</Item></Nav>
+                        <Nav>
+                            <Item path={`/products`}>
+                                Produkty
+                                    <Item path={'/products/availability'}>
+                                        Availability
+                                    </Item>
+                            </Item>
+                        </Nav>
                         <Nav><Item path={`/shops`}>Sklepy</Item></Nav>
                         <Nav><Item path={`/maps`}>Mapy</Item></Nav>
                     </Nav>
                     <Nav pullRight>
                         <Nav><Item path={`/favorites`}>Ulubione </Item></Nav>
-                        <Nav><Item path={`#`}>Wyloguj</Item></Nav>
+                        <Nav><Item path={`/login`}>Logowanie</Item></Nav>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

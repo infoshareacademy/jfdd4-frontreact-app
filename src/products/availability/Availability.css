@@ -1,0 +1,13 @@
+#ww
+{
+    width: 200px;
+    float: left;
+}
+#B
+{
+    border: solid 1px;
+    background: linear-gradient(grey, darkgray);
+    width: 200px;
+    height: 25px;
+    font-weight: bold;
+}
