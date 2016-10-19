@@ -1,7 +1,7 @@
 import React from 'react'
 import { finalState } from '../data/dataShops'
-import { markShopAsFavorite, getFavoriteShops } from'../marketFavorites/favoriteShops'
-import { Well } from 'react-bootstrap'
+import { markShopAsFavorite, getFavoriteShops, dissMarkShopAsFavorite } from'../marketFavorites/favoriteShops'
+
 export default class Shops extends React.Component {
     constructor() {
         super()
@@ -21,7 +21,7 @@ export default class Shops extends React.Component {
         var forceUpdate = this.forceUpdate.bind(this);
         console.log(favourites);
         return (
-            <Well>
+            <ul>
                 <h1>Shops</h1>
                 {this.state.shops.map(function (shop) {
                     return (
@@ -32,11 +32,13 @@ export default class Shops extends React.Component {
                             {shop.location.lng}
                             {shop.opened}
                             <button onClick={() => {markShopAsFavorite(shop);forceUpdate()}}>Ulubione</button>
+                            <button onClick={() => {dissMarkShopAsFavorite(shop);forceUpdate()}}>Usun z ulubionych </button>
+                        
                         </li>
                     )
                 })}
-            </Well>
-        )
+            </ul>
+        );
     }
 
 }
