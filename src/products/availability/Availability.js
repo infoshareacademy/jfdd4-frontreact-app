@@ -20,7 +20,7 @@ export default class Products extends React.Component {
     componentWillMount() {
         var context = this;
         context.setState({products: finalState.products}),
-        context.setState({shops: finalState.shops})
+            context.setState({shops: finalState.shops})
 
     }
 
@@ -36,9 +36,10 @@ export default class Products extends React.Component {
                 })}
                 </div>
                 <showShop>
-                    
+
                 </showShop>
-                
+            </div>
         )
     }
 }
+                
