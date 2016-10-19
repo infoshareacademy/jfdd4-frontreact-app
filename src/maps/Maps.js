@@ -59,21 +59,10 @@ export default class Shops extends React.Component {
                                       opened={shop.opened}/>
                     })}
                 </GoogleMap>
-
-                <a href="#openModal">Open Modal</a>
-                <div id="openModal" class="modalDialog">
-                        <div class="modal-content">
-                            <Info key={shop.id}  {...shop.location} pic={shop.pic} link={shop.link} info={shop.info}
-                                  icon={shop.icon} adres={shop.adres}
-                                  opened={shop.opened}/>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-           
+                <Info key={shop.id}  {...shop.location} pic={shop.pic} link={shop.link} info={shop.info}
+                      icon={shop.icon} adres={shop.adres}
+                      opened={shop.opened}/>
+            </div>
         )
     }
 }    
