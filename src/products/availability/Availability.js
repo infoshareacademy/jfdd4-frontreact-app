@@ -32,8 +32,7 @@ export default class Products extends React.Component {
                 <h1>Sklepy w których dostaniesz następujące produkty</h1>
                 <div id="ww">{this.state.products.map(function (products) {
                     return <div id="B" key={products.id}>
-                        {products.name}
-                        {products.shops}
+                        {products.name}  -
                         {shopsData
                             .shops
                             .filter(
@@ -41,7 +40,7 @@ export default class Products extends React.Component {
                                     products.shops.indexOf(shop.id) !== -1
                             )
                             .map(
-                                shop => <span>{shop.name}</span>
+                                shop => <span>   {shop.name}   </span>
                             )
                         }
                     </div>
