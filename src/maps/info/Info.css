@@ -4,8 +4,6 @@
 
 #info
 {
-    width: 580px;
-    height: 300px;
     float: left;
     margin-right: auto;
     margin-left: auto;
@@ -21,6 +19,4 @@
 #text_maxi
 {
     float: left;
-    height: 300px;
-    width: 370px;
- }
+}

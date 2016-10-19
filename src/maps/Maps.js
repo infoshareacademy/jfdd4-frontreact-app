@@ -6,9 +6,7 @@ import GoogleMap from 'google-map-react'
 import Place from './place/Place'
 import Info from './info/Info'
 import {finalState} from '../data/dataShops'
-
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
+import {Modal, Button} from 'react-bootstrap'
 
 // import $ from 'jquery'
 
@@ -18,10 +16,8 @@ export default class Shops extends React.Component {
 
         this.state = {
             shops: [],
-
+            showModal: false
         }
-
-
     }
 
     componentWillMount() {
@@ -38,10 +34,9 @@ export default class Shops extends React.Component {
             scope.setState({
                 selectedShop: scope.state.shops.find(function (s) {
                     return s.id == shopId;
-                })
+                }),
+                showModal: true
             });
-            // debugger;
-            // alert('shop selected',shopId);
         };
 
         var shop = this.state.selectedShop || {};
@@ -55,13 +50,23 @@ export default class Shops extends React.Component {
                     zoom={13}>
                     {this.state.shops.map(function (shop) {
                         return <Place key={shop.id} selectShop={selectShop} shopId={shop.id} {...shop.location}
-                                      icon={shop.icon} adres={shop.adres}
-                                      opened={shop.opened}/>
+                                      icon={shop.icon} adres={shop.adres} opened={shop.opened}/>
                     })}
                 </GoogleMap>
-                <Info key={shop.id}  {...shop.location} pic={shop.pic} link={shop.link} info={shop.info}
-                      icon={shop.icon} adres={shop.adres}
-                      opened={shop.opened}/>
+                <Modal show={this.state.showModal} onHide={() => this.setState({ showModal: false})}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>{shop.name}   -   {shop.adres}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                       <Info key={shop.id}  {...shop.location} pic={shop.pic} link={shop.link} info={shop.info}
+                              icon={shop.icon} adres={shop.adres}
+                              opened={shop.opened}/>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button onClick={() => this.setState({ showModal: false})}>Close</Button>
+                    </Modal.Footer>
+                </Modal>
+
             </div>
         )
     }
