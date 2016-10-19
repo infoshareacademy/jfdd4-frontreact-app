@@ -11,4 +11,4 @@ export function markShopAsFavorite(shop) {
         favoriteShops.push(shop.id);
     }
     localStorage.setItem('favoriteShops', JSON.stringify(favoriteShops))
-}
+} 

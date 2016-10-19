@@ -1,29 +1,38 @@
 import React from 'react'
-
+import DataShops from '../data/dataShops'
+import {finalState} from '../data/dataProducts'
+import DataProducts from '../data/dataProducts'
+import { Well } from 'react-bootstrap'
 
 function getFavoriteShops() {
     return JSON.parse(localStorage.getItem('favoriteShops')) || []
 }
-
-function favoriteShops () {
-    for (var i=0; i < localStorage.length; i++) {
-    console.log(localStorage.getItem(localStorage.key(i))
-    )}
+function getFavoriteProducts() {
+    return JSON.parse(localStorage.getItem('favoriteProducts')) || []
 }
 
-
-
-// var favoriteProducts = getFavoriteProducts();
-// var favoriteShops = getFavoriteShops();
+var favShopsIds = getFavoriteShops();
+var favProductsIds = getFavoriteProducts();
 
 export default (props) => (
-            <div>
-                <h1>Favorites</h1>
+            <div><Well>
+                <h1>Lista ulubionych sklepów</h1>
                 <ul>
-                    {favoriteShops().map(function (item, index) {
-                        return <li key={index}>{item}</li>
-                    })}
+                    {DataShops.finalState.shops
+                        .filter(s =>
+                            favShopsIds.filter(favShop => favShop === s.id).length
+                        ).map(s => {
+                            return <li key={s.id}>{s.name}</li>
+                        })}
                 </ul>
+                <h1>Lista ulubionych produktów</h1>
+                {finalState.products
+                    .filter(prod =>
+                    favProductsIds.find(favProd => favProd === prod.id)
+                    ).map(prod => {
+                        return <li key={prod.id}>{prod.name}</li>
+                    })}
+            </Well>
             </div>
 )
 
