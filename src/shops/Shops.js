@@ -97,17 +97,3 @@ export default class Shops extends React.Component {
 //     )
 // })}
 
-
-//componentWillMount() {
-    // setTimeout(function () {
-    //     this.setState({
-    //         shopsData: finalShopsState
-    //     })
-    // }.bind(this), 1000)
-    //
-    // setTimeout(function () {
-    //     this.setState({
-    //         productsData: finalProductsState
-    //     })
-    // }.bind(this), 2000)
-//}
