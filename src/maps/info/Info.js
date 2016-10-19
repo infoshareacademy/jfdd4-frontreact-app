@@ -12,6 +12,6 @@ export default (props) =>
             <p></p>
             <p>{props.info}</p>
             <p></p>
-            <a href={props.link}>Strona Sklepu</a>
+            <a target="_blank" href={props.link}>Strona Sklepu</a>
         </div>
     </div>

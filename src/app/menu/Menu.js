@@ -23,7 +23,7 @@ export default class Menu extends Component {
                     </Nav>
                     <Nav pullRight>
                         <Nav><Item path={`/favorites`}>Ulubione </Item></Nav>
-                        <Nav><Item path={`#`}>Wyloguj</Item></Nav>
+                        <Nav><Item path={`/login`}>Logowanie</Item></Nav>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

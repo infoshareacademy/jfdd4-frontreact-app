@@ -7,7 +7,7 @@ import Place from './place/Place'
 import Info from './info/Info'
 import {finalState} from '../data/dataShops'
 import {Modal, Button} from 'react-bootstrap'
-
+import './Maps.css'
 // import $ from 'jquery'
 
 export default class Shops extends React.Component {
@@ -43,7 +43,7 @@ export default class Shops extends React.Component {
         console.log('onrender', shop);
 
         return (
-            <div style={{width: '100%', height: '500px'}}>
+            <div id="MAP">
                 <GoogleMap
                     bootstrapURLKeys={{key: 'AIzaSyCIGFuueBb3ewt-Ewe7ySfhE9ZdHVjdPsc'}}
                     center={[54.408636, 18.588977]}

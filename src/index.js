@@ -7,6 +7,7 @@ import Products from './products/Products';
 import Shops from './shops/Shops';
 import Maps from './maps/Maps';
 import Favorites from './favorites/Favorites';
+import Login from './login/Login';
 
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -25,6 +26,7 @@ ReactDOM.render(
         <Route path="/shops" component={Shops}/>
         <Route path="/maps" component={Maps}/>
         <Route path="/favorites" component={Favorites}/>
+        <Route path="/login" component={Login}/>
 
     </Route>
   </Router>,
