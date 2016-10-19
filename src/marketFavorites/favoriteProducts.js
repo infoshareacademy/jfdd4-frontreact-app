@@ -1,7 +1,7 @@
 function getFavoriteProducts() {
     return JSON.parse(localStorage.getItem('favoritesProducts')) || []
 }
-//podpiac pod contener
+
 function favoriteProduct (products) {
     var favoriteProducts = getFavoriteProducts()
     var productId = product.productId
@@ -12,6 +12,14 @@ function favoriteProduct (products) {
     }
     localStorage.setItem('favoritesProducts', JSON.stringify(favoriteProduct))
 }
-//podpiac pod onClick
+
+function dissmarkProductAsFavorite(productToRemove) {
+    var favoriteProducts = getFavoriteProducts().filter(productId => productId !== productToRemove.id);
+
+    localStorage.setItem('favoriteProducts', JSON.stringify(favoriteProducts));
+}
+
+
 export default getFavoriteProducts()
 export default favoriteProduct()
+export default dissmarkProductAsFavorite()
