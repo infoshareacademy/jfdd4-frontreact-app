@@ -1,6 +1,6 @@
 import React from 'react'
 import { finalState } from '../data/dataShops'
-import { markShopAsFavorite, getFavoriteShops } from'../marketFavorites/favoriteShops'
+import { markShopAsFavorite, getFavoriteShops, dissMarkShopAsFavorite } from'../marketFavorites/favoriteShops'
 
 export default class Shops extends React.Component {
     constructor() {
@@ -32,11 +32,13 @@ export default class Shops extends React.Component {
                             {shop.location.lng}
                             {shop.opened}
                             <button onClick={() => {markShopAsFavorite(shop);forceUpdate()}}>Ulubione</button>
+                            <button onClick={() => {dissMarkShopAsFavorite(shop);forceUpdate()}}>Usun z ulubionych </button>
+                        
                         </li>
                     )
                 })}
             </ul>
-        )
+        );
     }
 
 }
