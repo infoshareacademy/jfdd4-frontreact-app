@@ -1,8 +1,3 @@
-/**
- * Created by piotrszablewski on 17.10.16.
- */
-
-
 export function getFavoriteShops() {
     return JSON.parse(localStorage.getItem('favoriteShops')) || []
 }

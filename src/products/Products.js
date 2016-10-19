@@ -2,7 +2,7 @@ import React from 'react'
 import FilterButton from './filter-button/FilterButton'
 import {initialState, finalState} from '../data/dataProducts'
 import { Well } from 'react-bootstrap'
-// import { getFavoriteProducts, favoriteProduct} from '../marketFavorites/favoriteProducts'
+import { getFavoriteProducts, favoriteProduct} from '../marketFavorites/favoriteProducts'
 
 
 
@@ -53,7 +53,9 @@ export default class Products extends React.Component {
             activeFilterName = this.state.activeFilter,
             selectedFilter = allFilters[activeFilterName],
             filteredProducts = allProducts.filter(selectedFilter)
-        
+            // favorites = getFavoriteProducts(),
+            // forceUpdate = this.forceUpdate.bind(this);
+
         
         
         return (
