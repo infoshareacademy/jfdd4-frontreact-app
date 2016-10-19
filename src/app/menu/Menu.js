@@ -21,12 +21,19 @@ export default class Menu extends Component {
                             <Item path={`/products`}>
                                 Produkty
                                     <Item path={'/products/availability'}>
-                                        Availability
+                                        Dostępność towarów
                                     </Item>
                             </Item>
                         </Nav>
                         <Nav><Item path={`/shops`}>Sklepy</Item></Nav>
-                        <Nav><Item path={`/maps`}>Mapy</Item></Nav>
+                        <Nav>
+                            <Item path={`/maps`}>
+                                Mapy
+                                    <Item path={`/maps/commute`} >
+                                        Dojazd
+                                    </Item>
+                            </Item>
+                        </Nav>
                     </Nav>
                     <Nav pullRight>
                         <Nav><Item path={`/favorites`}>Ulubione </Item></Nav>
