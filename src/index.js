@@ -10,6 +10,10 @@ import Maps from './maps/Maps';
 
 
 import Favorites from './favorites/Favorites';
+
+import { Provider } from 'react-redux';
+import store from './store';
+
 import Login from './login/Login';
 
 
