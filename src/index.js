@@ -19,6 +19,8 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
 
+
+
 ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={App} >
