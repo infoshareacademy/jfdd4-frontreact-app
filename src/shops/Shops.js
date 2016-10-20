@@ -28,8 +28,6 @@ export default class Shops extends React.Component {
                         <li className={favourites.find(shopId => shopId === shop.id) ? 'favourite' : ''} key={shop.id}>
                             {shop.id}
                             {shop.name}
-                            {shop.location.lat}
-                            {shop.location.lng}
                             {shop.opened}
                             <button onClick={() => {markShopAsFavorite(shop);forceUpdate()}}>Ulubione</button>
                             <button onClick={() => {dissMarkShopAsFavorite(shop);forceUpdate()}}>Usun z ulubionych </button>
