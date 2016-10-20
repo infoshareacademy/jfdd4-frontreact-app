@@ -7,26 +7,27 @@ import Products from './products/Products';
 import Shops from './shops/Shops';
 import Maps from './maps/Maps';
 import Favorites from './favorites/Favorites';
-
+import { Provider } from 'react-redux';
+import store from './store';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
-
-
+import {Router, Route, IndexRoute, browserHistory} from 'react-router'
 
 
 ReactDOM.render(
-    <Router history={browserHistory}>
-        <Route path="/" component={App} >
-        <IndexRoute component={Dashboard} />
-        <Route path="/products" component={Products}/>
-        <Route path="/shops" component={Shops}/>
-        <Route path="/maps" component={Maps}/>
-        <Route path="/favorites" component={Favorites}/>
+    <Provider store={store}>
+        <Router history={browserHistory}>
+            <Route path="/" component={App}>
+                <IndexRoute component={Dashboard}/>
+                <Route path="/products" component={Products}/>
+                <Route path="/shops" component={Shops}/>
+                <Route path="/maps" component={Maps}/>
+                <Route path="/favorites" component={Favorites}/>
 
-    </Route>
-  </Router>,
-  document.getElementById('root')
+            </Route>
+        </Router>
+    </Provider>,
+    document.getElementById('root')
 );
