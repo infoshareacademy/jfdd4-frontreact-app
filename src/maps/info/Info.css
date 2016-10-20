@@ -4,22 +4,19 @@
 
 #info
 {
-    width: 580px;
-    height: 300px;
-    float: right;
+    float: left;
     margin-right: auto;
     margin-left: auto;
 }
 
-#pic
+#pic1
 {
     float: left;
     height: 135px;
     width: 210px;
 }
+
 #text_maxi
 {
     float: left;
-    height: 300px;
-    width: 370px;
- }
+}
