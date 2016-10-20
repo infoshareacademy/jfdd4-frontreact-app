@@ -7,7 +7,7 @@ import Products from './products/Products';
 import Availability from './products/availability/Availability';
 import Shops from './shops/Shops';
 import Maps from './maps/Maps';
-import Commute from './maps/commute/Commute';
+
 
 import Favorites from './favorites/Favorites';
 import Login from './login/Login';
@@ -28,7 +28,6 @@ ReactDOM.render(
         <Route path="/shops" component={Shops}/>
         <Route path="/shops/:viewVariant" component={Shops}/>
         <Route path="/maps" component={Maps}/>
-            <Route path="/maps/commute" component={Commute}/>
         <Route path="/favorites" component={Favorites}/>
         <Route path="/login" component={Login}/>
 
