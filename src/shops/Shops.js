@@ -56,9 +56,10 @@ export default class Shops extends React.Component {
                         {this.props.children}
                         <button>Pokaż dostępne produkty</button>
                     </Link>
-
+                    <Link to={'/shops'}>
+                        {this.props.children}
                     <button >Pokaż wszystkie sklepy</button>
-
+                    </Link>
                 </p>
                 <ul>
                     {this.state.shops.map(function (shop) {
