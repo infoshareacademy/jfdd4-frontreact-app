@@ -46,7 +46,7 @@ export default class Products extends React.Component {
     }
 
     render() {
-
+    
         var isLoading = this.state.isLoading,
             allProducts = this.state.products,
             allFilters = this.state.filters,

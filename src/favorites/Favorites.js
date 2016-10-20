@@ -11,11 +11,16 @@ function getFavoriteProducts() {
     return JSON.parse(localStorage.getItem('favoriteProducts')) || []
 }
 
-var favShopsIds = getFavoriteShops();
-var favProductsIds = getFavoriteProducts();
 
-export default (props) => (
-            <div><Well>
+export default class Favorites extends React.Component {
+    render() {
+        var prop = this.props;
+
+        var favShopsIds = getFavoriteShops();
+        var favProductsIds = getFavoriteProducts();
+
+        return <div>
+            <Well>
                 <h1>Lista ulubionych sklepów</h1>
                 <ul>
                     {DataShops.finalState.shops
@@ -28,11 +33,11 @@ export default (props) => (
                 <h1>Lista ulubionych produktów</h1>
                 {finalState.products
                     .filter(prod =>
-                    favProductsIds.find(favProd => favProd === prod.id)
+                        favProductsIds.find(favProd => favProd === prod.id)
                     ).map(prod => {
                         return <li key={prod.id}>{prod.name}</li>
                     })}
             </Well>
-            </div>
-)
-
+        </div>
+    }
+}
