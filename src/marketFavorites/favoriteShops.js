@@ -17,3 +17,12 @@ export function markShopAsFavorite(shop) {
     }
     localStorage.setItem('favoriteShops', JSON.stringify(favoriteShops))
 }
+
+
+export function dissMarkShopAsFavorite(shopToRemove){
+    var favoriteShops = getFavoriteShops().filter( shopId => shopId !== shopToRemove.id);
+
+    localStorage.setItem('favoriteShops', JSON.stringify(favoriteShops));
+    
+    
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { markShopAsFavorite, getFavoriteShops } from'../marketFavorites/favoriteShops'
+import { markShopAsFavorite, getFavoriteShops, dissMarkShopAsFavorite } from'../marketFavorites/favoriteShops'
 import {
     initialState as initialShopsState,
     finalState as finalShopsState
@@ -16,8 +16,6 @@ export default class Shops extends React.Component {
 
         this.state = {
             shops: finalShopsState.shops,
-
-
             shopsData: initialShopsState,
             productsData: initialProductsState
         }
@@ -36,7 +34,6 @@ export default class Shops extends React.Component {
             })
         }.bind(this), 0)
     }
-    
 
     render() {
         var
@@ -95,19 +92,3 @@ export default class Shops extends React.Component {
         )
     }
 }
-
-// {this.state.shops.map(function (shop) {
-//     return (
-//         <ul>
-//             <li className={favourites.find(shopId => shopId === shop.id) ? 'favourite' : ''} key={shop.id}>
-//                 {shop.id}
-//                 {shop.name}
-//                 {shop.location.lat}
-//                 {shop.location.lng}
-//                 {shop.opened}
-//                 <button onClick={() => {markShopAsFavorite(shop); forceUpdate()}}>Ulubione</button>
-//             </li>
-//         </ul>
-//     )
-// })}
-
