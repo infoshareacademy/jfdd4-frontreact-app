@@ -1,6 +1,8 @@
 import React from 'react'
 import FilterButton from './filter-button/FilterButton'
 import {initialState, finalState} from '../data/dataProducts'
+import { Well } from 'react-bootstrap'
+import { markProductAsFavorite, getFavoriteProducts, dissmarkProductAsFavorite } from '../marketFavorites/favoriteProducts'
 
 
 
@@ -44,19 +46,23 @@ export default class Products extends React.Component {
     }
 
     render() {
-
+    
         var isLoading = this.state.isLoading,
             allProducts = this.state.products,
             allFilters = this.state.filters,
             activeFilterName = this.state.activeFilter,
             selectedFilter = allFilters[activeFilterName],
-            filteredProducts = allProducts.filter(selectedFilter)
-        
+            filteredProducts = allProducts.filter(selectedFilter),
+            favorites = getFavoriteProducts(),
+            forceUpdate = this.forceUpdate.bind(this);
+
+
         
         
         return (
             <div>
-                <h1>Produkty</h1>
+                <Well>
+                <div className="alert alert-success" role="alert"><h3><center>Produkty</center></h3></div>
                 <p>
                     {filterButton(this._handleNoneFilterClick, 'none', this.state.activeFilter, 'wszystko')}
                     {filterButton(this._handleIsCerealFilterClick, 'IsCereal', this.state.activeFilter, 'kasze')}
@@ -75,16 +81,28 @@ export default class Products extends React.Component {
                     {filteredProducts.map(
                         function (product) {
                             if (activeFilterName === 'Price1' || activeFilterName === 'Price2' || activeFilterName === 'Price3') {
-                                return <li key={product.id}>{product.name}{product.price}</li>
+                                return <li className=
+                                               {favorites.find(productId => productId === productId) ? 'favorite' : ''}
+                                                key={product.id}>
+                                                    {product.name}
+                                                    {product.price}
+                                                <button onClick={() => {markProductAsFavorite(product);forceUpdate()}}>Dodaj</button>
+                                                <button onClick={() => {dissmarkProductAsFavorite(product);forceUpdate()}}>Usun</button>
+                                </li>
                             }
                             else {
-                                return <li key={product.id}>{product.name}</li>
+                                return <li key={product.id}>{product.name}
+                                    <button onClick={() => {markProductAsFavorite(product);forceUpdate()}}>Dodaj</button>
+                                    <button onClick={() => {dissmarkProductAsFavorite(product);forceUpdate()}}>Usun</button>
+                                </li>
                             }
                         }
                     )}
                 </ul>
+                    </Well>
             </div>
         )
     }
 }
+
 

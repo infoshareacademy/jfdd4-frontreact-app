@@ -21,6 +21,7 @@ export default class Shops extends React.Component {
         }
     }
 
+
     componentWillMount() {
         setTimeout(function () {
             this.setState({
@@ -65,6 +66,7 @@ export default class Shops extends React.Component {
                                 {shop.id}
                                 {shop.name}
                                 {<button onClick={() => {markShopAsFavorite(shop); forceUpdate()}}>Ulubione</button>}
+                                <button onClick={() => {dissMarkShopAsFavorite(shop);forceUpdate()}}>Usun z ulubionych </button>
                                 {viewVariant === 'with-products' ?
                                     <ul>
                                         {productsData.products.filter(function (product) {
@@ -91,4 +93,5 @@ export default class Shops extends React.Component {
             </div>
         )
     }
+
 }

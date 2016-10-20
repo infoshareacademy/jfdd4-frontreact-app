@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Menu from './menu/Menu';
 import Content from './Content'
+import { Jumbotron } from 'react-bootstrap'
 
 
 
