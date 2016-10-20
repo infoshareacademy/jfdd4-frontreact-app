@@ -1,12 +1,13 @@
-/*#ww*/
-/*{*/
-    /*width: 500px;*/
-    /*float: left;*/
-/*}*/
-/*#B*/
-/*{*/
-    /*border: solid 1px;*/
-    /*background: linear-gradient(grey, darkgray);*/
-    /*width: 500px;*/
-    /*font-weight: bold;*/
-/*}*/
+#buttonContainer
+{
+    width: 100%;
+    float: left;
+}
+#button1
+{
+    float: left;
+}
+.button2
+{
+    float: right;
+}
