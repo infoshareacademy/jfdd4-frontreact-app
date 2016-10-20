@@ -1,21 +1,19 @@
 export function getFavoriteProducts() {
-    return JSON.parse(localStorage.getItem('favoritesProducts')) || []
+    return JSON.parse(localStorage.getItem('favoriteProducts')) || []
 }
 
-export function favoriteProduct (product) {
-    var favoriteProducts = getFavoriteProducts()
-    var productId = product.productId
+export function markProductAsFavorite (product) {
+    var favoriteProducts = getFavoriteProducts();
 
 
-    if (favoriteProduct.indexOf(productId) === -1) {
-        favoriteProduct.push(productId);
+    if (favoriteProducts.indexOf(product.id) === -1) {
+        favoriteProducts.push(product.id);
     }
-    localStorage.setItem('favoritesProducts', JSON.stringify(favoriteProduct))
+    localStorage.setItem('favoriteProducts', JSON.stringify(favoriteProducts))
 }
 
 export function dissmarkProductAsFavorite(productToRemove) {
-    var favoriteProducts = getFavoriteProducts().filter(productId => productId !== productToRemove.id);
+    var favoriteProducts = getFavoriteProducts().filter( productId => productId !== productToRemove.id);
+
     localStorage.setItem('favoriteProducts', JSON.stringify(favoriteProducts));
 }
-
-

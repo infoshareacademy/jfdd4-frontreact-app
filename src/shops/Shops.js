@@ -25,7 +25,8 @@ export default class Shops extends React.Component {
                 <h1>Shops</h1>
                 {this.state.shops.map(function (shop) {
                     return (
-                        <li className={favourites.find(shopId => shopId === shop.id) ? 'favourite' : ''} key={shop.id}>
+                        <li className={favourites.find(shopId => shopId === shop.id) ? 'favourite' : ''} 
+                            key={shop.id}>
                             {shop.id}
                             {shop.name}
                             {shop.location.lat}
