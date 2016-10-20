@@ -5,6 +5,7 @@ import React from 'react'
 import './Availability.css'
 import {finalState} from '../../data/dataProducts'
 import {finalState as shopsData} from '../../data/dataShops'
+import { Well } from 'react-bootstrap'
 
 
 export default class Products extends React.Component {
@@ -29,6 +30,7 @@ export default class Products extends React.Component {
 
         return (
             <div>
+                <Well>
                 <h1>Sklepy w których dostaniesz następujące produkty</h1>
                 <div id="ww">{this.state.products.map(function (products) {
                     return <div id="B" key={products.id}>
@@ -46,7 +48,7 @@ export default class Products extends React.Component {
                     </div>
                 })}
                 </div>
-              
+              </Well>
             </div>
         )
     }
