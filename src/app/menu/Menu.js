@@ -29,9 +29,6 @@ export default class Menu extends Component {
                         <Nav>
                             <Item path={`/maps`}>
                                 Mapy
-                                    <Item path={`/maps/commute`} >
-                                        Dojazd
-                                    </Item>
                             </Item>
                         </Nav>
                     </Nav>
