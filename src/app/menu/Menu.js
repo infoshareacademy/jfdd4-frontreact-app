@@ -15,17 +15,17 @@ export default class Menu extends Component {
                     <Navbar.Toggle />
                     </Navbar.Header>
                 <Navbar.Collapse>
-                    <Nav>
+
                         <Nav><Item path={`/`}>Strona Glowna</Item></Nav>
                         <Nav>
                             <Item path={`/products`}>
                                 Produkty
                             </Item>
-                            <Nav>
-                                <Item path={`/products/availability`}>
-                                    Dostępność towarów
-                                </Item>
-                            </Nav>
+                        </Nav>
+                        <Nav>
+                            <Item path={`/products/availability`}>
+                                Dostępność towarów
+                            </Item>
                         </Nav>
                         <Nav><Item path={`/shops`}>Sklepy</Item></Nav>
                         <Nav>
@@ -33,10 +33,8 @@ export default class Menu extends Component {
                                 Mapy
                             </Item>
                         </Nav>
-                    </Nav>
-                    <Nav pullRight>
-                        <Nav><Item path={`/favorites`}>Ulubione</Item></Nav>
-                    </Nav>
+                        <Nav pullRight><Item path={`/favorites`}>Ulubione</Item></Nav>
+
                 </Navbar.Collapse>
             </Navbar>
         );
