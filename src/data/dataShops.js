@@ -2,7 +2,6 @@ var initialState = {
     data: [],
     filters : {
         none: function () {return true},
-        // shops: function (shop) {return shop.name === 'shops'}
     }
 }
 
@@ -31,6 +30,7 @@ var finalState = {
             pic: '/img/biedronka.jpg',
             link: 'http://www.biedronka.pl/pl'
         },
+        
         {
             id: 3,
             name: 'Tesco',
@@ -54,7 +54,19 @@ var finalState = {
             pic: '/img/stokrotka.jpg',
             link: 'http://stokrotka.pl/'
         },
+        {
+            id: 5,
+            name: 'Żabka',
+            location: {lat:54.402022,lng: 18.578064},
+            opened: 'od 6:00 do 23:00',
+            adres: 'Kołobrzeska 7, Gdańsk',
+            icon: '/img/zabka-icon.png',
+            info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut consequat diam. Pellentesque sed velit pharetra, condimentum arcu non, gravida est. Suspendisse viverra, libero eu semper consectetur, enim erat dignissim sem, eu placerat sapien justo non dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed ullamcorper porttitor est in ullamcorper.',
+            pic: '/img/zabka.jpg',
+            link: 'http://zabka.pl/pl'
+        }
     ]
 };
 
-export {initialState, finalState}
+export default {initialState, finalState}
+export {initialState, finalState};

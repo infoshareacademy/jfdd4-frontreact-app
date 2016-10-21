@@ -102,4 +102,5 @@ var finalState = {
     ],
 }
 
-export {initialState, finalState}
+export default {initialState, finalState}
+export {initialState, finalState};
