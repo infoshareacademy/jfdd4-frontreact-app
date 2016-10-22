@@ -88,8 +88,8 @@ export default class Shops extends React.Component {
                                             return false;
                                         }).map(function(product) {
                                             return (
-                                                <tr key={product.id}>
-                                                    <td>{product.name}</td>
+                                                <tr key={product.id}><Glyphicon glyph="glyphicon glyphicon-ok" aria-hidden="true"/>
+                                                    <td>{product.name}</td><Glyphicon glyph="glyphicon glyphicon-remove" aria-hidden="true"/>
                                                 </tr>
                                             )
                                         })
