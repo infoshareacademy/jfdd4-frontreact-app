@@ -1,18 +1,4 @@
-.App-Menu {
-    margin: 0;
-    padding: 0;
+.App-Menu .dropdown-menu .active a {
+    background-color: #c00;
+    background-image: none;
 }
-
-.App-menu li {
-    list-style: none outside none;
-    display: inline;
-    padding: 0;
-    margin: 0;
-}
-
-.App-content {
-    border: 2px solid #000;
-    margin: 20px;
-    min-height: 200px;
-}
-

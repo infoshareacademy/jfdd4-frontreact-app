@@ -9,6 +9,7 @@ export function markProductAsFavorite (product) {
     if (favoriteProducts.indexOf(product.id) === -1) {
         favoriteProducts.push(product.id);
     }
+
     localStorage.setItem('favoriteProducts', JSON.stringify(favoriteProducts))
 }
 
