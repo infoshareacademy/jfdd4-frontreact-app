@@ -1,6 +1,4 @@
-/**
- * Created by karol on 12.10.16.
- */
+
 import React from 'react'
 import GoogleMap from 'google-map-react'
 import Place from './place/Place'
@@ -8,7 +6,7 @@ import Info from './info/Info'
 import {finalState} from '../data/dataShops'
 import {Modal, Button} from 'react-bootstrap'
 import './Maps.css'
-// import $ from 'jquery'
+import { Grid, Row, Col, Well , PageHeader } from 'react-bootstrap'
 
 export default class Shops extends React.Component {
     constructor() {
@@ -43,6 +41,9 @@ export default class Shops extends React.Component {
         console.log('onrender', shop);
 
         return (
+                <Well>
+                    <PageHeader>Mapy
+                        <small> znajdz najblizsze sklepy w Twojej okolicy.</small></PageHeader>
             <div id="MAP">
                 <GoogleMap
                     bootstrapURLKeys={{key: 'AIzaSyCIGFuueBb3ewt-Ewe7ySfhE9ZdHVjdPsc'}}
@@ -66,8 +67,8 @@ export default class Shops extends React.Component {
                         <Button onClick={() => this.setState({ showModal: false})}>Close</Button>
                     </Modal.Footer>
                 </Modal>
-
             </div>
+                </Well>
         )
     }
 }    
