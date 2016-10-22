@@ -97,7 +97,7 @@ export default class Products extends React.Component {
                                                 key={product.id}>
                                                     <td>{product.name}</td>
                                                     <td>{product.price} zł</td>
-                                    <Button bsStyle="success" onClick={() => {markProductAsFavorite(product);forceUpdate(); alert("Dodano produkt do listy zakupowej")}}><Glyphicon glyph="glyphicon glyphicon-ok" aria-hidden="true"/></Button>
+                                    <Button bsStyle="success" onClick={() => {markProductAsFavorite(product);forceUpdate(); alert("Dodano produkt z listy zakupowej")}}><Glyphicon glyph="glyphicon glyphicon-ok" aria-hidden="true"/></Button>
                                     <Button bsStyle="danger" onClick={() => {dissmarkProductAsFavorite(product);forceUpdate(); alert("Usunieto produkt do listy zakupowej")}}><Glyphicon glyph="glyphicon glyphicon-remove" aria-hidden="true"/></Button>
                                 </tr>
                             }
@@ -105,7 +105,7 @@ export default class Products extends React.Component {
                                 return <tr key={product.id}>
                                 <td>{product.name}</td>
                                     <Button bsStyle="success" onClick={() => {markProductAsFavorite(product);forceUpdate(); alert("Dodano produkt do listy zakupowej");}}><Glyphicon glyph="glyphicon glyphicon-ok" aria-hidden="true"/></Button>
-                                    <Button bsStyle="danger" onClick={() => {dissmarkProductAsFavorite(product);forceUpdate(); alert("Usunieto produkt do listy zakupowej")}}><Glyphicon glyph="glyphicon glyphicon-remove" aria-hidden="true"/></Button>
+                                    <Button bsStyle="danger" onClick={() => {dissmarkProductAsFavorite(product);forceUpdate(); alert("Usunieto produkt z listy zakupowej")}}><Glyphicon glyph="glyphicon glyphicon-remove" aria-hidden="true"/></Button>
                                 </tr>
                             }
                         }
