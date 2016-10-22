@@ -20,6 +20,7 @@ export default (props) =>
                     <h3>Główne cechy aplikacji :</h3><br />
                     <div className="alert alert-success" role="alert">
                      - dynamika,<br />
+                     - dostępność na urządzenia mobilne,<br />
                      - prostota,<br />
                     - lokalizacja sklepów w oparciu o bieżące położenie użytkownika,<br />
                         - tworzenie listy produktow i sklepow.<br />
