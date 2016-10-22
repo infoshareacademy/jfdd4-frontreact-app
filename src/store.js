@@ -1,11 +1,12 @@
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
-
-
-
+import productsReducer from './products/reducer'
+import persistState from 'redux-localstorage'
+import favoritesReducer from './app/favoriteReducer'
 let reducer = combineReducers({
-    
+    productsData: productsReducer,
+    favorites: favoritesReducer
 })
 
 // Create a Redux store holding the state of your app.
@@ -19,7 +20,8 @@ let store = createStore(
         applyMiddleware(
             thunkMiddleware, // lets us dispatch() functions
             loggerMiddleware
-        )
+        ),
+        persistState(['favorites'])
     )
 )
 
