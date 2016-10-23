@@ -23,7 +23,6 @@ export default class Shops extends React.Component {
         }
     }
 
-
     componentWillMount() {
         setTimeout(function () {
             this.setState({
