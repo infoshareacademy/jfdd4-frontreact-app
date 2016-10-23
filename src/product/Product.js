@@ -92,7 +92,11 @@ export default class Product extends React.Component {
                         }
                     </ul>
                     </Well>
+                <Link to={'/products'}>
+                    <Button>Powrót do listy produktów</Button>
+                </Link>
             </div>
+
         )
     }
 }
