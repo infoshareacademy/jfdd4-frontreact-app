@@ -1,0 +1,4 @@
+.App-Menu .dropdown-menu .active a {
+    background-color: #c00;
+    background-image: none;
+}

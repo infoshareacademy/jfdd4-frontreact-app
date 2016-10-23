@@ -1,23 +1,31 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Link } from 'react-router'
+import Menu from './menu/Menu';
+import { Grid, Row, Col, Well } from 'react-bootstrap'
+
+
 
 class App extends Component {
+
     render() {
-        return (
-            <div className="App">
-                <p>
-                    <Link to={`/products`}>Products</Link>
-                    <br />
-                    <Link to={`/shops`}>Shops</Link>
-                    <br />
-                    <Link to={`/maps`}>Maps</Link>
-                </p>
-                {this.props.children}
-            </div>
-        );
+            return (
+                <Grid>
+                    <Row>
+                        <Col>
+                            <Menu />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Well>
+                                {this.props.children}
+                            </Well>
+                        </Col>
+                    </Row>
+                </Grid>
+            );
+        }
     }
-}
 
 export default App;
 
