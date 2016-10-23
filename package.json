@@ -8,6 +8,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "google-map-react": "^0.20.0",
+    "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.1.1",
     "react": "^15.3.2",
     "react-bootstrap": "^0.30.5",
@@ -15,6 +16,7 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
     "redux": "^3.6.0",
+    "redux-devtools": "^3.3.1",
     "redux-localstorage": "^0.4.1",
     "redux-logger": "^2.7.0",
     "redux-thunk": "^2.1.0",
