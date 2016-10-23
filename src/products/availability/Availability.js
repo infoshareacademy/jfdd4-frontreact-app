@@ -34,7 +34,6 @@ var a = this.state.products;
                 <Well>
                 <h1>Sklepy w których dostaniesz następujące produkty</h1>
                 <div id="ww">{this.state.products.map(function (products) {
-
                     return <div id="B" key={products.id}>
                         {products.name}  -
                         {shopsData

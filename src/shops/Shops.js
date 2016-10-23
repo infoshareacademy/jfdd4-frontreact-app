@@ -1,5 +1,5 @@
 import React from 'react'
-import { Well, Glyphicon, PageHeader, Table, Button } from 'react-bootstrap'
+import { Well, Glyphicon, PageHeader, Table, Button, ButtonGroup, ButtonToolbar } from 'react-bootstrap'
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
 import { markShopAsFavorite, getFavoriteShops, dissMarkShopAsFavorite } from'../marketFavorites/favoriteShops'
 import {
@@ -47,16 +47,16 @@ export default class Shops extends React.Component {
                 <Well>
                 <PageHeader>Lista sklepów
                     <small> dodaj lub usuń sklepy z obserwowanych.</small></PageHeader>
-                <p>
-                    <Link to={'/shops/with-products'}>
-                        {this.props.children}
-                        <Button bsStyle="primary">Pokaż dostępne produkty</Button>
-                    </Link>
-                    <Link to={'/shops'}>
-                        {this.props.children}
-                    <Button bsStyle="primary">Pokaż wszystkie sklepy</Button>
-                    </Link>
-                </p>
+                    <p>
+                        <Link to={'/shops/with-products'}>
+                            {this.props.children}
+                            <Button bsStyle="primary">Pokaż dostępne produkty</Button>
+                        </Link>
+                        <Link to={'/shops'}>
+                            {this.props.children}
+                        <Button bsStyle="primary">Pokaż wszystkie sklepy</Button>
+                        </Link>
+                    </p>
                 <Table striped bordered condensed hover>
                     <thead>
                     </thead>
@@ -69,6 +69,7 @@ export default class Shops extends React.Component {
                         return (
                             <tr className={favourites.find(shopId => shopId === shop.id) ? 'favourite' : ''} key={shop.id}>
                                     <td>{shop.name}</td>
+
                                 <Button bsStyle="success" onClick={() => {markShopAsFavorite(shop); forceUpdate(); alert("Dodano sklep do ulubionych")}}><Glyphicon glyph="glyphicon glyphicon-ok" aria-hidden="true"/></Button>
                                 <Button bsStyle="danger" onClick={() => {dissMarkShopAsFavorite(shop);forceUpdate(); alert("Usunięto sklep z ulubionych")}}><Glyphicon glyph="glyphicon glyphicon-remove" aria-hidden="true"/></Button>
                                 {viewVariant === 'with-products' ?
