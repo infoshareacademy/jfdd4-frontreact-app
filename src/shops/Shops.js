@@ -24,17 +24,10 @@ export default class Shops extends React.Component {
     }
 
     componentWillMount() {
-        setTimeout(function () {
-            this.setState({
-                shopsData: finalShopsState
-            })
-        }.bind(this), 0)
-        
-        setTimeout(function () {
-            this.setState({
-                productsData: finalProductsState
-            })
-        }.bind(this), 0)
+        var context = this;
+        context.setState({productsData: finalProductsState}),
+            context.setState({ shopsData: finalShopsState})
+
     }
 
     render() {
@@ -45,7 +38,9 @@ export default class Shops extends React.Component {
             productsData = this.state.productsData,
             viewVariant = this.props.params.viewVariant;
 
-        console.log(this.props.params.viewVariant);
+        // console.log(this.props.params.viewVariant);
+        // console.log(productsData.products);
+        // console.log(this.state.shops);
 
         return (
             <div>

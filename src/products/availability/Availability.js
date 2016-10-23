@@ -27,12 +27,14 @@ export default class Products extends React.Component {
     }
 
     render() {
-
+var a = this.state.products;
+        console.log(a);
         return (
             <div>
                 <Well>
                 <h1>Sklepy w których dostaniesz następujące produkty</h1>
                 <div id="ww">{this.state.products.map(function (products) {
+
                     return <div id="B" key={products.id}>
                         {products.name}  -
                         {shopsData

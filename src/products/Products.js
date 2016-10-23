@@ -101,7 +101,7 @@ export default class Products extends React.Component {
                                 }
                                 else {
                                     return <tr key={product.id}>
-                                        <td> <Link to={"/products/"+ product.id}>{product.name}</Link></td>
+                                        <td> <Link to={"/products/"+ product.id} key={product.id}>{product.name}</Link></td>
                                         <Button bsStyle="success" onClick={() => {markProductAsFavorite(product);forceUpdate(); alert("Dodano produkt do listy zakupowej");}}><Glyphicon glyph="glyphicon glyphicon-ok" aria-hidden="true"/></Button>
                                         <Button bsStyle="danger" onClick={() => {dissmarkProductAsFavorite(product);forceUpdate(); alert("Usunieto produkt z listy zakupowej")}}><Glyphicon glyph="glyphicon glyphicon-remove" aria-hidden="true"/></Button>
                                     </tr>
