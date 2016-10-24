@@ -35,7 +35,7 @@ export default class Menu extends Component {
                             clientId="287909334341-a9d7rvs2g737tlm1vibohhn0a4kn5bj0.apps.googleusercontent.com"
                             onSuccess={console.log}
                             onFailure={console.log}
-                            className="Button">
+                            className="btn btn-default btn-sm">
                              Log in with Google
                         </GoogleLogin>
                     </Navbar.Form>

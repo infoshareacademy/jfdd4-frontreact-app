@@ -2,25 +2,3 @@
     background-color: #c00;
     background-image: none;
 }
-.Button
-{
-    background: grey;
-    border-radius: 22%;
-    font-weight: bold;
-    color: white;
-    width: 150px;
-    height: 25px;
-    margin-top: 6px;
-    line-height: 1;
-}
-.Button:hover
-{
-    background: red;
-    border-radius: 22%;
-    font-weight: bold;
-    color: white;
-    width: 150px;
-    height: 25px;
-    margin-top: 6px;
-    line-height: 1;
-}
