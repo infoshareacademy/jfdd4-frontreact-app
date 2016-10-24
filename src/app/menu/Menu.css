@@ -2,3 +2,10 @@
     background-color: #c00;
     background-image: none;
 }
+.Button
+{
+    background: red;
+    border-radius: 20%;
+    font-weight: bold;
+    color: white;
+}

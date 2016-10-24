@@ -8,7 +8,20 @@ import Info from './info/Info'
 import {finalState} from '../data/dataShops'
 import {Modal, Button} from 'react-bootstrap'
 import './Maps.css'
-import { Grid, Row, Col, Well , PageHeader } from 'react-bootstrap'
+import {Well , PageHeader } from 'react-bootstrap'
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
+function showPosition(position) {
+    return ("Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude);
+}
+
 
 export default class Shops extends React.Component {
     constructor() {
@@ -26,6 +39,7 @@ export default class Shops extends React.Component {
     }
 
 
+
     render() {
 
         var scope = this;
@@ -41,6 +55,18 @@ export default class Shops extends React.Component {
 
         var shop = this.state.selectedShop || {};
         console.log('onrender', shop);
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                console.log("Geolocation is not supported by this browser.");
+            }
+        }
+        function showPosition(position) {
+            return ("Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude);
+        }
 
         return (
                 <Well>
