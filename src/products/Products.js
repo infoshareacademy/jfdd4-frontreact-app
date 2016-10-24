@@ -1,9 +1,11 @@
 import React from 'react'
 import FilterButton from './filter-button/FilterButton'
+import index from '../index.css'
+import { Link } from 'react-router'
 import {initialState, finalState} from '../data/dataProducts'
-import { Well } from 'react-bootstrap'
+import { Well, Glyphicon, PageHeader, Table, Button } from 'react-bootstrap'
+import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
 import { markProductAsFavorite, getFavoriteProducts, dissmarkProductAsFavorite } from '../marketFavorites/favoriteProducts'
-
 
 
 function filterButton(handleClick, activeFilter, myFilter, category){
@@ -56,50 +58,60 @@ export default class Products extends React.Component {
             favorites = getFavoriteProducts(),
             forceUpdate = this.forceUpdate.bind(this);
 
-
-        
-        
         return (
             <div>
                 <Well>
-                <div className="alert alert-success" role="alert"><h3><center>Produkty</center></h3></div>
-                <p>
-                    {filterButton(this._handleNoneFilterClick, 'none', this.state.activeFilter, 'wszystko')}
-                    {filterButton(this._handleIsCerealFilterClick, 'IsCereal', this.state.activeFilter, 'kasze')}
-                    {filterButton(this._handleIsOilsFilterClick, 'IsOils', this.state.activeFilter, 'olej')}
-                    {filterButton(this._handleIsRiceFilterClick, 'IsRice', this.state.activeFilter, 'ryż')}
-                    {filterButton(this._handleIsFruitFilterClick, 'IsFruit', this.state.activeFilter, 'suszone owoce')}
-                    {filterButton(this._handleIsFishFilterClick, 'IsFish', this.state.activeFilter, 'ryby')}
-                    {filterButton(this._handleIsBreadFilterClick, 'IsBread', this.state.activeFilter, 'pieczywo')}
-                </p>
-                <p>
-                    {filterButton(this._handlePrice1FilterClick, 'Price1', this.state.activeFilter, 'cena do 4.99zł')}
-                    {filterButton(this._handlePrice2FilterClick, 'Price2', this.state.activeFilter, 'cena od 5.00 do 9.99zł')}
-                    {filterButton(this._handlePrice3FilterClick, 'Price3', this.state.activeFilter, 'cena od 10.00zł')}
-                </p>
-                <ul>
-                    {filteredProducts.map(
-                        function (product) {
-                            if (activeFilterName === 'Price1' || activeFilterName === 'Price2' || activeFilterName === 'Price3') {
-                                return <li className=
-                                               {favorites.find(productId => productId === productId) ? 'favorite' : ''}
-                                                key={product.id}>
-                                                    {product.name}
-                                                    {product.price}
-                                                <button onClick={() => {markProductAsFavorite(product);forceUpdate()}}>Dodaj</button>
-                                                <button onClick={() => {dissmarkProductAsFavorite(product);forceUpdate()}}>Usun</button>
-                                </li>
+                    <PageHeader>Lista produktów
+                        <small> stwórz swoją liste ulubionych produktów.</small></PageHeader>
+                    <p>
+                        {filterButton(this._handleIsCerealFilterClick, 'IsCereal', this.state.activeFilter, 'kasza')}
+                        {filterButton(this._handleIsOilsFilterClick, 'IsOils', this.state.activeFilter, 'olej')}
+                        {filterButton(this._handleIsRiceFilterClick, 'IsRice', this.state.activeFilter, 'ryż')}
+                        {filterButton(this._handleIsFruitFilterClick, 'IsFruit', this.state.activeFilter, 'suszone owoce')}
+                        {filterButton(this._handleIsFishFilterClick, 'IsFish', this.state.activeFilter, 'ryby')}
+                        {filterButton(this._handleIsBreadFilterClick, 'IsBread', this.state.activeFilter, 'pieczywo')}
+                    </p>
+                    <p>
+                        {filterButton(this._handlePrice1FilterClick, 'Price1', this.state.activeFilter, 'cena do 4.99zł')}
+                        {filterButton(this._handlePrice2FilterClick, 'Price2', this.state.activeFilter, 'cena od 5.00 do 9.99zł')}
+                        {filterButton(this._handlePrice3FilterClick, 'Price3', this.state.activeFilter, 'cena od 10.00zł')}
+                    </p>
+                    <p>
+                        {filterButton(this._handleNoneFilterClick, 'none', this.state.activeFilter, 'pokaż wszystkie produkty')}
+                    </p>
+                    <Table striped bordered condensed hover>
+                    <thead>
+                    </thead>
+                        <ReactCSSTransitionGroup
+                            component="tbody"
+                            transitionName="example"
+                            transitionEnterTimeout={500}
+                            transitionLeaveTimeout={300}>
+
+                              {filteredProducts.map(
+                            function (product) {
+                                if (activeFilterName === 'Price1' || activeFilterName === 'Price2' || activeFilterName === 'Price3') {
+                                    return <tr className=
+                                                   {favorites.find(productId => productId === productId) ? 'favorite' : ''}
+                                                    key={product.id}>
+                                        <td> <Link to={"/products/" + product.id} bsStyle="btn" style={{'text-decoration': 'none', 'color':'#000000'}}>{product.name}</Link></td>
+                                        <td>{product.price} zł</td>
+                                        <Button bsStyle="success" onClick={() => {markProductAsFavorite(product);forceUpdate(); alert("Dodano produkt z listy zakupowej")}}><Glyphicon glyph="glyphicon glyphicon-ok" aria-hidden="true"/></Button>
+                                        <Button bsStyle="danger" onClick={() => {dissmarkProductAsFavorite(product);forceUpdate(); alert("Usunieto produkt do listy zakupowej")}}><Glyphicon glyph="glyphicon glyphicon-remove" aria-hidden="true"/></Button>
+                                    </tr>
+                                }
+                                else {
+                                    return <tr key={product.id}>
+                                        <td> <Link to={"/products/"+ product.id} key={product.id} style={{'text-decoration': 'none', 'color':'#000000'}}>{product.name}</Link></td>
+                                        <Button bsStyle="success" onClick={() => {markProductAsFavorite(product);forceUpdate(); alert("Dodano produkt do listy zakupowej");}}><Glyphicon glyph="glyphicon glyphicon-ok" aria-hidden="true"/></Button>
+                                        <Button bsStyle="danger" onClick={() => {dissmarkProductAsFavorite(product);forceUpdate(); alert("Usunieto produkt z listy zakupowej")}}><Glyphicon glyph="glyphicon glyphicon-remove" aria-hidden="true"/></Button>
+                                    </tr>
+                                }
                             }
-                            else {
-                                return <li key={product.id}>{product.name}
-                                    <button onClick={() => {markProductAsFavorite(product);forceUpdate()}}>Dodaj</button>
-                                    <button onClick={() => {dissmarkProductAsFavorite(product);forceUpdate()}}>Usun</button>
-                                </li>
-                            }
-                        }
-                    )}
-                </ul>
-                    </Well>
+                        )}
+                        </ReactCSSTransitionGroup>
+                    </Table>
+                </Well>
             </div>
         )
     }

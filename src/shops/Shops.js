@@ -1,4 +1,6 @@
 import React from 'react'
+import { Well, Glyphicon, PageHeader, Table, Button, ButtonGroup, ButtonToolbar } from 'react-bootstrap'
+import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
 import { markShopAsFavorite, getFavoriteShops, dissMarkShopAsFavorite } from'../marketFavorites/favoriteShops'
 import {
     initialState as initialShopsState,
@@ -21,19 +23,11 @@ export default class Shops extends React.Component {
         }
     }
 
-
     componentWillMount() {
-        setTimeout(function () {
-            this.setState({
-                shopsData: finalShopsState
-            })
-        }.bind(this), 0)
-        
-        setTimeout(function () {
-            this.setState({
-                productsData: finalProductsState
-            })
-        }.bind(this), 0)
+        var context = this;
+        context.setState({productsData: finalProductsState}),
+            context.setState({ shopsData: finalShopsState})
+
     }
 
     render() {
@@ -44,29 +38,40 @@ export default class Shops extends React.Component {
             productsData = this.state.productsData,
             viewVariant = this.props.params.viewVariant;
 
-        console.log(this.props.params.viewVariant);
+        // console.log(this.props.params.viewVariant);
+        // console.log(productsData.products);
+        // console.log(this.state.shops);
 
         return (
             <div>
-                <h1>Sklepy</h1>
-                <p>
-                    <Link to={'/shops/with-products'}>
-                        {this.props.children}
-                        <button>Pokaż dostępne produkty</button>
-                    </Link>
-                    <Link to={'/shops'}>
-                        {this.props.children}
-                    <button >Pokaż wszystkie sklepy</button>
-                    </Link>
-                </p>
-                <ul>
+                <Well>
+                <PageHeader>Lista sklepów
+                    <small> dodaj lub usuń sklepy z obserwowanych.</small></PageHeader>
+                    <p>
+                        <Link to={'/shops/with-products'}>
+                            {this.props.children}
+                            <Button bsStyle="primary">Pokaż dostępne produkty</Button>
+                        </Link>
+                        <Link to={'/shops'}>
+                            {this.props.children}
+                        <Button bsStyle="primary">Pokaż wszystkie sklepy</Button>
+                        </Link>
+                    </p>
+                <Table striped bordered condensed hover>
+                    <thead>
+                    </thead>
+                    <ReactCSSTransitionGroup
+                        component="tbody"
+                        transitionName="example"
+                        transitionEnterTimeout={500}
+                        transitionLeaveTimeout={300}>
                     {this.state.shops.map(function (shop) {
                         return (
-                            <li className={favourites.find(shopId => shopId === shop.id) ? 'favourite' : ''} key={shop.id}>
-                                {shop.id}
-                                {shop.name}
-                                {<button onClick={() => {markShopAsFavorite(shop); forceUpdate()}}>Ulubione</button>}
-                                <button onClick={() => {dissMarkShopAsFavorite(shop);forceUpdate()}}>Usun z ulubionych </button>
+                            <tr className={favourites.find(shopId => shopId === shop.id) ? 'favourite' : ''} key={shop.id}>
+                                    <td>{shop.name}</td>
+
+                                <Button bsStyle="success" onClick={() => {markShopAsFavorite(shop); forceUpdate(); alert("Dodano sklep do ulubionych")}}><Glyphicon glyph="glyphicon glyphicon-ok" aria-hidden="true"/></Button>
+                                <Button bsStyle="danger" onClick={() => {dissMarkShopAsFavorite(shop);forceUpdate(); alert("Usunięto sklep z ulubionych")}}><Glyphicon glyph="glyphicon glyphicon-remove" aria-hidden="true"/></Button>
                                 {viewVariant === 'with-products' ?
                                     <ul>
                                         {productsData.products.filter(function (product) {
@@ -78,18 +83,19 @@ export default class Shops extends React.Component {
                                             return false;
                                         }).map(function(product) {
                                             return (
-                                                <li  key={product.id}>
-                                                    {product.name}
-
-                                                </li>
+                                                <tr key={product.id}>
+                                                    <td>{product.name}</td>
+                                                </tr>
                                             )
                                         })
                                         }
                                     </ul> : null}
-                            </li>
+                            </tr>
                         )
                     })}
-                </ul>
+                    </ReactCSSTransitionGroup>
+                </Table>
+                    </Well>
             </div>
         )
     }

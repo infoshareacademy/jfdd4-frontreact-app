@@ -10,7 +10,7 @@ var finalState = {
     shops: [
         {
             id : 1,
-            name : 'Lidl', 
+            name : 'Lidl',
             location: {lat:54.389993,lng:18.591996},
             adres: 'Hynka 67, Gdańsk',
             opened : 'od 8:00 do 21:00',

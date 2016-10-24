@@ -1,22 +1,31 @@
 import React, { Component } from 'react';
 import './App.css';
 import Menu from './menu/Menu';
-import Content from './Content'
-import { Jumbotron } from 'react-bootstrap'
+import { Grid, Row, Col, Well } from 'react-bootstrap'
 
 
 
 class App extends Component {
 
     render() {
-        return (
-            <div>
-                <Menu />
-                <Content layout={this.props.children} />
-            </div>
-        );
+            return (
+                <Grid>
+                    <Row>
+                        <Col>
+                            <Menu />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Well>
+                                {this.props.children}
+                            </Well>
+                        </Col>
+                    </Row>
+                </Grid>
+            );
+        }
     }
-}
 
 export default App;
 
