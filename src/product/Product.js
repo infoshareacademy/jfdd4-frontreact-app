@@ -34,6 +34,8 @@ export default class Product extends React.Component {
             productData = this.props.params,
             productId = this.props.params.id,
             allProducts = this.state.products;
+            
+
 
         console.log(this.state.products);
         console.log(productsData.products);
@@ -85,7 +87,7 @@ export default class Product extends React.Component {
                                                                         product.shops.indexOf(shop.id) !== -1
                                                                     )
                                                                     .map(
-                                                                        shop => <td>{shop.name}</td>
+                                                                        shop => <td>{shop.name}&nbsp;</td>
                                                                     )
                                                                 }
                                                             </td>
