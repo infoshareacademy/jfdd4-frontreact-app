@@ -8,6 +8,8 @@ import Product from './product/Product';
 import Availability from './products/availability/Availability';
 import Shops from './shops/Shops';
 import Maps from './maps/Maps';
+import CalendarDemo from './promotionCalendar/CalendarDemo';
+
 
 
 import Favorites from './favorites/Favorites';
@@ -35,6 +37,8 @@ ReactDOM.render(
                 <Route path="/maps" component={Maps}/>
                 <Route path="/favorites" component={Favorites}/>
                 <Route path="/login" component={Login}/>
+                <Route path="/promotionCalendar/" component={CalendarDemo}/>
+
             </Route>
         </Router>
     </Provider>,

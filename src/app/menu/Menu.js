@@ -3,6 +3,9 @@ import './Menu.css'
 import Item from './item/Item'
 import { Grid, Row, Col, Well , Navbar, Nav } from 'react-bootstrap'
 import GoogleLogin from 'react-google-login';
+import Fork from 'react-ghfork';
+import pkgInfo from '../../../package.json'
+import CalendarDemo from '../../promotionCalendar/CalendarDemo.js';
 
 export default class Menu extends Component {
 
@@ -22,6 +25,12 @@ export default class Menu extends Component {
                                 Produkty
                             </Item>
 
+                        </Nav>
+                        <Nav>
+                            <div>
+                                <Fork className="right" project={pkgInfo.user + '/' + pkgInfo.name} />
+                                <CalendarDemo />
+                            </div>
                         </Nav>
                         <Nav><Item path={`/shops`}>Sklepy</Item></Nav>
                         <Nav>

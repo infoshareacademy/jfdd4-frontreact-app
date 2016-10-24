@@ -10,19 +10,6 @@ import {Modal, Button} from 'react-bootstrap'
 import './Maps.css'
 import {Well , PageHeader } from 'react-bootstrap'
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        console.log("Geolocation is not supported by this browser.");
-    }
-}
-function showPosition(position) {
-    return ("Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude);
-}
-
-
 export default class Shops extends React.Component {
     constructor() {
         super()
