@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './app/App';
 import './index.css';
 import Dashboard from './dashboard/Dashboard';
-import Products from './products/filter-button/Products.old';
+import Products from './products/Products';
 import Availability from './products/availability/Availability';
 import Shops from './shops/Shops';
 import Maps from './maps/Maps';
