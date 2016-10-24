@@ -33,7 +33,7 @@ var finalState = {
         
         {
             id: 3,
-            name: 'Tesco ',
+            name: 'Tesco',
             location: {lat:54.410236, lng:18.600062},
             opened: 'od 6:00 do 24:00',
             adres: 'Obrońców Wybrzeża 21, Gdańsk',
@@ -45,7 +45,7 @@ var finalState = {
         },
         {
             id: 4,
-            name: "Stokrotka  ",
+            name: 'Stokrotka',
             location: {lat:54.404339,lng:18.597892},
             opened: 'od 6:00 do 24:00',
             adres: 'Kołobrzeska 44M, Gdańsk',
