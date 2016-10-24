@@ -7,8 +7,9 @@ export default (props) =>
             props.selectShop(props.shopId)
          }}/>   
         <div id="text_mini" >
+            <p>         </p>
             <p>Adres: {props.adres}</p>
-            <p>Otwarte codziennie w godzinach : {props.opened}</p>
+            <p>Otwarte: {props.opened}</p>
         </div>
     </div>
 
