@@ -40,6 +40,9 @@ export default class Menu extends Component {
                         </GoogleLogin>
                     </Navbar.Form>
                     <Nav pullRight>
+                        <Nav><Item path={`/login`}>Login</Item></Nav>
+                        </Nav>
+                    <Nav pullRight>
                         <Nav><Item path={`/favorites`}>Ulubione</Item></Nav>
                     </Nav>
                 </Navbar.Collapse>
