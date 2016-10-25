@@ -1,7 +1,7 @@
 import { MARK_PRODUCT_AS_FAVORITE, DISSMARK_PRODUCT_AS_FAVORITE } from './actionTypes'
 
 const initialState = {
-    favoriteProductIds: [],
+    favoriteProductIds: []
 }
 
 export default(state = initialState, action) => {

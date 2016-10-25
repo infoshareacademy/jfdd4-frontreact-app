@@ -1,15 +1,16 @@
 import React from 'react'
+import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
 import { connect } from 'react-redux'
 import { activateFilter } from './actionCreators'
+import { markProductAsFavorite, dissmarkProductAsFavorite } from '../app/actionCreators'
 import filters from './filters'
-import { Table } from 'react-bootstrap'
+
 import { Well, Glyphicon, PageHeader, Table, Button } from 'react-bootstrap'
-import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
-import { markProductAsFavorite, getFavoriteProducts, dissmarkProductAsFavorite } from '../marketFavorites/favoriteProducts'
+
 
 const mapStateToProps = (state) => ({
     products: state.productsData.products,
-    avaliableFilters: state.productsData.avaliableFilters,
+    availableFilters: state.productsData.availableFilters,
     activeFilter: {
         name: state.productsData.activeFilterName,
         predicate: filters[state.productsData.activeFilterName].predicate
@@ -19,15 +20,15 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     activateFilter: (filterId) => dispatch(activateFilter(filterId)),
-    favoriteProduct: (productId) -> dispatch(markProductAsFavorite(productId)),
-    dissmarkProduct: (productId) -> dispatch(dissmarkProductAsFavorite(productId))
+    favoriteProduct: (productId) => dispatch(markProductAsFavorite(productId)),
+    dissmarkProduct: (productId) => dispatch(dissmarkProductAsFavorite(productId))
 })
 
 
 const Products = ({
     fetchingProducts,
     products,
-    avaliableFilters,
+    availableFilters,
     activeFilter,
     activateFilter,
     favoriteProduct,
@@ -35,7 +36,7 @@ const Products = ({
 }) => (
 <div>
 <h1>Products</h1>
-    {avaliableFilters.map(filterName => (
+    {availableFilters.map(filterName => (
         <button key={filterName}
                 onClick={() => activateFilter(filterName)}
                 className={filterName === activeFilter.name ? 'active' : ''}>
@@ -53,7 +54,7 @@ const Products = ({
             transitionLeaveTimeout={300}>
             {products
                 .filter(activeFilter.predicate)
-                .map(products => (
+                .map(product => (
                     <tr key={product.id}>
                         <td>{product.name}</td>
                         <td>{product.price}</td>

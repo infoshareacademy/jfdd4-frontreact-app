@@ -4,7 +4,7 @@
         "name": "Kasza Jaglana 500 g",
         "description": "Kasza Jaglana jest smaczna, zdrowa i tania. Okreslana krolowa kasz. Jaglani rycerze bronia namietnie jej doskonalosci i maja racje!",
         "price": 4.99,
-        "category": "cereal",
+        "category": "isCereal",
         "shops": [1, 2, 3, 4, 5]
     },
     {
@@ -12,7 +12,7 @@
         "name": "Oliwa z oliwek 500 ml",
         "description": "Oliwa z oliwek z Grecji, dokladniej z Knosos jest jedna z najsmaczniejszych oliw na swiecie. Doskoanala do salatek.",
         "price": 9.99,
-        "category": "oil",
+        "category": "isOils",
         "shops": [1, 2,  4]
 
     }

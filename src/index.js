@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './app/App';
 import './index.css';
 import Dashboard from './dashboard/Dashboard';
-import Products from './products/filter-button/Products.old';
+import Products from './products/Products';
 import Availability from './products/availability/Availability';
 import Shops from './shops/Shops';
 import Maps from './maps/Maps';
+import { fetchProducts } from './products/actionCreators'
 
 
 import Favorites from './favorites/Favorites';
@@ -32,7 +33,7 @@ ReactDOM.render(
         <Router history={browserHistory}>
             <Route path="/" component={App} >
                 <IndexRoute component={Dashboard} />
-                <Route path="/products" component={Products}/>
+                <Route path="/products" component={Products} onEnter={() => store.dispatch(fetchProducts())}/>
                 <Route path="/products/availability" component={Availability}/>
                 <Route path="/shops" component={Shops}/>
                 <Route path="/shops/:viewVariant" component={Shops}/>
