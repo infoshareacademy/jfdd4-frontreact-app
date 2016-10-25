@@ -12,7 +12,7 @@ function requestProducts () {
     return {
         type: REQUEST_PRODUCTS
     }
-}z
+}
 
 function receiveProducts (products) {
     return {
