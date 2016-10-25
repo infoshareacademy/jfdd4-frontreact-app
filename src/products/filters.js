@@ -3,41 +3,41 @@ const filters = {
     label: 'all',
     predicate: product => true
     },
-    isCereal : {
+    cereals : {
         label: "Kasze",
-        predicate: product => product.type === 'cereal'
+        predicate: product => product.category === 'cereal'
     },
-    isOils : {
+    oils : {
         label: "olej",
-        predicate: product => product.type === 'oil'
+        predicate: product => product.category === 'oil'
     },
-    isRice : {
+    rices : {
         label: "ryz",
-        predicate: product => product.type === 'rice'
+        predicate: product => product.category === 'rice'
     },
-    isFruit : {
+    fruits : {
         label: "owoce",
-        predicate: product => product.type === 'fruit'
+        predicate: product => product.category === 'fruit'
     },
-    isFish : {
+    fishs : {
         label: "ryby",
-        predicate: product => product.type === 'fish'
+        predicate: product => product.category === 'fish'
     },
-    isBread : {
+    breads : {
         label: "pieczywo",
-        predicate: product => product.type === 'bread'
+        predicate: product => product.category === 'bread'
     },
-    price1 : {
+    price1s : {
         label: "cena5",
-        predicate: product => product.type === 'price1'
+        predicate: product => product.category === 'price1'
     },
-    price2 : {
+    price2s : {
         label: "cena10",
-        predicate: product => product.type === 'price2'
+        predicate: product => product.category === 'price2'
     },
-    price3 : {
+    price3s : {
         label: "cenapow10",
-        predicate: product => product.type === 'price3'
+        predicate: product => product.category === 'price3'
     }
 }
 

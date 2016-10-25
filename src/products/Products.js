@@ -43,7 +43,7 @@ const Products = ({
             {filters[filterName].label}
         </button>
     ))}
-    {fetchingProducts ? <p>Fetching students...</p> : null}
+    {fetchingProducts ? <p>Trwa ładowanie listy produktów...</p> : null}
     <Table striped bordered condensed hover>
         <thead>
         </thead>
@@ -61,6 +61,9 @@ const Products = ({
                         <td className="text-right">
                             <button onClick={() => favoriteProduct(product.id)}>
                                 Add to favorites
+                            </button>
+                            <button onClick={() => dissmarkProduct(product.id)}>
+                                Delete from favorites
                             </button>
                         </td>
                     </tr>

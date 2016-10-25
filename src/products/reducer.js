@@ -5,8 +5,8 @@ import {
 } from './actionTypes'
 
 const initialState = {
-    avaliableFilters: ['all', 'isCereal', 'isOils', 'isRice', 'isFruit', 'isFish', 'isBread', 'price1', 'price2', 'price3'],
-    activateFilterName: 'all',
+    availableFilters: ['all', 'cereals', 'oils', 'rices', 'fruits', 'fishs', 'breads', 'price1s', 'price2s', 'price3s'],
+    activeFilterName: 'all',
     products: [],
     fetchingProducts: false
 }

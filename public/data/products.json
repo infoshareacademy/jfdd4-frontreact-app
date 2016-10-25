@@ -4,7 +4,7 @@
         "name": "Kasza Jaglana 500 g",
         "description": "Kasza Jaglana jest smaczna, zdrowa i tania. Okreslana krolowa kasz. Jaglani rycerze bronia namietnie jej doskonalosci i maja racje!",
         "price": 4.99,
-        "category": "isCereal",
+        "category": "cereal",
         "shops": [1, 2, 3, 4, 5]
     },
     {
@@ -12,8 +12,80 @@
         "name": "Oliwa z oliwek 500 ml",
         "description": "Oliwa z oliwek z Grecji, dokladniej z Knosos jest jedna z najsmaczniejszych oliw na swiecie. Doskoanala do salatek.",
         "price": 9.99,
-        "category": "isOils",
+        "category": "oil",
         "shops": [1, 2,  4]
 
+    },
+    {
+        "id": 3,
+        "name": "Olej kokosowy 1 kg",
+        "description": "Interesujacy kokosowy smak i zapach. Tloczony na zimno. Na chleb, do pieczenai i smazenia. Uznany za najzdrowszy olej swiata",
+        "price": 9.99,
+        "category": "oil",
+        "shops": [2, 4],
+        "image": "/imageProduct/oil-coconut.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Makaron Razowy 500 g",
+        "description": "Ekonoliczny makaron z pszenicy orkiszowej z pelnego przemialu. Nie polecany dla bezglutenowcow",
+        "price": 2.49,
+        "category": "cereal",
+        "shops": [5],
+        "image": "/imageProduct/wheat-pasta.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Ryz Basmati 500 g",
+        "description": "Subtelny ryz basmati bialy charakteryzuje sie subtelnym smakiem i niepowtarzalnym aromatem. Stanowi najszlachetniejsza odmiane ryzu na swiecie.",
+        "price": 3.99,
+        "category": "rice",
+        "shops": [1, 3,  4],
+        "image": "/imageProduct/rice.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Morele Suszone 500 g",
+        "description": "Ekologiczne morele suszone smakuja przepysznie jako przekaska oraz dodatej do cieplej owsianki.",
+        "price": 12.49,
+        "category": "fruit",
+        "shops": [1],
+        "image": "/imageProduct/dried-apricots.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Losos Norweski 1 kg",
+        "description": "Produkt idealny jako przystawka do salatek i pieczywa. Dzieki bogatym kwasom tluszczowym omega 3 i 6 jest produktem bardzo zdrowym.",
+        "price": 66.66,
+        "category": "fish",
+        "shops": [1, 2, 5],
+        "image": "/imageProduct/salmon.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Tunczyk 1 kg",
+        "description": "Produkt idealny jako przystawka do salatek i pieczywa.",
+        "price": 66.66,
+        "category": "fish",
+        "shops": [2, 4],
+        "image": "/imageProduct/tuna.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Tatar z lososia 125 g",
+        "description": "Gotowy pyszny tatar z lososia, idealny zamiennik zdrowego posilku.",
+        "price": 9.99,
+        "category": "fish",
+        "shops": [1],
+        "image": "/imageProduct/salmon-tartare.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Chleb gryczany 500 g",
+        "description": "Swiezy chleb bezglutenowy Bio 500 g z farmy swietokrzyskiej. Polecany dla koneserow zdrowej zywnosci.",
+        "price": 5.99,
+        "category": "bread",
+        "shops": [4],
+        "image": "/imageProduct/buckwheat-bread.jpg"
     }
 ]
