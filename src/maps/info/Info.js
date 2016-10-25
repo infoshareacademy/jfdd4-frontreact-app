@@ -13,6 +13,6 @@ export default (props) =>
             <p>{props.info}</p>
             <p></p>
             <a id="link1" target="_blank" href={props.link}>Strona Sklepu</a>
-            <a id="link2" href="http://localhost:3000/shops">Dodaj do ulubionych</a>
+            <a id="link2" href="http://app.front-react.jfdd4.is-academy.pl/shops">Dodaj do ulubionych</a>
         </div>
     </div>
