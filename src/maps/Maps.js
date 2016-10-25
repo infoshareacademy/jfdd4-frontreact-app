@@ -22,6 +22,21 @@ function showPosition(position) {
         "<br>Longitude: " + position.coords.longitude);
 }
 
+function createMapOptions (maps) {
+
+    return {
+        panControl: true,
+        mapTypeControl: true,
+        scrollwheel: false,
+        zoomControlOptions: {
+            position: maps.ControlPosition.RIGHT_CENTER,
+            style: maps.ZoomControlStyle.LARGE
+        },
+        mapTypeControlOptions: {
+            position: maps.ControlPosition.TOP_RIGHT
+        }
+     }
+}
 
 export default class Shops extends React.Component {
     constructor() {
@@ -68,6 +83,7 @@ export default class Shops extends React.Component {
             "<br>Longitude: " + position.coords.longitude);
         }
 
+
         return (
                 <Well>
                     <PageHeader>Mapy
@@ -76,7 +92,8 @@ export default class Shops extends React.Component {
                 <GoogleMap
                     bootstrapURLKeys={{key: 'AIzaSyCIGFuueBb3ewt-Ewe7ySfhE9ZdHVjdPsc'}}
                     center={[54.408636, 18.588977]}
-                    zoom={13}>
+                    zoom={13}
+                    options={createMapOptions}>
                     {this.state.shops.map(function (shop) {
                         return <Place key={shop.id} selectShop={selectShop} shopId={shop.id} {...shop.location}
                                       icon={shop.icon} adres={shop.adres} opened={shop.opened}/>
