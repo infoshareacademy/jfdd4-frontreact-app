@@ -27,7 +27,8 @@ export default class Products extends React.Component {
     }
 
     render() {
-
+var a = this.state.products;
+        console.log(a);
         return (
             <div>
                 <Well>
