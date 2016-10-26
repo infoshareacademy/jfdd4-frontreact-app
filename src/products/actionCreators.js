@@ -1,4 +1,4 @@
-import { ACTIVATE_FILTER, REQUEST_PRODUCTS, RECEIVE_PRODUCTS }  from './actionTypes'
+import { ACTIVATE_FILTER, REQUEST_PRODUCTS, RECEIVE_PRODUCTS } from './actionTypes'
 import fetch from 'isomorphic-fetch'
 
 export function activateFilter(filterName) {
@@ -12,11 +12,29 @@ function requestProducts () {
     return {
         type: REQUEST_PRODUCTS
     }
-}z
-
-export const fetchProducts = () => dispatch => {
-    dispatch(requestProducts())
-    return fetch(`${process.env.PUBLIC_URL}/data/products.json`)
-        .then(response => { console.log(response); return response.json()})
-         .then (json => { console.log(json); return dispatch (receiveProducts(json))})
 }
+
+function receiveProducts (products) {
+    return {
+        type: RECEIVE_PRODUCTS,
+        products: products
+    }
+}
+
+export function fetchProducts () {
+    return function (dispatch) {
+        dispatch(requestProducts())
+        return fetch(`${process.env.PUBLIC_URL}/data/products.json`)
+            .then(response => response.json())
+            .then(products => dispatch(receiveProducts(products)))
+    }
+}
+
+// export function fetchProducts () {
+//     return function (dispatch) {
+//         dispatch(requestProducts())
+//         return fetch(`${process.env.PUBLIC_URL}/data/products.json`)
+//             .then(response => response.json())
+//             .then(json => dispatch(receiveProducts(json)))
+//     }
+// }

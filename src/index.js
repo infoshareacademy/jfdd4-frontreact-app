@@ -7,6 +7,7 @@ import Products from './products/Products';
 import Availability from './products/availability/Availability';
 import Shops from './shops/Shops';
 import Maps from './maps/Maps';
+import { fetchProducts } from './products/actionCreators'
 
 
 import Favorites from './favorites/Favorites';
@@ -32,7 +33,7 @@ ReactDOM.render(
         <Router history={browserHistory}>
             <Route path="/" component={App} >
                 <IndexRoute component={Dashboard} />
-                <Route path="/products" component={Products}/>
+                <Route path="/products" component={Products} onEnter={() => store.dispatch(fetchProducts())}/>
                 <Route path="/products/availability" component={Availability}/>
                 <Route path="/shops" component={Shops}/>
                 <Route path="/shops/:viewVariant" component={Shops}/>

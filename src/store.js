@@ -4,6 +4,7 @@ import createLogger from 'redux-logger'
 import productsReducer from './products/reducer'
 import persistState from 'redux-localstorage'
 import favoritesReducer from './app/favoriteReducer'
+
 let reducer = combineReducers({
     productsData: productsReducer,
     favorites: favoritesReducer
@@ -24,5 +25,9 @@ let store = createStore(
         persistState(['favorites'])
     )
 )
+
+store.subscribe(() => {
+    localStorage.setItem('favoriteProductIds', JSON.stringify(store.getState().productsData.favoriteProductIds || []))
+})
 
 export default store
