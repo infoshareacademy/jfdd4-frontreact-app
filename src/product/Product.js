@@ -8,7 +8,7 @@ import {
     finalState as finalShopsState
 } from '../data/dataShops'
 import { Link } from 'react-router'
-import { Well, Glyphicon, PageHeader, Table, Button, Grid, Col, Row } from 'react-bootstrap'
+import { Well, Glyphicon, PageHeader, Table, Button, Grid, Col, Row, Image } from 'react-bootstrap'
 
 
 
@@ -34,6 +34,8 @@ export default class Product extends React.Component {
             productData = this.props.params,
             productId = this.props.params.id,
             allProducts = this.state.products;
+            
+
 
         console.log(this.state.products);
         console.log(productsData.products);
@@ -56,7 +58,7 @@ export default class Product extends React.Component {
                                 function (product) {
                                     return (
                                         <div>
-                                            <img src={product.image}/>
+                                            <Image responsive className ="img-responsive" src={product.image}/>
                                                 <Table striped bordered condensed hover responsive>
                                                     <tbody>
                                                         <tr>
@@ -69,7 +71,7 @@ export default class Product extends React.Component {
                                                         </tr>
                                                         <tr>
                                                             <td colSpan="1">Opis</td>
-                                                            <td colSpan="2">{product.description}</td>
+                                                            <Col responsive colSpan="2">{product.description}</Col>
                                                         </tr>
                                                         <tr>
                                                             <td>Cena</td>
@@ -85,7 +87,7 @@ export default class Product extends React.Component {
                                                                         product.shops.indexOf(shop.id) !== -1
                                                                     )
                                                                     .map(
-                                                                        shop => <td>{shop.name}</td>
+                                                                        shop => <td>{shop.name}&nbsp;</td>
                                                                     )
                                                                 }
                                                             </td>
