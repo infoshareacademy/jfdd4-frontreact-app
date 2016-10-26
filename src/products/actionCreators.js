@@ -29,12 +29,3 @@ export function fetchProducts () {
             .then(products => dispatch(receiveProducts(products)))
     }
 }
-
-// export function fetchProducts () {
-//     return function (dispatch) {
-//         dispatch(requestProducts())
-//         return fetch(`${process.env.PUBLIC_URL}/data/products.json`)
-//             .then(response => response.json())
-//             .then(json => dispatch(receiveProducts(json)))
-//     }
-// }
