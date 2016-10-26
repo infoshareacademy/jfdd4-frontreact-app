@@ -3,6 +3,7 @@ import { MARK_PRODUCT_AS_FAVORITE, DISSMARK_PRODUCT_AS_FAVORITE } from './action
 const initialState = {
     favoriteProductIds: []
 }
+//tutaj beda productsId i favoriteproductId odczytane z API
 
 export default(state = initialState, action) => {
     switch (action.type) {
