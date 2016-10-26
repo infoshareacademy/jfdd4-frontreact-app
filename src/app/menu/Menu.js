@@ -42,6 +42,9 @@ export default class Menu extends Component {
                     <Nav pullRight>
                         <Nav><Item path={`/favorites`}>Ulubione</Item></Nav>
                     </Nav>
+                    <Nav pullRight>
+                        <Nav><Item path={`/shoppingList`}>Lista Zakupów</Item></Nav>
+                    </Nav>
                 </Navbar.Collapse>
             </Navbar>
         );
