@@ -3,9 +3,6 @@
  */
 import { ADD, REMOVE} from './actionTypes'
 
-const initialState = []
-
-import {default} from 'react'
 
 export default (state = 0, action) => {
     console.log(action)
@@ -18,6 +15,7 @@ export default (state = 0, action) => {
             else {
                 return state = 0
             }
-
+        default:
+            return state
     }
 }

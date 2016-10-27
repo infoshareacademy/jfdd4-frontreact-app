@@ -2,7 +2,7 @@
  * Created by kbro2 on 26.10.2016.
  */
 import React from 'react'
-import {Well, PageHeader, Button, Grid, Row, Col } from 'react-bootstrap'
+import {Well, PageHeader, Button, Grid, Row, Col, Image } from 'react-bootstrap'
 
 import { connect } from 'react-redux'
 import { addProduct } from './actionCreators'
@@ -32,11 +32,11 @@ const ShoppingList = (props) =>
         <Col md={3}>
             <Button onClick={() => props.addProduct()}>Dodaj do listy</Button>
         </Col>
-        <Col>
-            <ul>
-                {props.products.map(products => <li key={products.id}>{products.name}</li>)}
-            </ul>
-        </Col>
+        {/*<Col>*/}
+            {/*<ul>*/}
+                {/*{props.products.map(products => <li key={products.id}>{products.name}</li>)}*/}
+            {/*</ul>*/}
+        {/*</Col>*/}
     </Row>
 </Well>
 

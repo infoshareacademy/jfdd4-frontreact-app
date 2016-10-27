@@ -1,8 +1,9 @@
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
-import  shoppingListReducer from './shoppingList'
-import  putterReducer from './shoppingList/putter'
+import  shoppingListReducer from './shoppingList/reducer'
+import  {reducer as putterReducer} from './shoppingList/putter'
+import persistState from 'redux-localstorage'
 
 let reducer = combineReducers({
     putter: putterReducer,
@@ -20,7 +21,8 @@ let store = createStore(
         applyMiddleware(
             thunkMiddleware, // lets us dispatch() functions
             loggerMiddleware
-        )
+        ),
+        persistState('putter')
     )
 )
 
