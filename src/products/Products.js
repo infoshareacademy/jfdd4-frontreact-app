@@ -2,7 +2,7 @@ import React from 'react'
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
 import { connect } from 'react-redux'
 import { activateFilter } from './actionCreators'
-import { markProductAsFavorite, dissmarkProductAsFavorite } from '../app/actionCreators'
+import { markProductAsFavorite, dissmarkProductAsFavorite, addToFavorites } from '../app/actionCreators'
 import filters from './filters'
 
 import { Well, Glyphicon, PageHeader, Table, Button } from 'react-bootstrap'
@@ -21,7 +21,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     activateFilter: (filterId) => dispatch(activateFilter(filterId)),
     favoriteProduct: (productId) => dispatch(markProductAsFavorite(productId)),
-    dissmarkProduct: (productId) => dispatch(dissmarkProductAsFavorite(productId))
+    dissmarkProduct: (productId) => dispatch(dissmarkProductAsFavorite(productId)),
+    addToFavorites: (productId) => dispatch(addToFavorites(productId))
 })
 
 
@@ -32,7 +33,8 @@ const Products = ({
     activeFilter,
     activateFilter,
     favoriteProduct,
-    dissmarkProduct
+    dissmarkProduct,
+    addToFavorites
 }) => (
 <div>
 <h1>Products</h1>
@@ -59,7 +61,7 @@ const Products = ({
                         <td>{product.name}</td>
                         <td>{product.price}</td>
                         <td className="text-right">
-                            <button onClick={() => favoriteProduct(product.id)}>
+                            <button onClick={() => addToFavorites(product.id)}>
                                 Add to favorites
                             </button>
                             <button onClick={() => dissmarkProduct(product.id)}>
