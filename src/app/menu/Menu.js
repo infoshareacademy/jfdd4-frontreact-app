@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Menu.css'
 import Item from './item/Item'
-import { Grid, Row, Col, Well , Navbar, Nav } from 'react-bootstrap'
+import {Navbar, Nav } from 'react-bootstrap'
 import GoogleLogin from 'react-google-login';
 
 export default class Menu extends Component {
@@ -43,7 +43,7 @@ export default class Menu extends Component {
                         <Nav><Item path={`/favorites`}>Ulubione</Item></Nav>
                     </Nav>
                     <Nav pullRight>
-                        <Nav><Item path={`/shoppingList`}>Lista Zakupów</Item></Nav>
+                        <Nav><Item path={`/shoppingList-redux`}>Lista Zakupów</Item></Nav>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

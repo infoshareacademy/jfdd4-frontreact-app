@@ -22,7 +22,7 @@ export default class shoppingList extends React.Component {
     }
 
     _MinusClick() {
-        if (this.state.numberOfClicks >= 1) {
+        if (this.state.numberOfClicks > 0) {
             this.setState({
                 numberOfClicks: this.state.numberOfClicks - 1
             })
@@ -31,10 +31,7 @@ export default class shoppingList extends React.Component {
             console.log('oops')
         }
     }
-        
-    
-
-        
+         
     render() {
         return (
             <Well>
