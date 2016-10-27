@@ -1,46 +1,29 @@
 import React from 'react'
-import { Well, Glyphicon, PageHeader, Table, Button, ButtonGroup, ButtonToolbar } from 'react-bootstrap'
+import { Well, Glyphicon, PageHeader, Table, Button } from 'react-bootstrap'
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
 import { markShopAsFavorite, getFavoriteShops, dissMarkShopAsFavorite } from'../marketFavorites/favoriteShops'
-import {
-    initialState as initialShopsState,
-    finalState as finalShopsState
-} from '../data/dataShops'
-import {
-    initialState as initialProductsState,
-    finalState as finalProductsState
-} from '../data/dataProducts'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
 
 const mapStateToProps = (state) => ({
     shops: state.shopsData.shops,
+    products: state.productsData.products,
     fetchingShops: state.shopsData.fetchingShops
 })
 
  class Shops extends React.Component {
-    constructor() {
-        super()
 
-        this.state = {
-            productsData: initialProductsState
-        }
-    }
 
-    componentWillMount() {
-        var context = this;
-        context.setState({productsData: finalProductsState})
 
-    }
 
     render() {
         var
             favourites = getFavoriteShops(),
             forceUpdate = this.forceUpdate.bind(this),
-            productsData = this.state.productsData,
             viewVariant = this.props.params.viewVariant,
-            shops = this.props.shops;
+            shops = this.props.shops,
+            products = this.props.products;
 
 
         // console.log(this.props.params.viewVariant);
@@ -79,7 +62,7 @@ const mapStateToProps = (state) => ({
                                 <Button bsStyle="danger" onClick={() => {dissMarkShopAsFavorite(shop);forceUpdate(); alert("Usunięto sklep z ulubionych")}}><Glyphicon glyph="glyphicon glyphicon-remove" aria-hidden="true"/></Button>
                                 {viewVariant === 'with-products' ?
                                     <ul>
-                                        {productsData.products.filter(function (product) {
+                                        {products.filter(function (product) {
                                             for( var i = 0; i < product.shops.length; i++ ){
                                                 if (product.shops[i] === shop.id) {
                                                     return true;
