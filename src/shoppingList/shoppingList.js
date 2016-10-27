@@ -8,14 +8,13 @@ import ClickButton from './clickButton/ClickButton';
 export default class shoppingList extends React.Component {
     constructor() {
         super();
-        this.state = {
-            numberOfClicks: 0            
-        };
+        this.state = {numberOfClicks: 0};
         
+         
         this._PlusClick = this._PlusClick.bind(this);
         this._MinusClick = this._MinusClick.bind(this);
     }
-
+    
     _PlusClick() {
         this.setState({
             numberOfClicks: this.state.numberOfClicks + 1
@@ -23,12 +22,19 @@ export default class shoppingList extends React.Component {
     }
 
     _MinusClick() {
-        this.setState({
-            numberOfClicks: this.state.numberOfClicks - 1
-        });
+        if (this.state.numberOfClicks >= 1) {
+            this.setState({
+                numberOfClicks: this.state.numberOfClicks - 1
+            })
+        }
+        else {
+            console.log('oops')
+        }
     }
+        
+    
 
-
+        
     render() {
         return (
             <Well>
@@ -43,12 +49,12 @@ export default class shoppingList extends React.Component {
                     <h1>{this.state.numberOfClicks}</h1>
                 </Col>
                     <div>
-                        <ClickButton handleClick={this._PlusClick}>  {this.props.children}
-                           wiecej</ClickButton>
+                        <ClickButton handleClick={this._PlusClick}>  
+                           Wiecej</ClickButton>
                     </div>
 
                     <div>
-                        <ClickButton handleClick={this._MinusClick}>  {this.props.children}
+                        <ClickButton handleClick={this._MinusClick}> 
                             Mniej</ClickButton>
                     </div>
                     <Col md={3}>
