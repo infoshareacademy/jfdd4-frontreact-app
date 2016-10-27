@@ -12,7 +12,8 @@ export default (state = 0, action) => {
             else {
                 return state = 0
             }
-
+        default:
+            return state
     }
 }
   

@@ -1,7 +1,7 @@
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
-import { reducer as counterReducer } from './shoppingList-redux'
+import { reducer as counterReducer } from './shoppingList'
 
 
 let reducer = combineReducers({

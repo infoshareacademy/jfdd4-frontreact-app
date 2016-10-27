@@ -25,7 +25,7 @@ let ShoppingList = ({ counterValue, onIncClick, onDecClick, onResetClick }) => (
                 <Image src="/img/stokrotka.jpg" rounded/>
             </Col>
             <Col md={3}>
-                <h1>1 = {counterValue}</h1>
+                <h1>Ilość = {counterValue}</h1>
             </Col>
             <button onClick={() => onIncClick()}>Increase</button>
             <button onClick={() => onDecClick()}>Decrease</button>

@@ -43,7 +43,7 @@ export default class Menu extends Component {
                         <Nav><Item path={`/favorites`}>Ulubione</Item></Nav>
                     </Nav>
                     <Nav pullRight>
-                        <Nav><Item path={`/shoppingList-redux`}>Lista Zakupów</Item></Nav>
+                        <Nav><Item path={`/shoppingList`}>Lista Zakupów</Item></Nav>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

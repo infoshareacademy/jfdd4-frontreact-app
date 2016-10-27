@@ -10,7 +10,7 @@ import Maps from './maps/Maps';
 
 
 import Favorites from './favorites/Favorites';
-import ShoppingList from './shoppingList-redux/ShoppingList'
+import ShoppingList from './shoppingList/ShoppingList'
 import { Provider } from 'react-redux';
 import store from './store';
 
@@ -32,7 +32,7 @@ ReactDOM.render(
                 <Route path="/shops" component={Shops}/>
                 <Route path="/shops/:viewVariant" component={Shops}/>
                 <Route path="/maps" component={Maps}/>
-                <Route path="/ShoppingList" component={ShoppingList}/>
+                <Route path="/shoppingList" component={ShoppingList}/>
                 <Route path="/favorites" component={Favorites}/>
                 <Route path="/login" component={Login}/>
             </Route>
