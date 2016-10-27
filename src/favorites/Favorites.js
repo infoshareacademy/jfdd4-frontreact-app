@@ -1,48 +1,74 @@
-import React from 'react'
-import DataShops from '../data/dataShops'
-import {finalState} from '../data/dataProducts'
-import DataProducts from '../data/dataProducts'
-import { Well, Glyphicon, PageHeader, Table, Button } from 'react-bootstrap'
+import {
+    default as React,
+    Component,
+} from "react";
 
-function getFavoriteShops() {
-    return JSON.parse(localStorage.getItem('favoriteShops')) || []
-}
-function getFavoriteProducts() {
-    return JSON.parse(localStorage.getItem('favoriteProducts')) || []
-}
+import {
+    ToastContainer,
+    ToastMessage,
+} from 'react-toastr';
 
+import "./Favorites.css";
 
-export default class Favorites extends React.Component {
+const ToastMessageFactory = React.createFactory(ToastMessage.animation);
+
+export default class App extends Component {
+
+    addAlert = this.addAlert.bind(this);
+    clearAlert = this.clearAlert.bind(this);
+
+    addAlert() {
+        this.refs.container.success(`hi! Now is ${new Date()}`, `///title\\\\\\`, {
+            closeButton: true,
+        });
+    }
+
+    clearAlert() {
+        this.refs.container.clear();
+    }
+
     render() {
-        var prop = this.props;
-
-        var favShopsIds = getFavoriteShops();
-        var favProductsIds = getFavoriteProducts();
-
         return (
-        <div>
-            <Well>
-                <PageHeader>Ulubione sklepy
-                    <small> lista dodanych sklepow do ulubionych.</small></PageHeader>
-                    <ul>{DataShops.finalState.shops
-                        .filter(s =>
-                            favShopsIds.filter(favShop => favShop === s.id).length
-                        ).map(s => {
-                            return <tr key={s.id}><td>{s.name}</td></tr>
-                        })}</ul>
-                <PageHeader>Ulubione produkty
-                    <small> lista dodanych produktów do listy zakupowej.</small></PageHeader>
-                <ul>
-                    {finalState.products
-                    .filter(prod =>
-                        favProductsIds.find(favProd => favProd === prod.id)
-                    ).map(prod => {
-                        return <tr key={prod.id}><td>{prod.name}</td></tr>
-                    })}
-                    </ul>
+            <div>
+                <ToastContainer
+                    toastMessageFactory={ToastMessageFactory}
+                    ref="container"
+                    className="toast-top-right"
+                />
 
-            </Well>
-        </div>
-        )
+                <h1>
+                    React-Toastr
+                    <small>React.js toastr component</small>
+                </h1>
+
+                <div className="btn-container">
+                    <button className="primary" onClick={this.addAlert}>
+                        Hello
+                    </button>
+                    <button className="primary" onClick={this.clearAlert}>
+                        CLEAR
+                    </button>
+                </div>
+
+                <div className="github-button-container">
+                    <iframe
+                        src="https://ghbtns.com/github-btn.html?user=tomchentw&amp;repo=react-toastr&amp;type=watch&amp;count=true"
+                        allowTransparency="true"
+                        frameBorder="0"
+                        scrolling="0"
+                        width="90"
+                        height="20"
+                    />
+                    <iframe
+                        src="https://ghbtns.com/github-btn.html?user=tomchentw&amp;repo=react-toastr&amp;type=fork&amp;count=true"
+                        allowTransparency="true"
+                        frameBorder="0"
+                        scrolling="0"
+                        width="90"
+                        height="20"
+                    />
+                </div>
+            </div>
+        );
     }
 }
