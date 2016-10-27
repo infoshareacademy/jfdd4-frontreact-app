@@ -11,22 +11,26 @@ import {
     finalState as finalProductsState
 } from '../data/dataProducts'
 import { Link } from 'react-router'
+import { connect } from 'react-redux'
 
-export default class Shops extends React.Component {
+
+const mapStateToProps = (state) => ({
+    shops: state.shopsData.shops,
+    fetchingShops: state.shopsData.fetchingShops
+})
+
+ class Shops extends React.Component {
     constructor() {
         super()
 
         this.state = {
-            shops: finalShopsState.shops,
-            shopsData: initialShopsState,
             productsData: initialProductsState
         }
     }
 
     componentWillMount() {
         var context = this;
-        context.setState({productsData: finalProductsState}),
-            context.setState({ shopsData: finalShopsState})
+        context.setState({productsData: finalProductsState})
 
     }
 
@@ -34,9 +38,10 @@ export default class Shops extends React.Component {
         var
             favourites = getFavoriteShops(),
             forceUpdate = this.forceUpdate.bind(this),
-            shopsData = this.state.shopsData,
             productsData = this.state.productsData,
-            viewVariant = this.props.params.viewVariant;
+            viewVariant = this.props.params.viewVariant,
+            shops = this.props.shops;
+
 
         // console.log(this.props.params.viewVariant);
         // console.log(productsData.products);
@@ -65,7 +70,7 @@ export default class Shops extends React.Component {
                         transitionName="example"
                         transitionEnterTimeout={500}
                         transitionLeaveTimeout={300}>
-                    {this.state.shops.map(function (shop) {
+                    {shops.map(function (shop) {
                         return (
                             <tr className={favourites.find(shopId => shopId === shop.id) ? 'favourite' : ''} key={shop.id}>
                                     <td>{shop.name}</td>
@@ -101,3 +106,6 @@ export default class Shops extends React.Component {
     }
 
 }
+
+
+export default connect(mapStateToProps)(Shops)

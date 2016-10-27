@@ -2,6 +2,7 @@ import { MARK_PRODUCT_AS_FAVORITE, DISSMARK_PRODUCT_AS_FAVORITE } from './action
 
 const initialState = {
     favoriteProductIds: []
+    
 }
 
 export default(state = initialState, action) => {
@@ -14,6 +15,7 @@ export default(state = initialState, action) => {
             return Object.assign ({}, state, {
             favoriteProductIds: state.favoriteProductIds.remove([action.productId])
         })
+        
         default:
             return state
     }
