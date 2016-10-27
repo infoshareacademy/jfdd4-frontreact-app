@@ -7,7 +7,7 @@ import Products from './products/Products';
 import Product from './product/Product';
 import Shops from './shops/Shops';
 import Maps from './maps/Maps';
-
+import Putter from './shoppingList/putter/Putter'
 
 import Favorites from './favorites/Favorites';
 import ShoppingList from './shoppingList/ShoppingList'

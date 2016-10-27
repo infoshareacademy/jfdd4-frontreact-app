@@ -1,11 +1,12 @@
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
-import { reducer as counterReducer } from './shoppingList'
-
+import  shoppingListReducer from './shoppingList'
+import  putterReducer from './shoppingList/putter'
 
 let reducer = combineReducers({
-    counter: counterReducer
+    putter: putterReducer,
+    shoppingList: shoppingListReducer
 })
 
 // Create a Redux store holding the state of your app.

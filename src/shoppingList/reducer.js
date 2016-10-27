@@ -1,19 +1,14 @@
-import { INCREMENT, DECREMENT} from './actionTypes'
+
+import { GET_PRODUCTS_END } from './actionTypes'
 
 
-export default (state = 0, action) => {
-    console.log(action)
+const initialState = []
+
+export default (state = initialState, action ) => {
     switch (action.type) {
-        case INCREMENT:
-            return state + action.payload
-        case DECREMENT:
-            if (state > 0 ){
-                return state - action.payload}
-            else {
-                return state = 0
-            }
+        case GET_PRODUCTS_END:
+            return action.products
         default:
             return state
     }
 }
-  
