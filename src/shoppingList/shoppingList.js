@@ -3,30 +3,30 @@
  */
 import React from 'react'
 import {Button, Well , PageHeader, Row, Col, Image } from 'react-bootstrap'
-
+import ClickButton from './clickButton/ClickButton';
 
 export default class shoppingList extends React.Component {
     constructor() {
         super();
         this.state = {
-            numberOfClicks: 0
+            numberOfClicks: 0            
         };
-        this._handlePlusClick = this._handlePlusClick.bind(this);
-        this._handleMinusClick = this._handleMinusClick.bind(this);
-        }
+        
+        this._PlusClick = this._PlusClick.bind(this);
+        this._MinusClick = this._MinusClick.bind(this);
+    }
 
-    _handlePlusClick() {
+    _PlusClick() {
         this.setState({
             numberOfClicks: this.state.numberOfClicks + 1
         });
     }
 
-    _handleMinusClick() {
+    _MinusClick() {
         this.setState({
             numberOfClicks: this.state.numberOfClicks - 1
         });
     }
-
 
 
     render() {
@@ -37,23 +37,20 @@ export default class shoppingList extends React.Component {
                 </PageHeader>
                 <Row>
                     <Col md={3}>
-                        <Image src="/img/stokrotka.jpg"/>
+                        <Image src="/img/stokrotka.jpg" rounded/>
                     </Col>
                     <Col md={3}>
                     <h1>{this.state.numberOfClicks}</h1>
                 </Col>
-                    <Col md={3}>
-                        <Button handleClick={this._handlePlusClick}>  {this.props.children}
-                           wiecej</Button>
-                    </Col>
+                    <div>
+                        <ClickButton handleClick={this._PlusClick}>  {this.props.children}
+                           wiecej</ClickButton>
+                    </div>
 
-                    <Col md={3}>
-                        <Button
-                            disabled={this.props.isDisabled}
-                            onClick={this.props.handleClick}
-                            handleClick={this._handleMinusClick}>  {this.props.children}
-                            Mniej</Button>
-                    </Col>
+                    <div>
+                        <ClickButton handleClick={this._MinusClick}>  {this.props.children}
+                            Mniej</ClickButton>
+                    </div>
                     <Col md={3}>
                         <Button type="submit" class="btn btn-default" onclick="addPost();return false;">Dodaj do listy</Button>
                     </Col>
