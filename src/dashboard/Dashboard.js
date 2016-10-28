@@ -3,7 +3,7 @@ import { Row, Col} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
 import 'react-bootstrap'
-// import { Link } from 'react-router'
+import { Link } from 'react-router'
 import './Dashboard.css'
 
 export default (props) =>

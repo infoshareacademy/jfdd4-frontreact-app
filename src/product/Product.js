@@ -43,7 +43,6 @@ export default class Product extends React.Component {
         return (
 
             <div>
-                <Well>
                     <div>&#x2002;</div>
                      <ul >
                         {productsData.products
@@ -100,7 +99,6 @@ export default class Product extends React.Component {
                             )
                         }
                     </ul>
-                    </Well>
                 <Link to={'/products'}>
                     <Button  bsStyle="primary">Powrót do listy produktów</Button>
                 </Link>
@@ -110,5 +108,69 @@ export default class Product extends React.Component {
     }
 }
 
+
+// <div>
+//     <Well>
+//         <div>&#x2002;</div>
+//         <ul >
+//             {productsData.products
+//                 .filter(
+//                     function(product) {
+//                         if(productId == product.id){
+//                             return  true
+//                         }
+//                     }
+//                 )
+//                 .map(
+//                     function (product) {
+//                         return (
+//                             <div>
+//                                 <Image responsive className ="img-responsive" src={product.image}/>
+//                                 <Table striped bordered condensed hover responsive>
+//                                     <tbody>
+//                                     <tr>
+//                                         <td>Id</td>
+//                                         <td>{productId}</td>
+//                                     </tr>
+//                                     <tr>
+//                                         <td>Nazwa</td>
+//                                         <td>{product.name}</td>
+//                                     </tr>
+//                                     <tr>
+//                                         <td colSpan="1">Opis</td>
+//                                         <Col responsive colSpan="2">{product.description}</Col>
+//                                     </tr>
+//                                     <tr>
+//                                         <td>Cena</td>
+//                                         <td>{product.price} zł</td>
+//                                     </tr>
+//                                     <tr>
+//                                         <td>Dostępność</td>
+//                                         <td  key={product.id}>
+//                                             {finalShopsState
+//                                                 .shops
+//                                                 .filter(
+//                                                     shop =>
+//                                                     product.shops.indexOf(shop.id) !== -1
+//                                                 )
+//                                                 .map(
+//                                                     shop => <td>{shop.name}&nbsp;</td>
+//                                                 )
+//                                             }
+//                                         </td>
+//                                     </tr>
+//                                     </tbody>
+//                                 </Table>
+//                             </div>
+//                         )
+//                     }
+//                 )
+//             }
+//         </ul>
+//     </Well>
+//     <Link to={'/products'}>
+//         <Button  bsStyle="primary">Powrót do listy produktów</Button>
+//     </Link>
+// </div>
 
 

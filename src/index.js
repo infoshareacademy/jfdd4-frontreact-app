@@ -39,8 +39,6 @@ ReactDOM.render(
                 <Route path="/favorites" component={Favorites}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/list" component={List}/>
-
-
             </Route>
         </Router>
     </Provider>,

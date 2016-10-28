@@ -1,0 +1,14 @@
+.break {
+    height: 50px;
+    /*background-color: #00b3ee;*/
+}
+
+.filter {
+    height: 50px;
+    /*background-color: #00b3ee;*/
+}
+
+.product {
+    min-width: 250px;
+    margin: 20px;
+}
