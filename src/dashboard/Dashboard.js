@@ -1,30 +1,33 @@
 import React from 'react'
-import { Well, PageHeader, Table } from 'react-bootstrap'
+import { Row, Col} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
 import 'react-bootstrap'
+// import { Link } from 'react-router'
+import './Dashboard.css'
 
 export default (props) =>
 
-    <div>
-        <Well>
-        <PageHeader>Wybierzesz najlepsze produkty<br />
-            <small> Nie ruszając się z domu. Nigdy nie było to takie proste.</small></PageHeader>
-                <samp>
-        Nasza aplikacja to obsługa ułatwienia dostepu, która pomaga użytkownikom korzystac w sposób wygodny i prosty
-        na tworzenie listy zakupowej na podstawie preferencji użytkownika.
-            <br /><br />
-        Dodaje ona możliwość prezentowania informacji o sklepach i produktach oraz o lokalizowaniu ich w oparciu o mapy.
-
-            <br /><br />
-                    <h3>Główne cechy aplikacji :</h3><br />
-                    <div className="alert alert-success" role="alert">
-                     - dynamika,<br />
-                     - dostępność na urządzenia mobilne,<br />
-                     - prostota,<br />
-                    - lokalizacja sklepów w oparciu o bieżące położenie użytkownika,<br />
-                        - tworzenie listy produktow i sklepow.<br />
+<Row>
+     <Col xs={12} md={4}>
+        <Link to={'/products'}>
+            <div className="main-icon">
+                Produkty
+            </div>
+        </Link>
+    </Col>
+    <Col xs={12} md={4}>
+            <Link to={'/list'}>
+                <div className="main-icon">
+                    Lista zakupów
                 </div>
-                </samp>
-        </Well>
-    </div>
+            </Link>
+        </Col>
+    <Col xs={12} md={4}>
+        <Link to={'/maps'}>
+            <div className="main-icon">
+                Mapy
+            </div>
+        </Link>
+    </Col>
+</Row>

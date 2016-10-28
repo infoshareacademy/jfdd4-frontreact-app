@@ -7,16 +7,14 @@ import Products from './products/Products';
 import Availability from './products/availability/Availability';
 import Shops from './shops/Shops';
 import Maps from './maps/Maps';
+import List from './list/List';
 import { fetchProducts } from './products/actionCreators'
 
-
 import Favorites from './favorites/Favorites';
-
 import { Provider } from 'react-redux';
 import store from './store';
 
 import Login from './login/Login';
-
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
@@ -40,6 +38,8 @@ ReactDOM.render(
                 <Route path="/maps" component={Maps}/>
                 <Route path="/favorites" component={Favorites}/>
                 <Route path="/login" component={Login}/>
+                <Route path="/list" component={List}/>
+
 
             </Route>
         </Router>
