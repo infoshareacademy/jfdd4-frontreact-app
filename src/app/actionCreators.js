@@ -1,4 +1,4 @@
-import{ MARK_PRODUCT_AS_FAVORITE, DISSMARK_PRODUCT_AS_FAVORITE, ADD_TO_FAVORITES_BEGIN, ADD_TO_FAVORITES_END, ADD_SHOP_TO_FAVORITES_BEGIN } from './actionTypes'
+import{ MARK_PRODUCT_AS_FAVORITE, DISSMARK_PRODUCT_AS_FAVORITE, ADD_TO_FAVORITES_BEGIN, ADD_TO_FAVORITES_END } from './actionTypes'
 
 export function markProductAsFavorite(productId) {
     return {
@@ -29,18 +29,7 @@ function addToFavoritesEnd (productId) {
     }
 }
 
-function addShopToFavoritesBegin (shopId) {
-    return {
-        type: ADD_SHOP_TO_FAVORITES_BEGIN,
-        shopId: shopId
-    }
-}
-function addShopToFavoritesEnd (shopId) {
-    return {
-        type: ADD_TO_FAVORITES_BEGIN,
-        shopId: shopId
-    }
-}
+
 
 export function addToFavorites (productId) {
     return function (dispatch) {
@@ -51,11 +40,3 @@ export function addToFavorites (productId) {
     }
 }
 
-export function addToFavoritesShops (shopId) {
-    return function (dispatch) {
-        dispatch(addShopToFavoritesBegin(shopId))
-        return fetch()
-            .then(response => response.json())
-            .then(shops => dispatch(addShopToFavoritesEnd(shopId)))
-    }
-}
