@@ -6,7 +6,7 @@ import {
 
 } from 'react-toastr';
 
-import "./Favorites.css";
+import 
 
 const ToastMessageFactory = React.createFactory(ToastMessage.animation);
 
