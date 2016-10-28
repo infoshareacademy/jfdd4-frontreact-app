@@ -3,17 +3,18 @@
  */
 import React from 'react'
 import {Well, PageHeader, Button, Grid, Row, Col, Image } from 'react-bootstrap'
-
+import Amount from './amount/Amount'
 import { connect } from 'react-redux'
 import { addProduct } from './actionCreators'
 import { counterValue, onAddClick, onRevClick } from './putter/Putter'
+
 const mapStateToProps = (state) => ({
     products: state.products
 })
 
-const mapDispatchToProps = (dispatch) => ({
-    addProduct: () => dispatch(addProduct())
-})
+// const mapDispatchToProps = (dispatch) => ({
+//     addProduct: () => dispatch(addProduct())
+// })
 
 const ShoppingList = (props) =>
 <Well>
@@ -24,14 +25,9 @@ const ShoppingList = (props) =>
         <Col md={3}>
             <Image src="/img/stokrotka.jpg" rounded/>
         </Col>
-        <Button onClick={() => onAddClick()}>Increase</Button>
-        <Col md={3}>
-            <h1>Ilość = {counterValue}</h1>
-        </Col>
-        <Button onClick={() => onRevClick()}>Decrease</Button>
-        <Col md={3}>
-            <Button onClick={() => props.addProduct()}>Dodaj do listy</Button>
-        </Col>
+        <Col>
+        <Amount></Amount>
+        </Col>    
         {/*<Col>*/}
             {/*<ul>*/}
                 {/*{props.products.map(products => <li key={products.id}>{products.name}</li>)}*/}
@@ -40,7 +36,7 @@ const ShoppingList = (props) =>
     </Row>
 </Well>
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShoppingList)
+export default connect(mapStateToProps)(ShoppingList)
 
 
 
