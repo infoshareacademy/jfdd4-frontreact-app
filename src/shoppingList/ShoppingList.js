@@ -6,17 +6,20 @@ import {Well, PageHeader, Button, Grid, Row, Col, Image } from 'react-bootstrap'
 import Amount from './amount/Amount'
 import { connect } from 'react-redux'
 import { addProduct } from './actionCreators'
-import { counterValue, onAddClick, onRevClick } from './putter/Putter'
+import EditScoreForm from './edit-score-form/EditScoreForm'
 
 const mapStateToProps = (state) => ({
     products: state.products
 })
 
-// const mapDispatchToProps = (dispatch) => ({
-//     addProduct: () => dispatch(addProduct())
-// })
+const mapDispatchToProps = (dispatch) => ({
+    addProduct: () => dispatch(addProduct()),
+    updateAchievement: (achievementId, score) => dispatch(updateScore(achievementId, score))
+})
 
-const ShoppingList = (props) =>
+const ShoppingList = ({   
+    updateAchievement
+}) => (
 <Well>
     <PageHeader>Lista Zakupów
         <small> zrób listę</small>
@@ -26,7 +29,7 @@ const ShoppingList = (props) =>
             <Image src="/img/stokrotka.jpg" rounded/>
         </Col>
         <Col>
-        <Amount></Amount>
+        <Amount />
         </Col>    
         {/*<Col>*/}
             {/*<ul>*/}

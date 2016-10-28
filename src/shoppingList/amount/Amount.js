@@ -2,25 +2,24 @@
  * Created by kbro2 on 26.10.2016.
  */
 import React from 'react'
-import ClickButton from './clickButton/ClickButton';
 
-export default class Amount extends React.Component {
+export default class Amount extends  React.Component {
+
     constructor() {
         super();
-        this.state = {numberOfClicks: 0};
-        
-         
-        this._PlusClick = this._PlusClick.bind(this);
-        this._MinusClick = this._MinusClick.bind(this);
-    }
-    
-    _PlusClick() {
-        this.setState({
-            numberOfClicks: this.state.numberOfClicks + 1
-        });
+        this.state = {
+            numberOfClicks: 0
+        };
+        this._plusClick = this._plusClick.bind(this)
+        this._minusClick = this._minusClick.bind(this)
+       
     }
 
-    _MinusClick() {
+    _plusClick() {
+        this.setState({
+            numberOfClicks: this.state.numberOfClicks + 1
+        })
+    }_minusClick() {
         if (this.state.numberOfClicks >= 1) {
             this.setState({
                 numberOfClicks: this.state.numberOfClicks - 1
@@ -30,21 +29,20 @@ export default class Amount extends React.Component {
             console.log('oops')
         }
     }
-        
-render() {
-    return (
-       <Amount>
-           <div>
-               <ClickButton handleClick={this._PlusClick}>  
-                   Dodaj
-               </ClickButton>
-           </div>
-           <h1>{this.state.numberOfClicks}</h1>
-           <div>                     
-               <ClickButton handleClick={this._MinusClick}> 
-                   Usuń
-               </ClickButton>
-           </div>
-       </Amount>
-    )}
-}
+
+    render() {
+        return (
+            <div className="counter">
+                <h3>Counter</h3>
+                <h1>{this.props.children}
+                    {this.state.numberOfClicks}
+                </h1>
+                <button
+                    onClick={this._plusClick}>
+                    Plus</button>
+                <button
+                    onClick={this._minusClick}>
+                    Minus</button>
+            </div>
+        )
+    }}
