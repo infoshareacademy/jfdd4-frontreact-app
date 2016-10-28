@@ -31,11 +31,11 @@ const ShoppingList = ({
         <Col>
         <Amount />
         </Col>    
-        {/*<Col>*/}
-            {/*<ul>*/}
-                {/*{props.products.map(products => <li key={products.id}>{products.name}</li>)}*/}
-            {/*</ul>*/}
-        {/*</Col>*/}
+        <Col>
+            <ul>
+                {props.products.map(products => <li key={products.id}>{products.name}</li>)}
+            </ul>
+       </Col>
     </Row>
 </Well>
 
