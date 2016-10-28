@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Menu.css'
 import Item from './item/Item'
-import { Grid, Row, Col, Well , Navbar, Nav } from 'react-bootstrap'
+import { Grid, Row, Col, Well , Navbar, Nav, FormGroup, FormControl, Button  } from 'react-bootstrap'
 
 export default class Menu extends Component {
     render() {
@@ -28,6 +28,13 @@ export default class Menu extends Component {
                             </Item>
                         </Nav>
                     </Nav>
+                    <Navbar.Form pullLeft>
+                        <FormGroup>
+                            <FormControl type="text" placeholder="Search" />
+                        </FormGroup>
+                        {' '}
+                        <Button type="submit">Submit</Button>
+                    </Navbar.Form>
                     <Nav pullRight>
                         <Nav><Item path={`/favorites`}>Ulubione</Item></Nav>
                     </Nav>
