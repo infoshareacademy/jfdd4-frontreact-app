@@ -1,24 +1,22 @@
-import {
-    default as React,
-    Component,
-} from "react";
+import React from "react";
 
 import {
     ToastContainer,
     ToastMessage,
+
 } from 'react-toastr';
 
 import "./Favorites.css";
 
 const ToastMessageFactory = React.createFactory(ToastMessage.animation);
 
-export default class App extends Component {
+export default class App extends React.Component {
 
     addAlert = this.addAlert.bind(this);
     clearAlert = this.clearAlert.bind(this);
 
     addAlert() {
-        this.refs.container.success(`hi! Now is ${new Date()}`, `///title\\\\\\`, {
+        this.refs.container.success(`Dodałeś produkt o nazwie  do ulubionych`, ``, {
             closeButton: true,
         });
     }
@@ -50,24 +48,7 @@ export default class App extends Component {
                     </button>
                 </div>
 
-                <div className="github-button-container">
-                    <iframe
-                        src="https://ghbtns.com/github-btn.html?user=tomchentw&amp;repo=react-toastr&amp;type=watch&amp;count=true"
-                        allowTransparency="true"
-                        frameBorder="0"
-                        scrolling="0"
-                        width="90"
-                        height="20"
-                    />
-                    <iframe
-                        src="https://ghbtns.com/github-btn.html?user=tomchentw&amp;repo=react-toastr&amp;type=fork&amp;count=true"
-                        allowTransparency="true"
-                        frameBorder="0"
-                        scrolling="0"
-                        width="90"
-                        height="20"
-                    />
-                </div>
+                
             </div>
         );
     }
