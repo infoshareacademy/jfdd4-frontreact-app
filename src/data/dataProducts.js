@@ -1,3 +1,4 @@
+
 var initialState = {
     products: [],
     // isLoading: true,
@@ -25,6 +26,7 @@ var finalState = {
             price: 4.99,
             category: 'kasze',
             shops: [1, 2, 3, 4, 5],
+            image: '/imageProduct/millet.jpg',
         },
         {
             id: 2,
@@ -33,7 +35,7 @@ var finalState = {
             price: 9.99,
             category: 'olej',
             shops: [1, 2,  4],
-
+            image: '/imageProduct/oil.jpg',
         },
         {
             id: 3,
@@ -42,6 +44,7 @@ var finalState = {
             price: 9.99,
             category: 'olej',
             shops: [2, 4],
+            image: '/imageProduct/oil-coconut.jpg',
         },
         {
             id: 4,
@@ -50,6 +53,7 @@ var finalState = {
             price: 2.49,
             category: 'makaron',
             shops: [5],
+            image: '/imageProduct/wheat-pasta.jpg',
         },
         {
             id: 5,
@@ -58,6 +62,7 @@ var finalState = {
             price: 3.99,
             category: 'ryż',
             shops: [1, 3,  4],
+            image: '/imageProduct/rice.jpg',
         },
         {
             id: 6,
@@ -66,6 +71,7 @@ var finalState = {
             price: 12.49,
             category: 'owoce suszone',
             shops: [1],
+            image: '/imageProduct/dried-apricots.jpg',
         },
         {
             id: 7,
@@ -74,6 +80,7 @@ var finalState = {
             price: 66.66,
             category: 'ryby',
             shops: [1, 2, 5],
+            image: '/imageProduct/salmon.jpg',
         },
         {
             id: 8,
@@ -82,6 +89,7 @@ var finalState = {
             price: 66.66,
             category: 'ryby',
             shops: [2, 4],
+            image: '/imageProduct/tuna.jpg',
         },
         {
             id: 9,
@@ -90,6 +98,7 @@ var finalState = {
             price: 9.99,
             category: 'ryby',
             shops: [1],
+            image: '/imageProduct/salmon-tartare.jpg',
         },
         {
             id: 10,
@@ -98,6 +107,7 @@ var finalState = {
             price: 5.99,
             category: 'chleb',
             shops: [4],
+            image: '/imageProduct/buckwheat-bread.jpg',
         }
     ],
 }
