@@ -11,7 +11,7 @@ import Maps from './maps/Maps';
 
 import Favorites from './favorites/Favorites';
 import ShoppingList from './shoppingList/ShoppingList'
-import Amount from './shoppingList/amount/Amount'
+import Number from './shoppingList/number/Number'
 import { Provider } from 'react-redux';
 import store from './store';
 
@@ -34,7 +34,7 @@ ReactDOM.render(
                 <Route path="/shops/:viewVariant" component={Shops}/>
                 <Route path="/maps" component={Maps}/>
                 <Route path="/shoppingList" component={ShoppingList}/>
-                    <Route path="/shoppingList/amount" component={Amount}/>
+                    <Route path="/shoppingList/number" component={Number}/>
                 <Route path="/favorites" component={Favorites}/>
                 <Route path="/login" component={Login}/>
             </Route>
