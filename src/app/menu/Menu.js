@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Menu.css'
 import Item from './item/Item'
-import { Grid, Row, Col, Well , Navbar, Nav, FormGroup, FormControl, Button  } from 'react-bootstrap'
+import {  Navbar, Nav, FormGroup, FormControl, Button  } from 'react-bootstrap'
 
 export default class Menu extends Component {
     render() {
@@ -30,7 +30,7 @@ export default class Menu extends Component {
                     </Nav>
                     <Navbar.Form pullLeft>
                         <FormGroup>
-                            <FormControl type="text" placeholder="Search" />
+                            <FormControl type="text" placeholder="Search" defaultValue={currentFilterValue} onChange={(event) => setFilterValue(event.target.value)} />
                         </FormGroup>
                         {' '}
                         <Button type="submit">Submit</Button>
