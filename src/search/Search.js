@@ -23,10 +23,9 @@ const Search = (props) => (
     <Form>
         <FormGroup>
             <FormControl type="text" placeholder="Search" defaultValue={props.currentFilterValue}
+                         onChange={(event) => { event.preventDefault(); props.setFilterValue(event.target.value)} }
                          />
         </FormGroup>
-        {' '}
-        <Button onClick={(event) => { event.preventDefault(); props.setFilterValue(event.target.value)} }>Search</Button>
     </Form>
 )
 

@@ -11,6 +11,7 @@ export function search(term) {
     }
 }
 export function setFilterValue(newFilterValue) {
+    console.log('FILTER', newFilterValue);
     return {
         type: SET_FILTER_VALUE,
         filterValue: parseInt(newFilterValue === '' ? 0 : newFilterValue)
