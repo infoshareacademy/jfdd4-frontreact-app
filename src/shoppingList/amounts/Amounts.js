@@ -2,43 +2,34 @@
  * Created by kbro2 on 30.10.2016.
  */
 import React from 'react'
-// import {FormGroup, ControlLabel, FormControl} from 'react-bootstrap'
+import {Well} from 'react-bootstrap'
 import { connect } from 'react-redux'
-
+import ListForm from './list-form/ListForm'
 
 const mapStateToProps = (state) => ({
-    amounts: state.amountsData.amounts,
-    fetchingAmounts: state.amountsData.fetchingAmounts,
+   amounts: state.amountsData.amounts
 })
 
-const mapDispatchToProps = (dispatch) => ({
-
-});
-
-const Amounts = (props) => (
-    <Well>
-        <PageHeader>Lista Zakupów
-            <small> zrób listę</small>
-        </PageHeader>
-        <Row>
-            <Col>
-                <ul>
-                    {amounts
-                        .map(amounts =>
-                            <li key={amounts.id}>
-                                {amounts.amounts}
-                            </li>
-                        )
-                    }
-                </ul>
-            </Col>
-        </Row>
+const Amounts = ({amounts}) => (
+    <div>
+        <h1>Amounts</h1>
+        <Well>
+        <ul>
+            {amounts
+                .map(amounts => {
+                    return <tr key={amounts.id}>
+                        <td>
+                            <h3>{amounts.name}</h3>
+                            {Object.keys(amounts.amounts).map(key => <p>{key} : {amounts.amounts[key]}</p>)}
+                        </td>
+                    </tr>
+                })}
+        </ul>
     </Well>
+    </div>    
 );
-    
-export default connect(mapStateToProps)(Amounts)
 
-
+export default connect (mapStateToProps)(Amounts)
 
 //
 // function FieldGroup({ id, label, help, ...props }) {
@@ -64,7 +55,7 @@ export default connect(mapStateToProps)(Amounts)
 //     </FormGroup>
 // )
 //
-// export default connect (mapStateToProps, mapDispatchToProps)(Amounts)
+
 //
 // {fetchingStudents ? <p>Fetching students...</p> : null}
 // <Table striped bordered condensed hover>

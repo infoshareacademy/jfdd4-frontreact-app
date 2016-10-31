@@ -28,9 +28,9 @@ const ShoppingList = ({
              <Col>
                 <Number />
             </Col>
-            // <Col>
-            //     <Amounts />
-            // </Col>
+            <Col>
+                <Amounts />
+            </Col>
         </Row>
     </Well>
 )

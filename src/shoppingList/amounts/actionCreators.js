@@ -5,24 +5,15 @@ import {
     GET_AMOUNTS,
     RECEIVE_AMOUNTS,
 } from './actionTypes'
+
 import fetch from 'isomorphic-fetch'
 
-function getAmounts() {
-    return {
-        type: GET_AMOUNTS
-    }
-}
-
-function receiveAmounts(amounts) {
-    return {
-        type: RECEIVE_AMOUNTS,
-        amounts: amounts
-    }
-}
-
-export const fetchAmounts = () => dispatch => {
-    dispatch(getAmounts())
+export function fetchAmounts () {
+    return function (dispatch) {
     return fetch(`${process.env.PUBLIC_URL}/data/amounts.json`)
-        .then(response => { console.log(response); return response.json()})
-        .then(json => { console.log(json); return dispatch(receiveAmounts(json))})
-}
+        .then(response => response.json())
+        .then(amounts => dispatch({
+            type: RECEIVE_AMOUNTS,
+            amounts: amounts
+        }))
+}}
