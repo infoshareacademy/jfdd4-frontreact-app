@@ -5,17 +5,21 @@ import './index.css';
 import Dashboard from './dashboard/Dashboard';
 import Products from './products/Products';
 import Product from './product/Product';
-import Availability from './products/availability/Availability';
 import Shops from './shops/Shops';
 import Maps from './maps/Maps';
 import ShoppingList from './shoppingList/ShoppingList';
 import { fetchProducts } from './products/actionCreators'
+import {fetchAmounts} from './shoppingList/amounts/actionCreators'
 
 import Favorites from './favorites/Favorites';
+import ShoppingList from './shoppingList/ShoppingList'
+import Number from './shoppingList/number/Number'
+import Amounts from './shoppingList/amounts/Amounts'
 import { Provider } from 'react-redux';
 import store from './store';
 
 import Login from './login/Login';
+
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
@@ -40,10 +44,11 @@ ReactDOM.render(
                 <Route path="/shops" component={Shops}/>
                 <Route path="/shops/:viewVariant" component={Shops}/>
                 <Route path="/maps" component={Maps}/>
+                <Route path="/shoppingList" component={ShoppingList} onEnter={() => {store.dispatch(fetchAmounts())}}/>
+                    <Route path="/shoppingList/number" component={Number}/>
+                    <Route path="/shoppingList/amounts" component={Amounts} onEnter={() => store.dispatch(fetchAmounts(store.getState().amounts.amounts))}/>
                 <Route path="/favorites" component={Favorites}/>
                 <Route path="/login" component={Login}/>
-                <Route path="/shopping-list" component={ShoppingList}/>
-                <Redirect from="*" to="/" />
             </Route>
         </Router>
     </Provider>,

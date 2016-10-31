@@ -6,6 +6,8 @@ import { Layout, Header, Textfield, Drawer, Navigation, Content } from 'react-md
 import { IconButton  } from 'react-mdl';
 import Login from '../../login/Login'
 
+import {Navbar, Nav } from 'react-bootstrap'
+import GoogleLogin from 'react-google-login';
 
 export default class Menu extends Component {
 

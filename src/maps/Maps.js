@@ -5,7 +5,7 @@ import React from 'react'
 import GoogleMap from 'google-map-react'
 import Place from './place/Place'
 import Info from './info/Info'
-import {finalState} from '../data/dataShops'
+import {shops} from '../data/dataShops.json'
 import {Modal, Button} from 'react-bootstrap'
 import './Maps.css'
 import {Well , PageHeader } from 'react-bootstrap'
@@ -50,7 +50,7 @@ export default class Shops extends React.Component {
 
     componentWillMount() {
         var context = this;
-        context.setState({shops: finalState.shops})
+        context.setState({shops: shops.shops})
     }
 
 
