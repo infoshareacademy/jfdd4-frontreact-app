@@ -43,6 +43,7 @@ ReactDOM.render(
                 <Route path="/favorites" component={Favorites}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/shopping-list" component={ShoppingList}/>
+                <Redirect from="*" to="/" />
             </Route>
         </Router>
     </Provider>,

@@ -75,25 +75,3 @@ export default class Favorites extends React.Component {
         )
     }
 }
-
-//*
-// <div>
-//     <h5>Ulubione sklepy
-//         <h6> lista dodanych sklepow do ulubionych.</h6></h5>
-//     <ul>{DataShops.finalState.shops
-//         .filter(s =>
-//             favShopsIds.filter(favShop => favShop === s.id).length
-//         ).map(s => {
-//             return <tr key={s.id}><td>{s.name}</td></tr>
-//         })}</ul>
-//     <h5>Ulubione produkty
-//         <h6> lista dodanych produktów do listy zakupowej.</h6></h5>
-//     <ul>
-//         {finalState.products
-//             .filter(prod =>
-//                 favProductsIds.find(favProd => favProd === prod.id)
-//             ).map(prod => {
-//                 return <tr key={prod.id}><td>{prod.name}</td></tr>
-//             })}
-//     </ul>
-// </div>
