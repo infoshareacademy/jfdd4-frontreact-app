@@ -116,6 +116,7 @@ const Products = ({
         </div>
     </div>
 )
+
 export default connect(mapStateToProps, mapDispatchToProps)(Products)
 
 
