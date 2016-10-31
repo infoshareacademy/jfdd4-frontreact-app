@@ -2,8 +2,7 @@
  * Created by kbro2 on 30.10.2016.
  */
 import React from 'react'
-import {Well, PageHeader, Button, Grid, Row, Col, Image } from 'react-bootstrap'
-import Number from './number/Number'
+import {Well, PageHeader, Row, Col} from 'react-bootstrap'
 import Amounts from './amounts/Amounts'
 import { connect } from 'react-redux'
 import { addProduct } from './actionCreators'
@@ -25,9 +24,6 @@ const ShoppingList = ({
             <small> zrób listę</small>
         </PageHeader>
         <Row>
-             <Col>
-                <Number />
-            </Col>
             <Col>
                 <Amounts />
             </Col>

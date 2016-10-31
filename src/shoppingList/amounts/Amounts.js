@@ -11,22 +11,22 @@ const mapStateToProps = (state) => ({
 })
 
 const Amounts = ({amounts}) => (
-    <div>
-        <h1>Amounts</h1>
-        <Well>
+   
+    <Well>
         <ul>
             {amounts
                 .map(amounts => {
                     return <tr key={amounts.id}>
                         <td>
                             <h3>{amounts.name}</h3>
-                            {Object.keys(amounts.amounts).map(key => <p>{key} : {amounts.amounts[key]}</p>)}
+                            
+                            {Object.keys(amounts.amounts).map(key => <ListForm shopName={key} quantity={amounts.amounts[key]} />)}
                         </td>
                     </tr>
                 })}
         </ul>
     </Well>
-    </div>    
+    
 );
 
 export default connect (mapStateToProps)(Amounts)

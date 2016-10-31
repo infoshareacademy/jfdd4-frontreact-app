@@ -4,13 +4,16 @@ import createLogger from 'redux-logger'
 import productsReducer from './products/reducer'
 import persistState from 'redux-localstorage'
 import favoritesReducer from './app/favoriteReducer'
+import  shoppingListReducer from './shoppingList/reducer'
+import amountsReducer from './shoppingList/amounts/reducer'
 
 let reducer = combineReducers({
     productsData: productsReducer,
-    favorites: favoritesReducer
+    favorites: favoritesReducer,
+    amountsData: amountsReducer
+    // : shoppingListReducer
 })
-import  shoppingListReducer from './shoppingList/reducer'
-import amountsReducer from './shoppingList/amounts/reducer'
+
 
 // let reducer = combineReducers({
 //     shoppingList: shoppingListReducer
@@ -20,11 +23,6 @@ import amountsReducer from './shoppingList/amounts/reducer'
 // Its API is { subscribe, dispatch, getState }.
 const loggerMiddleware = createLogger()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-let reducer = combineReducers({
-    amountsData: amountsReducer
-    // : shoppingListReducer
-})
 
 
 let store = createStore(

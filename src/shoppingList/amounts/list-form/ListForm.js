@@ -2,20 +2,52 @@ import React from 'react'
 
 class ListForm extends React.Component {
     constructor() {
-        super()
-
+        super();
         this.state = {
-            id: '',
-            amounts: ''
+            numberOfClicks: 0
+        };
+        this._plusClick = this._plusClick.bind(this)
+        this._minusClick = this._minusClick.bind(this)
+
+    }
+
+    _plusClick() {
+        if (this.state.numberOfClicks <= this.props.quantity - 1) {
+            this.setState({
+                numberOfClicks: this.state.numberOfClicks + 1
+            })
+        }
+        else {
+            console.log('oops')
+        }
+    }
+
+    _minusClick() {
+        if (this.state.numberOfClicks >= 1) {
+            this.setState({
+                numberOfClicks: this.state.numberOfClicks - 1
+            })
+        }
+        else {
+            console.log('oops')
         }
     }
 
     render() {
         return (
-            <form onSubmit={(event) => {
-                event.preventDefault()
-                this.props.handleSubmit( this.state.id, this.state.amounts)
-            }}/>
+            <div className="counter">
+
+                {this.props.shopName}: {this.props.quantity - this.state.numberOfClicks}
+                <button
+                    onClick={this._plusClick}>
+                    Plus
+                </button>
+                {this.state.numberOfClicks}
+                <button
+                    onClick={this._minusClick}>
+                    Minus
+                </button>
+            </div>
         )
     }
 }

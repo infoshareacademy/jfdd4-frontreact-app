@@ -10,9 +10,8 @@ import Maps from './maps/Maps';
 import ShoppingList from './shoppingList/ShoppingList';
 import { fetchProducts } from './products/actionCreators'
 import {fetchAmounts} from './shoppingList/amounts/actionCreators'
-
+import Availability from'./products/availability/Availability.js'
 import Favorites from './favorites/Favorites';
-import ShoppingList from './shoppingList/ShoppingList'
 import Number from './shoppingList/number/Number'
 import Amounts from './shoppingList/amounts/Amounts'
 import { Provider } from 'react-redux';
@@ -46,7 +45,7 @@ ReactDOM.render(
                 <Route path="/maps" component={Maps}/>
                 <Route path="/shoppingList" component={ShoppingList} onEnter={() => {store.dispatch(fetchAmounts())}}/>
                     <Route path="/shoppingList/number" component={Number}/>
-                    <Route path="/shoppingList/amounts" component={Amounts} onEnter={() => store.dispatch(fetchAmounts(store.getState().amounts.amounts))}/>
+                    <Route path="/shoppingList/amounts" component={Amounts} onEnter={() => store.dispatch(fetchAmounts(store.getState().amountsData.amounts))}/>
                 <Route path="/favorites" component={Favorites}/>
                 <Route path="/login" component={Login}/>
             </Route>

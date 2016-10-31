@@ -5,8 +5,6 @@ import { Grid, Row, Col, Well , Navbar, Nav, NavItem } from 'react-bootstrap'
 import { Layout, Header, Textfield, Drawer, Navigation, Content } from 'react-mdl';
 import { IconButton  } from 'react-mdl';
 import Login from '../../login/Login'
-
-import {Navbar, Nav } from 'react-bootstrap'
 import GoogleLogin from 'react-google-login';
 
 export default class Menu extends Component {
