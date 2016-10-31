@@ -7,6 +7,7 @@ import {
 const initialState = {
     availableFilters: ['all', 'cereals', 'oils', 'rices', 'fruits', 'fishs', 'breads', 'price1s', 'price2s', 'price3s'],
     activeFilterName: 'all',
+    //tablica tutaj domyslnie activeFilters powielic nazwy, gdy filtruje w widoku aplikuje kazdy filter w widoku 
     products: [],
     fetchingProducts: false
 }
