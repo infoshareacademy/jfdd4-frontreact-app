@@ -43,51 +43,80 @@ const Products = ({
     addToFavorites
 }) => (
 
-
-<div>
-<h1>Products</h1>
-{availableFilters.map(filterName => (
-    <button key={filterName}
-            onClick={() => activateFilter(filterName)}
-            className={filterName === activeFilter.name ? 'active' : ''}>
-        {filters[filterName].label}
-    </button>
-))}
-{fetchingProducts ? <p>Trwa ładowanie listy produktów...</p> : null}
-<Table striped bordered condensed hover>
-    <thead>
-    </thead>
-    <ReactCSSTransitionGroup
-        component="tbody"
-        transitionName="example"
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={300}>
-        {products
-            .filter(activeFilter.predicate)
-            .map(product => (
-                <tr key={product.id}>
-                    <td>{product.name}</td>
-                    <td>{product.price}</td>
-                    <td className="text-right">
-                        <button onClick={() => addToFavorites(product.id)}>
-                            Add to favorites
-                        </button>
-                        <button onClick={() => dissmarkProduct(product.id)}>
-                            Delete from favorites
-                        </button>
-                    </td>
-                </tr>
+    <div>
+        <div className="break"></div>
+        <div className="filter">
+            {availableFilters.map(filterName => (
+                <ButtonGroup key={filterName}
+                             onClick={() => activateFilter(filterName)}
+                             className={filterName === activeFilter.name ? 'active' : ''}>
+                    {filters[filterName].label}
+                </ButtonGroup>
             ))}
-    </ReactCSSTransitionGroup>
-</Table>
-</div>
-
+        </div>
+        <div className="break"></div>
+        {fetchingProducts ? <p><Spinner singleColor /></p> : null}
+        <div>
+            {products
+                .filter(activeFilter.predicate)
+                .map(product => (
+                    <ul>
+                        <div>
+                            <Col xs={10} sm={6} md={4} lg={3} key={product.id} >
+                                <div className="card products polaroid">
+                                    <li  className="card-header">
+                                        PRODUKT
+                                    </li>
+                                    <div className="card-image">
+                                        <Image className="size" src={product.image}/>
+                                        <ButtonAddToList />
+                                    </div>
+                                    <div className="card-content">
+                                        <ul className="list-group list-group-flush">
+                                            <li className="list-group-item">
+                                                <span className="left-side">NAZWA</span>
+                                                <span className="right-side">{product.name}</span>
+                                            </li>
+                                            <li className="list-group-item">
+                                                <span className="left-side">KATEGORIA</span>
+                                                <span className="right-side">{product.category}</span>
+                                            </li>
+                                            <li className="list-group-item">
+                                                <span className="left-side">CENA</span>
+                                                <span className="right-side">{product.price}&ensp;zł</span>
+                                            </li>
+                                            <li className="list-group-item">
+                                                <div className="card-block">
+                                                     <span className="icon-left">
+                                                         <ButtonAddToFavorite onClick={() => addToFavorites(product.id)} />
+                                                     </span>
+                                                    <span className="icon-center">
+                                                        <ButtonShowOnMap />
+                                                     </span>
+                                                    <span className="icon-right">
+                                                        <Link to={"/products/" + product.id}>
+                                                            <ButtonMoreInformation />
+                                                        </Link>
+                                                     </span>
+                                                    {/*<button onClick={() => addToFavorites(product.id)}>*/}
+                                                    {/*Add favorites*/}
+                                                    {/*</button>*/}
+                                                    {/*<button onClick={() => dissmarkProduct(product.id)}>*/}
+                                                    {/*Del favorites*/}
+                                                    {/*</button>*/}
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </Col>
+                        </div>
+                    </ul>
+                ))}
+        </div>
+    </div>
 )
 export default connect(mapStateToProps, mapDispatchToProps)(Products)
-
-
-
-
 
 
 
