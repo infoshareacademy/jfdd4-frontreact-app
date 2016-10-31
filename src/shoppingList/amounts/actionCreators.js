@@ -21,8 +21,8 @@ function receiveAmounts(amounts) {
 }
 
 export const fetchAmounts = () => dispatch => {
-    dispatch(requestAmounts())
-    return fetch(`${process.env.PUBLIC_URL}/data/dataProducts.json`)
+    dispatch(getAmounts())
+    return fetch(`${process.env.PUBLIC_URL}/data/amounts.json`)
         .then(response => { console.log(response); return response.json()})
         .then(json => { console.log(json); return dispatch(receiveAmounts(json))})
 }

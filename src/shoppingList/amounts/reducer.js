@@ -4,8 +4,6 @@ import {
 } from './actionTypes'
 
 const initialState = {
-    availableFilters: ['all', 'males', 'females'],
-    activeFilterName: 'all',
     amounts: [],
     fetchingAmounts: false,
 
@@ -19,7 +17,7 @@ export default (state = initialState, action) => {
             })
         case RECEIVE_AMOUNTS:
             return Object.assign({}, state, {
-                students: action.students,
+                amounts: action.amounts,
                 fetchingAmounts: false
             })
         default:

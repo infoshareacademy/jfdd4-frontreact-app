@@ -4,6 +4,7 @@
 import React from 'react'
 import {Well, PageHeader, Button, Grid, Row, Col, Image } from 'react-bootstrap'
 import Number from './number/Number'
+import Amounts from './amounts/Amounts'
 import { connect } from 'react-redux'
 import { addProduct } from './actionCreators'
 
@@ -27,6 +28,9 @@ const ShoppingList = ({
              <Col>
                 <Number />
             </Col>
+            // <Col>
+            //     <Amounts />
+            // </Col>
         </Row>
     </Well>
 )
