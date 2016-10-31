@@ -4,7 +4,7 @@ var initialState = {
     // isLoading: true,
     filters: {
         none: function () { return true },
-        IsCereal: function (product) { return product.category === 'kasze'},
+        IsCereal: function (product) { return product.category === 'kasza'},
         IsOils: function (product) { return product.category === 'olej'},
         IsRice: function (product) { return product.category === 'ryż'},
         IsFruit: function (product) { return product.category === 'owoce suszone'},
@@ -24,7 +24,7 @@ var finalState = {
             name: 'Kasza Jaglana 500 g',
             description: 'Kasza Jaglana jest smaczna, zdrowa i tania. Okreslana krolowa kasz. Jaglani rycerze bronia namietnie jej doskonalosci i maja racje!',
             price: 4.99,
-            category: 'kasze',
+            category: 'kasza',
             shops: [1, 2, 3, 4, 5],
             image: '/imageProduct/millet.jpg',
         },

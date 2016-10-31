@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Menu from './menu/Menu';
-import { Grid, Row, Col, Well } from 'react-bootstrap'
+import { Grid, Row, Col } from 'react-bootstrap'
 
 
 
@@ -17,9 +17,7 @@ class App extends Component {
                     </Row>
                     <Row>
                         <Col>
-                            <Well>
-                                {this.props.children}
-                            </Well>
+                            {this.props.children}
                         </Col>
                     </Row>
                 </Grid>
