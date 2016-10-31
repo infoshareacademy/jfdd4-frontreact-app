@@ -7,14 +7,12 @@ import { setFilterValue } from './actionCreators'
 import {Form, FormGroup, FormControl, Button} from 'react-bootstrap'
 
 
-const mapStateToProps = (props) => ({
-    currentFilterValue: ''
+const mapStateToProps = (state) => ({
+    searchTerm: state.search.searchTerm
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    setFilterValue: (newFilterValue) => dispatch(setFilterValue(newFilterValue)),
-    onSearchChange:(event) => dispatch({ type: 'SEARCH', term: event.target.value })
-
+    onSearchChange: (term) => dispatch({ type: 'SEARCH', term: term })
 })
 
 
@@ -22,9 +20,12 @@ const mapDispatchToProps = (dispatch) => ({
 const Search = (props) => (
     <Form>
         <FormGroup>
-            <FormControl type="text" placeholder="Search" defaultValue={props.currentFilterValue}
-                         onChange={(event) => { event.preventDefault(); props.setFilterValue(event.target.value)} }
-                         />
+            <FormControl
+                type="text"
+                placeholder="Search"
+                defaultValue={props.searchTerm}
+                onChange={(event) => props.onSearchChange(event.target.value) }
+            />
         </FormGroup>
     </Form>
 )

@@ -1,26 +1,18 @@
 /**
  * Created by Piotr on 2016-10-29.
  */
-import { SEARCH, SET_FILTER_VALUE } from './actionTypes'
-
-
+import { SEARCH } from './actionTypes'
 
 const initialState = {
-
-    currentFilterValue: ''
+    searchTerm: ''
 }
 
-
-export  default  (state =initialState, action) => {
+export  default  (state = initialState, action) => {
 
     switch (action.type) {
         case SEARCH:
             return Object.assign({}, state, {
-                term: action.term
-    })
-        case SET_FILTER_VALUE:
-            return Object.assign({}, state, {
-                currentFilterValue: action.filterValue
+                searchTerm: action.term
             })
         default:
             return state;

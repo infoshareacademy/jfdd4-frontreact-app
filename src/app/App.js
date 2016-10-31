@@ -13,6 +13,7 @@ class App extends Component {
                     <Row>
                         <Col>
                             <Menu />
+                            <Well />
                         </Col>
                     </Row>
                     <Row>
