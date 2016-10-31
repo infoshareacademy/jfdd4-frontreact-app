@@ -4,10 +4,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { setFilterValue } from './actionCreators'
+import {Form, FormGroup, FormControl, Button} from 'react-bootstrap'
 
 
 const mapStateToProps = (props) => ({
-    currentFilterValue:
+    currentFilterValue: ''
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -19,14 +20,14 @@ const mapDispatchToProps = (dispatch) => ({
 
 
 const Search = (props) => (
-    <div>
+    <Form>
         <FormGroup>
-            <FormControl type="text" placeholder="Search" defaultValue={currentFilterValue}
-                         onChange={(event) => props.setFilterValue(event.target.value)}/>
+            <FormControl type="text" placeholder="Search" defaultValue={props.currentFilterValue}
+                         />
         </FormGroup>
         {' '}
-        <Button type="submit">Submit</Button>
-    </div>
+        <Button onClick={(event) => { event.preventDefault(); props.setFilterValue(event.target.value)} }>Search</Button>
+    </Form>
 )
 
 

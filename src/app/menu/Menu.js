@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './Menu.css'
 import Item from './item/Item'
 import {  Navbar, Nav, FormGroup, FormControl, Button  } from 'react-bootstrap'
-
+import Search from '../../search/Search'
 export default class Menu extends Component {
     render() {
         return (
@@ -30,7 +30,7 @@ export default class Menu extends Component {
                     </Nav>
 
                     <Navbar.Form pullLeft>
-                        
+                        <Search />
                     </Navbar.Form>
                     <Nav pullRight>
                         <Nav><Item path={`/favorites`}>Ulubione</Item></Nav>
