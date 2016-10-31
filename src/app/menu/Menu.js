@@ -28,12 +28,9 @@ export default class Menu extends Component {
                             </Item>
                         </Nav>
                     </Nav>
+
                     <Navbar.Form pullLeft>
-                        <FormGroup>
-                            <FormControl type="text" placeholder="Search" defaultValue={currentFilterValue} onChange={(event) => setFilterValue(event.target.value)} />
-                        </FormGroup>
-                        {' '}
-                        <Button type="submit">Submit</Button>
+                        
                     </Navbar.Form>
                     <Nav pullRight>
                         <Nav><Item path={`/favorites`}>Ulubione</Item></Nav>

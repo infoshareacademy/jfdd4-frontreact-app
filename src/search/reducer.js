@@ -15,7 +15,9 @@ export  default  (state = '', action) => {
 
     switch (action.type) {
         case SEARCH:
-            return action.term;
+            return Object.assign({}, state, {
+                term: action.term
+    })
         case SET_FILTER_VALUE:
             return Object.assign({}, state, {
                 currentFilterValue: action.filterValue
