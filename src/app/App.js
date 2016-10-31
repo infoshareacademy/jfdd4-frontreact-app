@@ -17,7 +17,7 @@ class App extends Component {
                     </Row>
                     <Row>
                         <Col>
-                                {this.props.children}
+                            {this.props.children}
                         </Col>
                     </Row>
                 </Grid>
