@@ -5,7 +5,7 @@ import {
 } from './actionTypes'
 
 const initialState = {
-    availableFilters: ['all', 'cereals', 'oils', 'rices', 'fruits', 'fishs', 'breads', 'price1s', 'price2s', 'price3s'],
+    availableFilters: ['all', 'cereals', 'oils', 'rices', 'fruits', 'fishs', 'breads'],
     activeFilterName: 'all',
     products: [],
     fetchingProducts: false

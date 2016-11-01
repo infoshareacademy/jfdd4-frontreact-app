@@ -38,7 +38,7 @@ export default class Product extends React.Component {
         return (
 
             <div>
-                    <div>&#x2002;</div>
+                    <div style={{ height: '20px'}}>&#x2002;</div>
                      <div>
                         {productsData.products
                             .filter(

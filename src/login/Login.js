@@ -14,7 +14,8 @@ class Login extends React.Component {
                 onSuccess={console.log}
                 onFailure={console.log}
                 className="btn btn-default btn-sm"
-                bsStyle="link">
+                bsStyle="link"
+                style={{marginRight: '10'}}>
             </GoogleLogin>
         );
     }
