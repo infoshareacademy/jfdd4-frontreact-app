@@ -18,8 +18,18 @@ const mapStateToProps = (state) => ({
     products: state.productsData.products,
     availableFilters: state.productsData.availableFilters,
     activeFilter: {
-        name: state.productsData.activeFilterName,
-        predicate: filters[state.productsData.activeFilterName].predicate
+        name: state.productsData.activeFilterNames,
+        predicate: product => {
+            if (state.productsData.activeFilterNames.length == 0 ) {
+                return true;
+            }
+            var result = false;
+            state.productsData.activeFilterNames.forEach(filterName => {
+                    result |= filters[filterName].predicate(product);
+                }
+            )
+            return result;
+        }
     },
     fetchingProducts: state.productsData.fetchingProducts
 })
