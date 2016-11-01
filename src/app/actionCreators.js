@@ -38,10 +38,25 @@ export function addToFavorites (productId) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                name: 'Hubot',
-                login: 'hubot',
+                productId: productId,
+                // login: 'hubot',
             })})
             .then(response => response.json())
             .then(products => dispatch(addToFavoritesEnd(productId)))
+    }
+}
+
+export function deleteFavorite (productId) {
+    return function (dispatch) {
+        return fetch('http://rest.learncode.academy/api/FrontReact2/products' + productId, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                productId: productId,
+            })
+        })
     }
 }

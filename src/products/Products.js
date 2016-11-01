@@ -2,11 +2,11 @@ import React from 'react'
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
 import { connect } from 'react-redux'
 import { activateFilter } from './actionCreators'
-import { markProductAsFavorite, dissmarkProductAsFavorite, addToFavorites } from '../app/actionCreators'
 import ButtonAddToList  from './button/ButtonAddToList'
 import ButtonAddToFavorite from './button/ButtonAddToFavorite'
 import ButtonShowOnMap from './button/ButtonShowOnMap'
 import ButtonMoreInformation  from './button/ButtonMoreInformation'
+import { markProductAsFavorite, dissmarkProductAsFavorite, addToFavorites,deleteFavorite } from '../app/actionCreators'
 import filters from './filters'
 import './Products.css'
 import { Link } from 'react-router'
@@ -28,7 +28,8 @@ const mapDispatchToProps = (dispatch) => ({
     activateFilter: (filterId) => dispatch(activateFilter(filterId)),
     favoriteProduct: (productId) => dispatch(markProductAsFavorite(productId)),
     dissmarkProduct: (productId) => dispatch(dissmarkProductAsFavorite(productId)),
-    addToFavorites: (productId) => dispatch(addToFavorites(productId))
+    addToFavorites: (productId) => dispatch(addToFavorites(productId)),
+    deleteFavorite: (productId) => dispatch(deleteFavorite(productId))
 })
 
 
@@ -40,7 +41,8 @@ const Products = ({
     activateFilter,
     favoriteProduct,
     dissmarkProduct,
-    addToFavorites
+    addToFavorites,
+    deleteFavorite
 }) => (
 
     <div>
@@ -118,7 +120,3 @@ const Products = ({
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products)
-
-
-
-
