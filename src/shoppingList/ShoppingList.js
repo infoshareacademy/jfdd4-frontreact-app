@@ -6,18 +6,18 @@ import {Well, PageHeader, Row, Col} from 'react-bootstrap'
 import Amounts from './amounts/Amounts'
 import { connect } from 'react-redux'
 import { addProduct } from './actionCreators'
-
+import AddForm from './add-form/AddForm'
 
 const mapStateToProps = (state) => ({
     products: state.products
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    addProduct: () => dispatch(addProduct()),
+    addProduct: (shopName, quantity) => dispatch(addProduct(shopName, quantity)),
 })
 
 const ShoppingList = ({
-    updateAchievement
+    addProduct,
 }) => (
     <Well>
         <PageHeader>Lista Zakupów
@@ -26,6 +26,11 @@ const ShoppingList = ({
         <Row>
             <Col>
                 <Amounts />
+            </Col>
+            <Col>
+                <td>
+                    <AddForm studentId={student.id} handleSubmit={addScore} />
+                </td>
             </Col>
         </Row>
     </Well>

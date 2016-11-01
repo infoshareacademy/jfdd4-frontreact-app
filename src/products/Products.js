@@ -10,9 +10,9 @@ import ButtonMoreInformation  from './button/ButtonMoreInformation'
 import filters from './filters'
 import './Products.css'
 import { Link } from 'react-router'
-import { Col, Image, ButtonGroup, Modal } from 'react-bootstrap'
+import { Col, Image, Button, ButtonGroup, Modal } from 'react-bootstrap'
 import { Spinner} from 'react-mdl';
-
+import ShoppingList from '../shoppingList/ShoppingList'
 
 const mapStateToProps = (state) => ({
     products: state.productsData.products,
@@ -69,19 +69,7 @@ const Products = ({
                                     </li>
                                     <div className="card-image">
                                         <Image className="size" src={product.image}/>
-                                        <ButtonAddToList onClick={() => (product.id)}>
-                                           <Modal show={this.state.showModal} onHide={() => this.setState({ showModal: false})}>
-                                                <Modal.Header closeButton/>
-                                                    <Modal.Body>
-                                                    <shoppingList key={shop.name}  {...shop.location} pic={shop.pic} link={shop.link} info={shop.info}
-                                                          icon={shop.icon} adres={shop.adres}
-                                                          opened={shop.opened}/>
-                                                </Modal.Body>
-                                                <Modal.Footer>
-                                                    <Button onClick={() => this.setState({ showModal: false})}>Close</Button>
-                                                </Modal.Footer>
-                                            </Modal>
-                                        </ButtonAddToList>
+                                        <ButtonAddToList onClick={() => (product.id)}/>
                                     </div>
                                     <div className="card-content">
                                         <ul className="list-group list-group-flush">

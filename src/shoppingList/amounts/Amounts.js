@@ -19,7 +19,6 @@ const Amounts = ({amounts}) => (
                     return <tr key={amounts.id}>
                         <td>
                             <h3>{amounts.name}</h3>
-                            
                             {Object.keys(amounts.amounts).map(key => <ListForm shopName={key} quantity={amounts.amounts[key]} />)}
                         </td>
                     </tr>

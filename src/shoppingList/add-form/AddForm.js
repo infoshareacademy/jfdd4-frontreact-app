@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class EditScoreForm extends React.Component {
+export default class AddForm extends React.Component {
 
     constructor() {
         super()
@@ -13,15 +13,15 @@ export default class EditScoreForm extends React.Component {
         return (
             <form onSubmit={(event) => {
                 event.preventDefault()
-                this.props.handleSubmit(this.props.achievementId, this.state.value)
+                this.props.handleSubmit(this.props.studentId, this.state.value)
             }}>
                 <input
                     type="text"
-                    defaultValue={this.props.value}
+                    defaultValue={this.state.value}
                     onChange={(event) => this.setState({
                         value: event.target.value
                     })} />
-                <button>Update score</button>
+                <button>Add score</button>
             </form>
         )
     }
