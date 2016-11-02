@@ -2,7 +2,7 @@
  * Created by kbro2 on 30.10.2016.
  */
 import React from 'react'
-import {Well, Button} from 'react-bootstrap'
+import {Well, Button, Col} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import ListForm from './list-form/ListForm'
 import { addProduct} from './actionCreators'
@@ -12,32 +12,41 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    addProduct: (amountsName, quantity) => dispatch(addProduct(amountsName, quantity))
+    addProduct: (shopName, productName, quantity) => dispatch(addProduct(shopName, productName, quantity))
 
 })
 
 const Amounts = ({amounts, addProduct}) => (
    
     <Well>
-        <ul>
+        <Col>
             {amounts
                 .map(amounts => {
                     return <tr key={amounts.id}>
                         <td>
                             <h3>{amounts.name}</h3>
-                            {Object.keys(amounts.amounts).map(key => <ListForm shopName={key} quantity={amounts.amounts[key]} />)}
-                        </td>
+                            {Object
+                                .keys(amounts.amounts)
+                                .map(
+                                    key => 
+                                        <ListForm 
+                                            productId={amounts.id}
+                                            productName={amounts.name}
+                                            shopName={key}
+                                            quantity={amounts.amounts[key]}
+                                            addToList={addProduct}
+                                        />
+                                )}
+                        </td> 
                         <td>
-                            <Button onCLick={() => addProduct(amounts.name, amounts.amounts)}>
-                                Dodaj do listy
-                            </Button>
+                         
                         </td>
                     </tr>
                 })}
 
-        </ul>
+        </Col>
     </Well>
     
 );
 
-export default connect (mapStateToProps)(Amounts)
+export default connect (mapStateToProps, mapDispatchToProps)(Amounts)

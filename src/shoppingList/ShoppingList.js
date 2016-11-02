@@ -5,7 +5,6 @@ import React from 'react'
 import {Well, PageHeader, Row, Col} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { addProduct } from './actionCreators'
-import AddForm from 'amounts/add-form/AddForm'
 
 const mapStateToProps = (state) => ({
     products: state.products
@@ -19,19 +18,7 @@ const ShoppingList = ({
     addProduct,
 }) => (
     <Well>
-        <PageHeader>Lista Zakupów
-            <small> zrób listę</small>
-        </PageHeader>
-        <Row>
-            <Col>
-                <Amounts />
-            </Col>
-            <Col>
-                <td>
-                    <AddForm studentId={student.id} handleSubmit={addScore} />
-                </td>
-            </Col>
-        </Row>
+        <PageHeader>Lista Zakupów</PageHeader>
     </Well>
 )
 export default connect(mapStateToProps)(ShoppingList)

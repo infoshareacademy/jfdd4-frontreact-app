@@ -43,7 +43,7 @@ ReactDOM.render(
                 <Route path="/shops/:viewVariant" component={Shops}/>
                 <Route path="/maps" component={Maps}/>
                 <Route path="/shoppingList" component={ShoppingList} onEnter={() => {store.dispatch(fetchAmounts())}}/>
-                    <Route path="/shoppingList/amounts" component={Amounts} onEnter={() => store.dispatch(fetchAmounts(store.getState().amountsData.amounts))}/>
+                    <Route path="/shoppingList/amounts/:productId" component={Amounts} onEnter={() => store.dispatch(fetchAmounts(store.getState().amountsData.amounts))}/>
                 <Route path="/favorites" component={Favorites}/>
                 <Route path="/login" component={Login}/>
             </Route>

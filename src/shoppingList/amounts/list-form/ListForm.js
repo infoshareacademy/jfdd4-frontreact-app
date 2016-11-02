@@ -1,4 +1,5 @@
 import React from 'react'
+import {Button} from 'react-bootstrap'
 
 class ListForm extends React.Component {
     constructor() {
@@ -47,6 +48,9 @@ class ListForm extends React.Component {
                     onClick={this._minusClick}>
                     Minus
                 </button>
+                <Button onClick={() => this.props.addToList(this.props.shopName, this.props.productName, this.state.numberOfClicks)}>
+                    Dodaj do listy
+                </Button>
             </div>
         )
     }
