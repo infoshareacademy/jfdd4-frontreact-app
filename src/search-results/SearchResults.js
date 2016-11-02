@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { connect } from 'react-redux'
-
+import { Link } from 'react-router'
 
 
 const mapStateToProps = (state) => ({
@@ -15,8 +15,6 @@ const mapDispatchToProps = (props)=>({
 
 })
 
-
-
 const SearchResults = ({
     searchTerm,
     products
@@ -25,7 +23,7 @@ const SearchResults = ({
         {products.filter(product => {
             if (searchTerm === '') return false
             return product.name.indexOf(searchTerm) !== -1
-        }).map( product => <p>{product.name}</p>)}
+        }).map( product =>  <Link to={"/products/" + product.id}> {product.name} </Link>)}
     </div>
 )
 

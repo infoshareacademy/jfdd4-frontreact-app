@@ -6,7 +6,7 @@ import { Textfield } from 'react-mdl';
 import { IconButton  } from 'react-mdl';
 import Login from '../../login/Login';
 import Search from '../../search/Search'
-import {  Navbar, Nav, FormGroup, FormControl, Button  } from 'react-bootstrap'
+
 
 
 export default class Menu extends Component {
@@ -47,7 +47,7 @@ export default class Menu extends Component {
                         </Item>
                         <Login />
                     </Nav>
-                </Navbar.Collapse>
+
             </Navbar>
         );
     }
