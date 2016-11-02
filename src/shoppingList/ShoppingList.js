@@ -3,10 +3,9 @@
  */
 import React from 'react'
 import {Well, PageHeader, Row, Col} from 'react-bootstrap'
-import Amounts from './amounts/Amounts'
 import { connect } from 'react-redux'
 import { addProduct } from './actionCreators'
-import AddForm from './add-form/AddForm'
+import AddForm from 'amounts/add-form/AddForm'
 
 const mapStateToProps = (state) => ({
     products: state.products

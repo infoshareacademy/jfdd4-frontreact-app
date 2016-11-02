@@ -13,7 +13,7 @@ export default class AddForm extends React.Component {
         return (
             <form onSubmit={(event) => {
                 event.preventDefault()
-                this.props.handleSubmit(this.props.studentId, this.state.value)
+                this.props.handleSubmit(this.props.amountsId, this.state.value)
             }}>
                 <input
                     type="text"
