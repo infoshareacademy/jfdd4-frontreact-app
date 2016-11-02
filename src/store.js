@@ -4,10 +4,12 @@ import createLogger from 'redux-logger'
 import productsReducer from './products/reducer'
 import persistState from 'redux-localstorage'
 import favoritesReducer from './app/favoriteReducer'
+import mapsReducer from './maps/reducer'
 
 let reducer = combineReducers({
     productsData: productsReducer,
-    favorites: favoritesReducer
+    favorites: favoritesReducer,
+    mapsDate: mapsReducer
 })
 
 // Create a Redux store holding the state of your app.

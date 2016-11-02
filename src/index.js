@@ -10,6 +10,8 @@ import Shops from './shops/Shops';
 import Maps from './maps/Maps';
 import ShoppingList from './shoppingList/ShoppingList';
 import { fetchProducts } from './products/actionCreators'
+import { fetchMaps } from './maps/actionCreators'
+
 
 import Favorites from './favorites/Favorites';
 import { Provider } from 'react-redux';
@@ -32,11 +34,11 @@ import 'react-mdl/extra/material.js';
 ReactDOM.render(
     <Provider store={store}>
         <Router history={browserHistory}>
-            <Route path="/" component={App} >
+            <Route path="/" component={App} onEnter={() => store.dispatch(fetchMaps())}>
                 <IndexRoute component={Dashboard} />
                 <Route path="/products" component={Products} onEnter={() => store.dispatch(fetchProducts())}/>
                 <Route path="/products/availability" component={Availability}/>
-                <Route path="/products/:id" component={Product}/>
+                <Route path="/products/:id" component={Product} />
                 <Route path="/shops" component={Shops}/>
                 <Route path="/shops/:viewVariant" component={Shops}/>
                 <Route path="/maps" component={Maps}/>

@@ -1,6 +1,4 @@
-/**
- * Created by karol on 12.10.16.
- */
+
 import React from 'react'
 import GoogleMap from 'google-map-react'
 import Place from './place/Place'
@@ -9,6 +7,17 @@ import {finalState} from '../data/dataShops'
 import {Modal, Button} from 'react-bootstrap'
 import './Maps.css'
 import {Well , PageHeader } from 'react-bootstrap'
+import { connect} from 'react-redux'
+import { Spinner } from 'react-mdl';
+
+
+const mapStateToProps = (state) => ({
+    coordinate: state.mapsDate.coordinate,
+    fetchingCoordinate: state.mapsDate.fetchingCoordinate
+})
+
+
+
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -38,38 +47,45 @@ function createMapOptions (maps) {
      }
 }
 
-export default class Shops extends React.Component {
+class Shops extends React.Component {
     constructor() {
         super()
-
-        this.state = {
-            shops: [],
-            showModal: false
-        }
+        //
+        // this.state = {
+        //     shops: [],
+        //     showModal: false
+        // }
     }
 
-    componentWillMount() {
-        var context = this;
-        context.setState({shops: finalState.shops})
-    }
+    // componentWillMount() {
+    //     var context = this;
+    //     context.setState({shops: finalState.shops})
+    // }
 
 
 
     render() {
+        var {
+            coordinate, //dany sklep
+            fetchingCoordinate
+        }=this.props;
+        
+        console.log('!', this.props.coordinate)
+        
+        
+        // var scope = this;
+        //
+        // var selectShop = function (shopId) {
+        //     scope.setState({
+        //         selectedShop: scope.state.shops.find(function (s) {
+        //             return s.id == shopId;
+        //         }),
+        //         showModal: true
+        //     });
+        // };
 
-        var scope = this;
-
-        var selectShop = function (shopId) {
-            scope.setState({
-                selectedShop: scope.state.shops.find(function (s) {
-                    return s.id == shopId;
-                }),
-                showModal: true
-            });
-        };
-
-        var shop = this.state.selectedShop || {};
-        console.log('onrender', shop);
+        // var shop = this.state.selectedShop || {};
+        // console.log('onrender', shop);
 
         function getLocation() {
             if (navigator.geolocation) {
@@ -78,14 +94,18 @@ export default class Shops extends React.Component {
                 console.log("Geolocation is not supported by this browser.");
             }
         }
+        
         function showPosition(position) {
             return ("Latitude: " + position.coords.latitude +
             "<br>Longitude: " + position.coords.longitude);
         }
-
-
+    
         return (
+            
+            
                 <Well>
+                    {fetchingCoordinate ? <Spinner singleColor /> : null}
+                    
                     <PageHeader>Mapy
                         <small> znajdź najbliższe sklepy w Twojej okolicy.</small></PageHeader>
             <div id="MAP">
@@ -94,27 +114,18 @@ export default class Shops extends React.Component {
                     center={[54.408636, 18.588977]}
                     zoom={13}
                     options={createMapOptions}>
-                    {this.state.shops.map(function (shop) {
-                        return <Place key={shop.id} selectShop={selectShop} shopId={shop.id} {...shop.location}
-                                      icon={shop.icon} adres={shop.adres} opened={shop.opened}/>
-                    })}
+                    {coordinate.map((singleShop) => <Place
+                    lat={singleShop.location.lat}
+                    lng={singleShop.location.lng}
+                    icon={singleShop.icon}
+                    ></Place>)}
+
                 </GoogleMap>
-                <Modal show={this.state.showModal} onHide={() => this.setState({ showModal: false})}>
-                    <Modal.Header closeButton>
-                        <Modal.Title><h2>{shop.name}   -   {shop.adres}</h2></Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                       <Info key={shop.id}  {...shop.location} pic={shop.pic} link={shop.link} info={shop.info}
-                              icon={shop.icon} adres={shop.adres}
-                              opened={shop.opened}/>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button onClick={() => this.setState({ showModal: false})}>Close</Button>
-                    </Modal.Footer>
-                </Modal>
 
             </div>
                 </Well>
         )
     }
-}    
+}
+
+export default connect(mapStateToProps)(Shops)
