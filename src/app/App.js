@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Menu from './menu/Menu';
 import { Grid, Row, Col, Well } from 'react-bootstrap'
+import SearchResults from '../search-results/SearchResults'
 
 
 
@@ -14,6 +15,7 @@ class App extends Component {
                         <Col>
                             <Menu />
                             <Well />
+                            <SearchResults />
                         </Col>
                     </Row>
                     <Row>

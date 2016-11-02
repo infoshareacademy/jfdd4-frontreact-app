@@ -3,8 +3,7 @@
  */
 import React from 'react'
 import { connect } from 'react-redux'
-import { setFilterValue } from './actionCreators'
-import {Form, FormGroup, FormControl, Button} from 'react-bootstrap'
+import {Form, FormGroup, FormControl} from 'react-bootstrap'
 
 
 const mapStateToProps = (state) => ({
@@ -12,7 +11,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    onSearchChange: (term) => dispatch({ type: 'SEARCH', term: term })
+    onSearchChange: (term) => dispatch({ type: 'search/SEARCH', term: term })
 })
 
 
