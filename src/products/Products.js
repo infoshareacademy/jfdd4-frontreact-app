@@ -55,7 +55,7 @@ const Products = ({
 
     <div>
         <div className="break"></div>
-        <div className="break"></div>
+
 
         <div className="filter">
             {availableFilters.map(filterName => (

@@ -22,6 +22,7 @@ export default class Favorites extends React.Component {
 
         return (
             <div>
+                <div className="break"></div>
                 {DataShops.finalState.shops
                     .filter (s =>
                             favShopsIds.filter(favShop => favShop === s.id).length
