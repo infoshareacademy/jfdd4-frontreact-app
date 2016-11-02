@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { connect } from 'react-redux'
-import {filterProducts} from './actionCreators'
+
 
 
 const mapStateToProps = (state) => ({

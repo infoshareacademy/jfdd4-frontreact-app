@@ -14,7 +14,7 @@ class App extends Component {
                     <Row>
                         <Col>
                             <Menu />
-                            <Well />
+                          
                             <SearchResults />
                         </Col>
                     </Row>
