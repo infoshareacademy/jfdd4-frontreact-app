@@ -2,23 +2,37 @@
  * Created by kbro2 on 30.10.2016.
  */
 import React from 'react'
-import {Well, PageHeader, Row, Col} from 'react-bootstrap'
+import {Well, PageHeader, Row, Button, Col} from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { addProduct } from './actionCreators'
+
 
 const mapStateToProps = (state) => ({
-    products: state.products
+    products: state.productsData.products,
+    
+})
+const mapDispatchToProps = (dispatch) => ({
+    deleteProduct: (productsId) => dispatch(deleteProduct(productsId)),
+
 })
 
-const mapDispatchToProps = (dispatch) => ({
-    addProduct: (shopName, quantity) => dispatch(addProduct(shopName, quantity)),
-})
 
 const ShoppingList = ({
-    addProduct,
+    products, deleteProduct,
 }) => (
     <Well>
         <PageHeader>Lista Zakupów</PageHeader>
+        <Col>
+            {products
+                .map(products => {
+                    return <tr key={products.id}>
+                        <td>
+                            <h3>{products.name}</h3>
+            <Button onClick={() => deleteProduct(products.id)}>
+                Delete
+            </Button>
+            </td></tr>                })}
+        </Col>
     </Well>
 )
-export default connect(mapStateToProps)(ShoppingList)
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShoppingList)
