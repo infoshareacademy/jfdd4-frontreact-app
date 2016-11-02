@@ -6,7 +6,7 @@ import persistState from 'redux-localstorage'
 import favoritesReducer from './app/favoriteReducer'
 import mapsReducer from './maps/reducer'
 import shopsReducer from './shops/reducer'
-import searchReducer from './search/reduce
+import searchReducer from './search/reducer'
     
 let reducer = combineReducers({
     productsData: productsReducer,
