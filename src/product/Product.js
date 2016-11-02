@@ -10,6 +10,7 @@ import {
 import { Link } from 'react-router'
 import { Glyphicon, Grid, Col, Row, Image } from 'react-bootstrap'
 import ButtonBack  from './button/ButtonBack'
+import GoogleMap from 'google-map-react'
 
 
 export default class Product extends React.Component {
@@ -38,7 +39,7 @@ export default class Product extends React.Component {
         return (
 
             <div>
-                    <div>&#x2002;</div>
+                    <div style={{ height: '20px'}}>&#x2002;</div>
                      <div>
                         {productsData.products
                             .filter(
@@ -91,6 +92,7 @@ export default class Product extends React.Component {
                                                 </Col>
                                                 <Col Col xs={12} sm={12} md={12} lg={12}>
                                                     <h1>MAPA</h1>
+                                                    <GoogleMap />
                                                 </Col>
                                             </Row>
 

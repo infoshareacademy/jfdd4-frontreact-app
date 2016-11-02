@@ -11,10 +11,10 @@ import { Card, CardTitle, CardActions, Button, Icon } from 'react-mdl';
 export default (props) =>
 
 <Row>
-    <div style={{ height: '100px'}}></div>
+    <div style={{ height: '150px'}}></div>
      <Col xs={12} md={4}>
          <Link to={'/products'}  style={{ textDecoration: 'none',  textAlign: 'center'}}>
-             <Card shadow={0} style={{width: '320px', height: '320px', margin: '20px auto 20px'}}>
+             <Card shadow={0} style={{width: '280px', height: '320px', margin: '20px auto 20px'}}>
                  <CardTitle expand style={{background: '#00A493', color: '#fff'}}>
                      <Icon name="search" style={{color: '#fff', fontSize: '80px', margin: 'auto'}}/>
                  </CardTitle>
@@ -26,7 +26,7 @@ export default (props) =>
     </Col>
     <Col xs={12} md={4}>
         <Link to={'/list'}  style={{ textDecoration: 'none',  textAlign: 'center'}}>
-            <Card shadow={0} style={{width: '320px', height: '320px', margin: '20px auto 20px'}}>
+            <Card shadow={0} style={{width: '280px', height: '320px', margin: '20px auto 20px'}}>
                 <CardTitle expand style={{background: '#00A493', color: '#fff'}}>
                     <Icon name="add_shopping_cart" style={{color: '#fff', fontSize: '80px', margin: 'auto'}}/>
                 </CardTitle>
@@ -39,7 +39,7 @@ export default (props) =>
     {/*background: '#276D73'*/}
     <Col xs={12} md={4}>
         <Link to={'/maps'}  style={{ textDecoration: 'none',  textAlign: 'center'}}>
-        <Card shadow={0} style={{width: '320px', height: '320px', margin: '20px auto 20px'}}>
+        <Card shadow={0} style={{width: '280px', height: '320px', margin: '20px auto 20px'}}>
             <CardTitle expand style={{ background: '#00A493', color: '#fff'}}>
                 <Icon name="add_location" style={{color: '#fff', fontSize: '80px', margin: 'auto'}}/>
             </CardTitle>

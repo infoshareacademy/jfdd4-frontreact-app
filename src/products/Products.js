@@ -10,16 +10,26 @@ import ButtonMoreInformation  from './button/ButtonMoreInformation'
 import filters from './filters'
 import './Products.css'
 import { Link } from 'react-router'
-import { Col, Image, ButtonGroup } from 'react-bootstrap'
-import { Spinner} from 'react-mdl';
+import { Col, Image, ButtonGroup,  } from 'react-bootstrap'
+import { Spinner, Tabs, Tab } from 'react-mdl';
 
 
 const mapStateToProps = (state) => ({
     products: state.productsData.products,
     availableFilters: state.productsData.availableFilters,
     activeFilter: {
-        name: state.productsData.activeFilterName,
-        predicate: filters[state.productsData.activeFilterName].predicate
+        name: state.productsData.activeFilterNames,
+        predicate: product => {
+            if (state.productsData.activeFilterNames.length == 0 ) {
+                return true;
+            }
+            var result = false;
+            state.productsData.activeFilterNames.forEach(filterName => {
+                    result |= filters[filterName].predicate(product);
+                }
+            )
+            return result;
+        }
     },
     fetchingProducts: state.productsData.fetchingProducts
 })
@@ -45,17 +55,22 @@ const Products = ({
 
     <div>
         <div className="break"></div>
+        <div className="break"></div>
+
         <div className="filter">
             {availableFilters.map(filterName => (
-                <ButtonGroup key={filterName}
-                             onClick={() => activateFilter(filterName)}
-                             className={filterName === activeFilter.name ? 'active' : ''}>
-                    {filters[filterName].label}
-                </ButtonGroup>
+                <Tab>
+                    <ButtonGroup key={filterName}
+                                 style={{padding: '0 10px', fontSize: '12', textAlign: 'center'}}
+                                 onClick={() => activateFilter(filterName)}
+                                 className={filterName === activeFilter.name ? 'active' : ''}>
+                            {filters[filterName].label}
+                    </ButtonGroup>
+                </Tab>
             ))}
         </div>
         <div className="break"></div>
-        {fetchingProducts ? <p><Spinner singleColor /></p> : null}
+        {fetchingProducts ? <Spinner singleColor /> : null}
         <div>
             {products
                 .filter(activeFilter.predicate)
