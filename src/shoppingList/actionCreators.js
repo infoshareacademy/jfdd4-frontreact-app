@@ -4,8 +4,8 @@
 
 
 import {
-    GET_PRODUCTS,
-    RECEIVE_PRODUCTS,
+    GET_ITEMS,
+    RECEIVE_ITEMS,
 
 } from './actionTypes'
 
@@ -13,21 +13,21 @@ import fetch from 'isomorphic-fetch'
 
 
 
-export function fetchProducts() {
+export function fetchItems() {
     return function (dispatch) {
         return fetch('http://rest.learncode.academy/api/sugero/shoppingLists')
             .then(response => response.json())
-            .then(amounts => dispatch({
-                type: RECEIVE_PRODUCTS,
-                products: products
+            .then(items => dispatch({
+                type: RECEIVE_ITEMS,
+                items: items
             }))
     }}
 
-export function deleteProduct(productId) {
+export function deleteItem(itemId) {
     return function (dispatch) {
-        return fetch('http://rest.learncode.academy/api/sugero/shoppingLists' + productId, {
+        return fetch('http://rest.learncode.academy/api/sugero/shoppingLists/' + itemId, {
             method: 'DELETE'
         })
-            .then(response => dispatch(fetchProducts()))
+            .then(response => dispatch(fetchItems()))
     }
 }

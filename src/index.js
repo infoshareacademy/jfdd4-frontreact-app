@@ -8,8 +8,9 @@ import Product from './product/Product';
 import Shops from './shops/Shops';
 import Maps from './maps/Maps';
 import ShoppingList from './shoppingList/ShoppingList';
-import { fetchProducts } from './products/actionCreators'
+import {fetchProducts } from './products/actionCreators'
 import {fetchAmounts} from './shoppingList/amounts/actionCreators'
+import {fetchItems} from './shoppingList/actionCreators'
 import Availability from'./products/availability/Availability.js'
 import Favorites from './favorites/Favorites';
 import Amounts from './shoppingList/amounts/Amounts'
@@ -42,8 +43,8 @@ ReactDOM.render(
                 <Route path="/shops" component={Shops}/>
                 <Route path="/shops/:viewVariant" component={Shops}/>
                 <Route path="/maps" component={Maps}/>
-                <Route path="/shoppingList" component={ShoppingList} onEnter={() => {store.dispatch(fetchAmounts())}}/>
-                    <Route path="/shoppingList/amounts/:productId" component={Amounts} onEnter={() => store.dispatch(fetchAmounts(store.getState().amountsData.amounts))}/>
+                <Route path="/shoppingList" component={ShoppingList} onEnter={() => {store.dispatch(fetchItems(store.getState().shoppingListData.items))}}/>
+                <Route path="/amounts/:productId" component={Amounts} onEnter={() => {store.dispatch(fetchAmounts(store.getState().amountsData.amounts))}}/>
                 <Route path="/favorites" component={Favorites}/>
                 <Route path="/login" component={Login}/>
             </Route>

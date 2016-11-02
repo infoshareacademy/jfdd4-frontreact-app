@@ -2,17 +2,17 @@
  * Created by kbro2 on 30.10.2016.
  */
 import {
-    RECEIVE_PRODUCTS
+    RECEIVE_ITEMS
 } from './actionTypes'
 
 const initialState = {
-    products: [],
+    items: [],
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case RECEIVE_PRODUCTS:
-            return {...state, products: action.products}
+        case RECEIVE_ITEMS:
+            return {...state, items: action.items}
         default:
             return state
     }

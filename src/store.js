@@ -4,20 +4,16 @@ import createLogger from 'redux-logger'
 import productsReducer from './products/reducer'
 import persistState from 'redux-localstorage'
 import favoritesReducer from './app/favoriteReducer'
-import  shoppingListReducer from './shoppingList/reducer'
+import shoppingListReducer from './shoppingList/reducer'
 import amountsReducer from './shoppingList/amounts/reducer'
 
 let reducer = combineReducers({
     productsData: productsReducer,
     favorites: favoritesReducer,
-    amountsData: amountsReducer
-    // : shoppingListReducer
+    amountsData: amountsReducer,
+    shoppingListData: shoppingListReducer
 })
 
-
-// let reducer = combineReducers({
-//     shoppingList: shoppingListReducer
-// })
 
 // Create a Redux store holding the state of your app.
 // Its API is { subscribe, dispatch, getState }.

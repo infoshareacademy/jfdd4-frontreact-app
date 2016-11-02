@@ -4,35 +4,44 @@
 import React from 'react'
 import {Well, PageHeader, Row, Button, Col} from 'react-bootstrap'
 import { connect } from 'react-redux'
-
+import {deleteItem} from './actionCreators'
 
 const mapStateToProps = (state) => ({
-    products: state.productsData.products,
+    items: state.shoppingListData.items,
     
 })
 const mapDispatchToProps = (dispatch) => ({
-    deleteProduct: (productsId) => dispatch(deleteProduct(productsId)),
+    deleteItem: (itemId) => dispatch(deleteItem(itemId)),
 
-})
+});
 
 
-const ShoppingList = ({
-    products, deleteProduct,
-}) => (
+const ShoppingList = ({items, deleteItem}) => (
     <Well>
         <PageHeader>Lista Zakupów</PageHeader>
         <Col>
-            {products
-                .map(products => {
-                    return <tr key={products.id}>
+            {items
+                .map(items => (
+                    <tr key={items.id}>
                         <td>
-                            <h3>{products.name}</h3>
-            <Button onClick={() => deleteProduct(products.id)}>
-                Delete
-            </Button>
-            </td></tr>                })}
+                            {items.shopName}
+                        </td>
+                        <td>
+                            {items.quantity}
+                        </td>
+                        <td>
+                            {items.productName}
+                        </td>
+                        <td>
+                        <Button onClick={() => deleteItem(items.id)}>
+                             Usuń
+                        </Button>
+                        </td>
+                    </tr>))
+            }
         </Col>
     </Well>
-)
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShoppingList)
+

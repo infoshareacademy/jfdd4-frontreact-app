@@ -38,10 +38,7 @@ const Amounts = ({amounts, addProduct}) => (
                                         />
                                 )}
                         </td> 
-                        <td>
-                         
-                        </td>
-                    </tr>
+                      </tr>
                 })}
 
         </Col>
