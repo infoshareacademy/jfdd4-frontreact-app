@@ -1,4 +1,4 @@
-import { MARK_PRODUCT_AS_FAVORITE, DISSMARK_PRODUCT_AS_FAVORITE } from './actionTypes'
+import { ADD_TO_FAVORITES_BEGIN, ADD_TO_FAVORITES_END, DELETE_FAVORITE_BEGIN, DELETE_FAVORITE_END } from './actionTypes'
 import { addToFavorites, deleteFavorite } from '../app/actionCreators'
 
 // const initialState = {
