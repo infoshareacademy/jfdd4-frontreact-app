@@ -1,0 +1,133 @@
+.break {
+    height: 50px;
+}
+
+.filter {
+    height: 50px;
+    margin-left: 70px;
+}
+
+.products {
+    width: 100%;
+    max-width: 300px;
+    min-width: 240px;
+    margin: 0 auto 100px;
+    height: 100%;
+    min-height: 450px;
+}
+
+.FavoriteProducts {
+    width: 100%;
+    max-width: 300px;
+    min-width: 240px;
+    margin: 0 auto 100px;
+    height: 100%;
+    min-height: 250px;
+}
+
+.FavoriteShops {
+    width: 100%;
+    max-width: 300px;
+    min-width: 240px;
+    margin: 0 auto 100px;
+    height: 100%;
+    min-height: 250px;
+}
+
+
+.product {
+    width: 100%;
+    margin: 0 auto 10px;
+    height: 100%;
+}
+
+.filter-element {
+    display: inline-block;
+    width: 14%;
+    font-size: 10px;
+}
+
+.left-side {
+    display: inline-block;
+    width: 35%;
+    font-size: 10px;
+}
+.right-side {
+    display: inline-block;
+    width: 65%;
+    font-size: 13px;
+}
+
+.product-left-side {
+    display: inline-block;
+    width: 30%;
+    font-size: 10px;
+}
+.product-right-side {
+    display: inline-block;
+    width: 70%;
+    font-size: 13px;
+}
+
+.card-image {
+    height: 230px;
+    position: relative;
+}
+
+.size {
+    /*background-position: center;*/
+    /*background-size: cover;*/
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: relative;
+}
+
+.card-header {
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 10px;
+    list-style: none;
+    padding: 2px;
+}
+
+.polaroid {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.icon-left {
+    width: 33.3%;
+    display: inline-block;
+    text-align: center;
+}
+
+.icon-center {
+    width: 33.3%;
+    display: inline-block;
+    text-align: center;
+}
+
+.icon-right {
+    width: 33.3%;
+    display: inline-block;
+    text-align: center;
+}
+
+.mdl-button--fab {
+    position: absolute;
+    left: 200px;
+    bottom: 50px;
+    display: inline-block;
+    z-index: 666;
+}
+
+.btn-group {
+    padding: 5px;
+}

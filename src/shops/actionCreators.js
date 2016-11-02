@@ -1,4 +1,5 @@
 
+
 import { REQUEST_SHOPS, RECEIVE_SHOPS } from './actionTypes'
 import fetch from 'isomorphic-fetch'
 
@@ -58,3 +59,4 @@ export function addToFavoritesShops (shopId) {
             .then(shops => dispatch(addShopToFavoritesEnd(shopId)))
     }
 }
+

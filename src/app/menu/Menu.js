@@ -1,39 +1,51 @@
 import React, {Component} from 'react';
 import './Menu.css'
 import Item from './item/Item'
-import {  Navbar, Nav, FormGroup, FormControl, Button  } from 'react-bootstrap'
+import {  Row, Col, Navbar, Nav } from 'react-bootstrap'
+import { Textfield } from 'react-mdl';
+import { IconButton  } from 'react-mdl';
+import Login from '../../login/Login';
 import Search from '../../search/Search'
+import {  Navbar, Nav, FormGroup, FormControl, Button  } from 'react-bootstrap'
+
+
 export default class Menu extends Component {
     render() {
         return (
-            <Navbar inverse className="App-Menu">
-                <Navbar.Header>
-                    <Navbar.Brand>
-                        </Navbar.Brand>
-                    <Navbar.Toggle />
-                    </Navbar.Header>
-                <Navbar.Collapse>
+            <Navbar navbar navbar-default navbar-fixed-top>
                     <Nav>
-                        <Nav><Item path={`/`}>Strona Główna</Item></Nav>
-                        <Nav>
-                            <Item path={`/products`}>
-                                Produkty
-                            </Item>
-
-                        </Nav>
-                        <Nav><Item path={`/shops`}>Sklepy</Item></Nav>
-                        <Nav>
-                            <Item path={`/maps`}>
-                                Mapy
-                            </Item>
-                        </Nav>
+                        <Item path={`/`}>
+                            <IconButton name="home" />
+                        </Item>
+                        <Item path={`/products`}>
+                            Produkty
+                        </Item>
+                        <Item path={`/shops`}>
+                            Sklepy
+                        </Item>
+                        <Item path={`/maps`}>
+                            Mapy
+                        </Item>
+                        <Item path={`/list`}>
+                            Lista zakupów
+                        </Item>
                     </Nav>
 
                     <Navbar.Form pullLeft>
                         <Search />
                     </Navbar.Form>
                     <Nav pullRight>
-                        <Nav><Item path={`/favorites`}>Ulubione</Item></Nav>
+                        <Textfield
+                            value=""
+                            onChange={() => {}}
+                            label="Search"
+                            expandable
+                            expandableIcon="search"
+                            />
+                        <Item path={`/favorites`}>
+                                <IconButton style={{listStyleType: 'none', listStyle: 'none'}} name="favorite" />
+                        </Item>
+                        <Login />
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

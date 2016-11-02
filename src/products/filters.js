@@ -1,43 +1,27 @@
 const filters = {
-    all: {
-    label: 'all',
-    predicate: product => true
-    },
     cereals : {
-        label: "Kasze",
-        predicate: product => product.category === 'cereal'
+        label: "KASZA",
+        predicate: product => product.category === 'kasza'
     },
     oils : {
-        label: "olej",
-        predicate: product => product.category === 'oil'
+        label: "OLEJ",
+        predicate: product => product.category === 'olej'
     },
     rices : {
-        label: "ryz",
-        predicate: product => product.category === 'rice'
+        label: "RYŻ",
+        predicate: product => product.category === 'ryż'
     },
     fruits : {
-        label: "owoce",
-        predicate: product => product.category === 'fruit'
+        label: "OWOCE",
+        predicate: product => product.category === 'owoce'
     },
     fishs : {
-        label: "ryby",
-        predicate: product => product.category === 'fish'
+        label: "RYBY",
+        predicate: product => product.category === 'ryby'
     },
     breads : {
-        label: "pieczywo",
-        predicate: product => product.category === 'bread'
-    },
-    price1s : {
-        label: "cena5",
-        predicate: product => product.category === 'price1'
-    },
-    price2s : {
-        label: "cena10",
-        predicate: product => product.category === 'price2'
-    },
-    price3s : {
-        label: "cenapow10",
-        predicate: product => product.category === 'price3'
+        label: "PIECZYWO",
+        predicate: product => product.category === 'pieczywo'
     }
 }
 

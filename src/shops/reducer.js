@@ -1,3 +1,4 @@
+
 import { finalState } from '../data/dataShops'
 import {
     REQUEST_SHOPS,
@@ -25,3 +26,4 @@ export default (state = initialState, action) => {
             return state;
     }
 }
+

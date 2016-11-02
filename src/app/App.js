@@ -20,9 +20,7 @@ class App extends Component {
                     </Row>
                     <Row>
                         <Col>
-                            <Well>
-                                {this.props.children}
-                            </Well>
+                            {this.props.children}
                         </Col>
                     </Row>
                 </Grid>
