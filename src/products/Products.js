@@ -39,7 +39,7 @@ const mapDispatchToProps = (dispatch) => ({
     favoriteProduct: (productId) => dispatch(markProductAsFavorite(productId)),
     dissmarkProduct: (productId) => dispatch(dissmarkProductAsFavorite(productId)),
     addToFavorites: (productId) => dispatch(addToFavorites(productId)),
-    deleteFavorite: (productId) => dispatch(deleteFavorite(productId))
+    deleteFavorite: (productId, favoriteMarkId) => dispatch(deleteFavorite(productId, favoriteMarkId))
 })
 
 
@@ -115,12 +115,12 @@ const Products = ({
                                                             <ButtonMoreInformation />
                                                         </Link>
                                                      </span>
-                                                    {/*<button onClick={() => addToFavorites(product.id)}>*/}
-                                                    {/*Add favorites*/}
-                                                    {/*</button>*/}
-                                                    {/*<button onClick={() => dissmarkProduct(product.id)}>*/}
-                                                    {/*Del favorites*/}
-                                                    {/*</button>*/}
+                                                    <button onClick={() => addToFavorites(product.id)}>
+                                                    Add favorites
+                                                    </button>
+                                                    <button onClick={() => deleteFavorite(10, "581a08ef494234010041975c")}>
+                                                    Del favorites
+                                                    </button>
                                                 </div>
                                             </li>
                                         </ul>

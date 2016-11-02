@@ -1,20 +1,47 @@
 import { MARK_PRODUCT_AS_FAVORITE, DISSMARK_PRODUCT_AS_FAVORITE } from './actionTypes'
+import { addToFavorites, deleteFavorite } from '../app/actionCreators'
+
+// const initialState = {
+//     favoriteProductIds: []
+// }
+// //tutaj beda productsId i favoriteproductId odczytane z API
+//
+// export default(state = initialState, action) => {
+//     switch (action.type) {
+//         case MARK_PRODUCT_AS_FAVORITE:
+//             return Object.assign({}, state, {
+//                 favoriteProductIds: state.favoriteProductIds.concat([action.productId])
+//             })
+//         case DISSMARK_PRODUCT_AS_FAVORITE:
+//             return Object.assign ({}, state, {
+//             favoriteProductIds: state.favoriteProductIds.remove([action.productId])
+//         })
+//         default:
+//             return state
+//     }
+// }
 
 const initialState = {
-    favoriteProductIds: []
+    favoriteMarks: [
+        {
+            productId: [],
+            id: []
+        }
+    ]
 }
-//tutaj beda productsId i favoriteproductId odczytane z API
 
 export default(state = initialState, action) => {
     switch (action.type) {
-        case MARK_PRODUCT_AS_FAVORITE:
+        case addToFavorites:
             return Object.assign({}, state, {
-                favoriteProductIds: state.favoriteProductIds.concat([action.productId])
+                favoriteMarks: state.favoriteMarks.concat([{
+                    productId: action.productId,
+                    id: action.id}])
             })
-        case DISSMARK_PRODUCT_AS_FAVORITE:
+        case deleteFavorite:
             return Object.assign ({}, state, {
-            favoriteProductIds: state.favoriteProductIds.remove([action.productId])
-        })
+                favoriteMarks: state.favoriteMarks.filter(mark => mark.id !== action.id ? true : false)
+            })
         default:
             return state
     }
