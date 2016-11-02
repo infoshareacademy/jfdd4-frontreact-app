@@ -4,11 +4,12 @@ import Item from './item/Item'
 import {  Row, Col, Navbar, Nav } from 'react-bootstrap'
 import { Textfield } from 'react-mdl';
 import { IconButton  } from 'react-mdl';
-import Login from '../../login/Login'
+import Login from '../../login/Login';
+import Search from '../../search/Search'
+
 
 
 export default class Menu extends Component {
-
     render() {
         return (
             <Navbar className="navbar-fixed-top" >
@@ -29,6 +30,10 @@ export default class Menu extends Component {
                             Lista zakupów
                         </Item>
                     </Nav>
+
+                    <Navbar.Form pullLeft>
+                        <Search />
+                    </Navbar.Form>
                     <Nav pullRight>
                         <Textfield
                             value=""
@@ -42,8 +47,8 @@ export default class Menu extends Component {
                         </Item>
                         <Login />
                     </Nav>
+
             </Navbar>
         );
     }
 }
-

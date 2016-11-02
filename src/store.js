@@ -5,11 +5,15 @@ import productsReducer from './products/reducer'
 import persistState from 'redux-localstorage'
 import favoritesReducer from './app/favoriteReducer'
 import mapsReducer from './maps/reducer'
-
+import shopsReducer from './shops/reducer'
+import searchReducer from './search/reduce
+    
 let reducer = combineReducers({
     productsData: productsReducer,
     favorites: favoritesReducer,
-    mapsDate: mapsReducer
+    mapsDate: mapsReducer,
+    shopsData: shopsReducer,
+    search: searchReducer
 })
 
 // Create a Redux store holding the state of your app.
