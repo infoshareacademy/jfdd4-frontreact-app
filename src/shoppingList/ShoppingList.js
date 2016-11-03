@@ -2,7 +2,7 @@
  * Created by kbro2 on 30.10.2016.
  */
 import React from 'react'
-import {Well, PageHeader, Row, Button, Col} from 'react-bootstrap'
+import {Well, PageHeader, Row, Button, Col, Grid} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import {deleteItem} from './actionCreators'
 
@@ -15,31 +15,38 @@ const mapDispatchToProps = (dispatch) => ({
 
 });
 
-
 const ShoppingList = ({items, deleteItem}) => (
     <Well>
         <PageHeader>Lista Zakupów</PageHeader>
-        <Col>
+        <Grid>
             {items
-                .map(items => (
-                    <tr key={items.id}>
-                        <td>
-                            {items.shopName}
-                        </td>
-                        <td>
-                            {items.quantity}
-                        </td>
-                        <td>
-                            {items.productName}
-                        </td>
-                        <td>
-                        <Button onClick={() => deleteItem(items.id)}>
-                             Usuń
-                        </Button>
-                        </td>
-                    </tr>))
-            }
+                .map(item => (
+                    <Row key={item.id}>
+                        <Col md={2}>
+                            {item.productName}
+                        </Col>
+                        <Col md={2}>
+                            za {item.price} zł
+                        </Col>
+                        <Col md={2}>
+                               w ilości {item.quantity} sztuk
+                        </Col>
+                        <Col md={2}>
+                            ze sklepu {item.shopName}
+                        </Col>
+                        <Col md={1}>
+                          <Button onClick={() => deleteItem(item.id)}>
+                                 Usuń
+                            </Button>
+                        </Col>
+                       
+                    </Row>))
+            } 
+            <Col>
+            Łączny koszt = {items.reduce( (prev, next) => prev + next.price * next.quantity, 0)}
         </Col>
+
+        </Grid>
     </Well>
 );
 

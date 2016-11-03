@@ -15,7 +15,7 @@ import fetch from 'isomorphic-fetch'
 
 export function fetchItems() {
     return function (dispatch) {
-        return fetch('http://rest.learncode.academy/api/sugero/shoppingLists')
+        return fetch('http://rest.learncode.academy/api/sugero/list')
             .then(response => response.json())
             .then(items => dispatch({
                 type: RECEIVE_ITEMS,
@@ -25,7 +25,7 @@ export function fetchItems() {
 
 export function deleteItem(itemId) {
     return function (dispatch) {
-        return fetch('http://rest.learncode.academy/api/sugero/shoppingLists/' + itemId, {
+        return fetch('http://rest.learncode.academy/api/sugero/list/' + itemId, {
             method: 'DELETE'
         })
             .then(response => dispatch(fetchItems()))

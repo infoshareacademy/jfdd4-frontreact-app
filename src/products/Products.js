@@ -69,7 +69,7 @@ const Products = ({
                                     </li>
                                     <div className="card-image">
                                         <Image className="size" src={product.image}/>
-                                        <ButtonAddToList onClick={() => (product.id)}/>
+                                        <ButtonAddToList onClick={() => '../shoppingList/amounts' + (product.id)}/>
                                     </div>
                                     <div className="card-content">
                                         <ul className="list-group list-group-flush">

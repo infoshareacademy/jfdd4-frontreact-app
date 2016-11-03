@@ -48,7 +48,7 @@ class ListForm extends React.Component {
                     onClick={this._minusClick}>
                     Minus
                 </button>
-                <Button onClick={() => this.props.addToList(this.props.shopName, this.props.productName, this.state.numberOfClicks)}>
+                <Button onClick={() => this.props.addToList( this.props.itemID,  this.state.numberOfClicks, this.props.price, this.props.productName, this.props.shopName)}>
                     Dodaj do listy
                 </Button>
             </div>

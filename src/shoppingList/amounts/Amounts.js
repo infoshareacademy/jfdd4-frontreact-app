@@ -6,13 +6,13 @@ import {Well, Button, Col} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import ListForm from './list-form/ListForm'
 import { addProduct} from './actionCreators'
-
+    
 const mapStateToProps = (state) => ({
    amounts: state.amountsData.amounts
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    addProduct: (shopName, productName, quantity) => dispatch(addProduct(shopName, productName, quantity))
+    addProduct: (itemId, price, quantity, productName, shopName) => dispatch(addProduct(itemId, price, quantity, productName, shopName ))
 
 })
 
@@ -30,12 +30,13 @@ const Amounts = ({amounts, addProduct}) => (
                                 .map(
                                     key => 
                                         <ListForm 
-                                            productId={amounts.id}
+                                            itemId={amounts.id}
                                             productName={amounts.name}
-                                            shopName={key}
                                             quantity={amounts.amounts[key]}
+                                            price={amounts.price}
+                                            shopName={key}
                                             addToList={addProduct}
-                                        />
+                                                                                   />
                                 )}
                         </td> 
                       </tr>

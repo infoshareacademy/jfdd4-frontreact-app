@@ -37,19 +37,22 @@ function addProductEnd() {
     }
 }
 
-export function addProduct(shopName, productName, quantity) {
+export function addProduct(itemId, quantity, price, productName, shopName) {
     return function (dispatch) {
         dispatch(addProductBegin())
-        return fetch('http://rest.learncode.academy/api/sugero/shoppingLists', {
+        return fetch('http://rest.learncode.academy/api/sugero/list', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                shopName: shopName,
+                itemId: itemId,
                 quantity: quantity,
-                productName:  productName
+                price: price,
+                productName:  productName,
+                shopName: shopName,
+                
             })
         })
             .then(response => response.json())
