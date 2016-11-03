@@ -6,7 +6,7 @@ import ButtonAddToList  from './button/ButtonAddToList'
 import ButtonAddToFavorite from './button/ButtonAddToFavorite'
 import ButtonShowOnMap from './button/ButtonShowOnMap'
 import ButtonMoreInformation  from './button/ButtonMoreInformation'
-import { markProductAsFavorite, dissmarkProductAsFavorite, addToFavorites,deleteFavorite } from '../app/actionCreators'
+import { markProductAsFavorite, dissmarkProductAsFavorite, addToFavorites, deleteFavorite } from '../app/actionCreators'
 import filters from './filters'
 import './Products.css'
 import { Link } from 'react-router'
@@ -20,7 +20,7 @@ const mapStateToProps = (state) => ({
     activeFilter: {
         name: state.productsData.activeFilterNames,
         predicate: product => {
-            if (state.productsData.activeFilterNames.length == 0 ) {
+            if (state.productsData.activeFilterNames.length === 0 ) {
                 return true;
             }
             var result = false;
@@ -39,7 +39,7 @@ const mapDispatchToProps = (dispatch) => ({
     favoriteProduct: (productId) => dispatch(markProductAsFavorite(productId)),
     dissmarkProduct: (productId) => dispatch(dissmarkProductAsFavorite(productId)),
     addToFavorites: (productId) => dispatch(addToFavorites(productId)),
-    deleteFavorite: (productId, favoriteMarkId) => dispatch(deleteFavorite(productId, favoriteMarkId))
+    deleteFavorite: (id) => dispatch(deleteFavorite(id))
 })
 
 
@@ -118,7 +118,7 @@ const Products = ({
                                                     <button onClick={() => addToFavorites(product.id)}>
                                                     Add favorites
                                                     </button>
-                                                    <button onClick={() => deleteFavorite(10, "581a08ef494234010041975c")}>
+                                                    <button onClick={() => deleteFavorite(...}>
                                                     Del favorites
                                                     </button>
                                                 </div>

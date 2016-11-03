@@ -4,11 +4,16 @@ import {
     RECEIVE_PRODUCTS
 } from './actionTypes'
 
+import {
+    RECEIVE_FAVORITES
+} from '../app/actionTypes'
+
 const initialState = {
     availableFilters: ['cereals', 'oils', 'rices', 'fruits', 'fishs', 'breads'],
     activeFilterNames: [],
     products: [],
-    fetchingProducts: false
+    fetchingProducts: false,
+    favoriteProducts: []
 }
 
 export default (state=initialState, action) => {
@@ -31,6 +36,10 @@ export default (state=initialState, action) => {
             return Object.assign({}, state, {
                 products: action.products,
                 fetchingProducts: false
+            })
+        case RECEIVE_FAVORITES:
+            return Object.assign({}, state, {
+                favoriteProducts: action.favoriteProducts
             })
         default:
             return state

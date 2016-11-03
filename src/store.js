@@ -3,7 +3,7 @@ import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
 import productsReducer from './products/reducer'
 import persistState from 'redux-localstorage'
-import favoritesReducer from './app/favoriteReducer'
+import favoritesReducer from './products/reducer'
 
 let reducer = combineReducers({
     productsData: productsReducer,
