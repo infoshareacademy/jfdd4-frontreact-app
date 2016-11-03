@@ -2,21 +2,22 @@
  * Created by kbro2 on 30.10.2016.
  */
 import React from 'react'
-import {Well, Button, Col} from 'react-bootstrap'
+import {Well, Col} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import ListForm from './list-form/ListForm'
-import { addProduct} from './actionCreators'
+import { addProduct, updateQuantity} from './actionCreators'
     
 const mapStateToProps = (state) => ({
    amounts: state.amountsData.amounts
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    addProduct: (itemId, price, quantity, productName, shopName) => dispatch(addProduct(itemId, price, quantity, productName, shopName ))
+    addProduct: (itemId, price, quantity, productName, shopName) => dispatch(addProduct(itemId, price, quantity, productName, shopName )),
+    updateQuantity: (shopName, quantity) => dispatch(updateQuantity(shopName, quantity))
 
 })
 
-const Amounts = ({amounts, addProduct}) => (
+const Amounts = ({amounts, addProduct, updateQuantity}) => (
    
     <Well>
         <Col>
@@ -36,7 +37,7 @@ const Amounts = ({amounts, addProduct}) => (
                                             price={amounts.price}
                                             shopName={key}
                                             addToList={addProduct}
-                                                                                   />
+                                            Quantitis={updateQuantity}                                      />
                                 )}
                         </td> 
                       </tr>

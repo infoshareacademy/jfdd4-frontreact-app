@@ -4,7 +4,8 @@
 import React from 'react'
 import {Well, PageHeader, Row, Button, Col, Grid} from 'react-bootstrap'
 import { connect } from 'react-redux'
-import {deleteItem} from './actionCreators'
+import {deleteItem, saveList} from './actionCreators'
+import ListNameForm from './list-name-form/ListNameForm'
 
 const mapStateToProps = (state) => ({
     items: state.shoppingListData.items,
@@ -12,10 +13,11 @@ const mapStateToProps = (state) => ({
 })
 const mapDispatchToProps = (dispatch) => ({
     deleteItem: (itemId) => dispatch(deleteItem(itemId)),
+    saveList: (listName, shoppingList) => dispatch(saveList(listName, shoppingList)),
 
 });
 
-const ShoppingList = ({items, deleteItem}) => (
+const ShoppingList = ({items, deleteItem, saveList}) => (
     <Well>
         <PageHeader>Lista Zakupów</PageHeader>
         <Grid>
@@ -45,8 +47,10 @@ const ShoppingList = ({items, deleteItem}) => (
             <Col>
             Łączny koszt = {items.reduce( (prev, next) => prev + next.price * next.quantity, 0)}
         </Col>
-
-        </Grid>
+       </Grid>
+        <Col>
+            <ListNameForm items={items} handleSubmit={saveList} />
+        </Col>
     </Well>
 );
 

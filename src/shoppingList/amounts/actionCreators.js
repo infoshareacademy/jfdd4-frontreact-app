@@ -22,6 +22,22 @@ export function fetchAmounts () {
         }))
 }}
 
+export function updateQuantity(shopName, quantity) {
+    return function (dispatch) {
+        return fetch('.................................' + shopName, {
+            method: 'PATCH',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                quantity: quantity
+            })
+        })
+            .then(response => dispatch(fetchAmounts()))
+    }
+}
+
 
 //shoppinglist
 
@@ -61,3 +77,4 @@ export function addProduct(itemId, quantity, price, productName, shopName) {
             })
     }
 }
+

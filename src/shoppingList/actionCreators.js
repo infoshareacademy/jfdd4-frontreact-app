@@ -6,6 +6,8 @@
 import {
     GET_ITEMS,
     RECEIVE_ITEMS,
+    SAVE_LIST_BEGIN,
+    SAVE_LIST_END
 
 } from './actionTypes'
 
@@ -29,5 +31,41 @@ export function deleteItem(itemId) {
             method: 'DELETE'
         })
             .then(response => dispatch(fetchItems()))
+    }
+}
+
+//save list
+
+function saveListBegin() {
+    return {
+        type: SAVE_LIST_BEGIN
+    }
+}
+
+function saveListEnd() {
+    return {
+        type: SAVE_LIST_END
+    }
+}
+
+export function saveList(listName, shoppingList) {
+    return function (dispatch) {
+        dispatch(saveListBegin())
+        return fetch('http://rest.learncode.academy/api/sugero/savedlists', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                listName: listName, 
+                shoppingList: shoppingList
+
+            })
+        })
+            .then(response => response.json())
+            .then(product => {
+                dispatch(saveListEnd())
+            })
     }
 }
