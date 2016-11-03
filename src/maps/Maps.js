@@ -1,4 +1,3 @@
-
 import React from 'react'
 import GoogleMap from 'google-map-react'
 import Place from './place/Place'
@@ -6,33 +5,20 @@ import Info from './info/Info'
 import {finalState} from '../data/dataShops'
 import {Modal, Button} from 'react-bootstrap'
 import './Maps.css'
-import {Well , PageHeader } from 'react-bootstrap'
-import { connect} from 'react-redux'
-import { Spinner } from 'react-mdl';
-import { Icon } from 'react-mdl';
-import { Link} from 'react-router'
+import {Well, PageHeader} from 'react-bootstrap'
+import {connect} from 'react-redux'
+import {Spinner} from 'react-mdl';
+import {Icon} from 'react-mdl';
+import {Link} from 'react-router'
+
 
 const mapStateToProps = (state) => ({
-    coordinate: state.mapsDate.coordinate,
-    fetchingCoordinate: state.mapsDate.fetchingCoordinate,
     products: state.productsData.products,
+    fetchingProducts: state.productsData.fetchingProducts,
     shops: state.shopsData.shops
 })
 
-// function getLocation() {
-//     if (navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(showPosition);
-//     } else {
-//         console.log("Geolocation is not supported by this browser.");
-//     }
-// }
-
-// function showPosition(position) {
-//     return ("Latitude: " + position.coords.latitude +
-//     "<br>Longitude: " + position.coords.longitude);
-// }
-
-function createMapOptions (maps) {
+function createMapOptions(maps) {
 
     return {
         panControl: true,
@@ -49,74 +35,73 @@ function createMapOptions (maps) {
 }
 
 class Maps extends React.Component {
-
     render() {
         var {
-            coordinate, //dany sklep
-            fetchingCoordinate,
-            products
-        }=this.props;
-
-        function showPosition(position) {
-            return ("Latitude: " + position.coords.latitude +
-            "<br>Longitude: " + position.coords.longitude);
-        }
+            fetchingProducts,
+            fetchingShops,
+            products,
+            shops,
+            productId
+        } = this.props
 
         return (
             <div>
-                
-                {fetchingCoordinate ? <Spinner singleColor/> : null}
-                    <div id="MAP">
-                        <GoogleMap
-                                bootstrapURLKeys={{key: 'AIzaSyCIGFuueBb3ewt-Ewe7ySfhE9ZdHVjdPsc'}}
-                                center={[54.408636, 18.588977]}
-                                zoom={13}
-                                options={createMapOptions}>
-                                {coordinate.map((singleShop) =>
-                                    <Place
-                                        lat={singleShop.location.lat}
-                                        lng={singleShop.location.lng}
-                                    >
-                                        <Icon name="room"/>
-                                    </Place>)}
-                            
-                        </GoogleMap>
-                    </div>
-                    
+                {
+                    products
+                        .filter(
+                            function (product) {
+                                if (productId == product.id) {
+                                    return true
+                                }
+                            }
+                        )
+                        .map(
+                            function (product) {
+                                return (
+                                    <div>
+                                        <div id="MAP">
+                                            <GoogleMap
+                                                bootstrapURLKeys={{key: 'AIzaSyCIGFuueBb3ewt-Ewe7ySfhE9ZdHVjdPsc'}}
+                                                center={[54.408636, 18.588977]}
+                                                zoom={13}
+                                                options={createMapOptions}>
+
+
+                                                {shops
+                                                    .filter(
+                                                        shop => {
+                                                            return product.shops.indexOf(shop.id) !== -1;
+                                                        }
+                                                    )
+                                                    .map(
+                                                        shop =>
+                                                            <Place
+                                                                lat={shop.location.lat}
+                                                                lng={shop.location.lng}
+                                                            >
+                                                                <Icon name="room"/>
+                                                            </Place>
+                                                    )
+                                                }
+                                            </GoogleMap>
+                                        </div>
+                                    </div>
+                                )
+                            }
+                        )
+                }
             </div>
         )
     }
+
 }
 
 export default connect(mapStateToProps)(Maps)
 
 
-// return (
-//     <div>
-//         {products.map(product => {
-//             return (
-//             {fetchingCoordinate ? <Spinner singleColor/> : null}
-//             <div id="MAP">
-//                 <Link to={"/products/" + product.id}>
-//                     <GoogleMap
-//                         bootstrapURLKeys={{key: 'AIzaSyCIGFuueBb3ewt-Ewe7ySfhE9ZdHVjdPsc'}}
-//                         center={[54.408636, 18.588977]}
-//                         zoom={13}
-//                         options={createMapOptions}>
-//                         {coordinate.map((singleShop) =>
-//                             <Place
-//                                 lat={singleShop.location.lat}
-//                                 lng={singleShop.location.lng}
-//                             >
-//                                 <Icon name="room"/>
-//                             </Place>)}
-//                     </GoogleMap>
-//                 </Link>
-//             </div>
-//
-//             )
-//         })}
-//     </div>
-// )
-// }
-// }
+
+
+
+
+
+

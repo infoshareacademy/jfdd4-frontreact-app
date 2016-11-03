@@ -81,7 +81,7 @@ class Product extends React.Component {
                                             </Col>
                                             <Col Col xs={12} sm={12} md={12} lg={12}>
                                                 <div>
-                                                    <Map />
+                                                    <Map productId={product.id} />
                                                 </div>
                                             </Col>
                                         </Row>
