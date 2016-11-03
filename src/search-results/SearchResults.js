@@ -20,6 +20,7 @@ const SearchResults = ({
     products
 }) =>(
     <div>
+        <div className="break"></div>
         {products.filter(product => {
             if (searchTerm === '') return false
             return product.name.indexOf(searchTerm) !== -1

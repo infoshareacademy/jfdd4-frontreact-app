@@ -13,10 +13,7 @@ const mapStateToProps = (state) => ({
 })
 
  class Shops extends React.Component {
-
-
-
-
+     
     render() {
         var
             favourites = getFavoriteShops(),

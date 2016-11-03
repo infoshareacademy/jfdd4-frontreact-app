@@ -1,13 +1,10 @@
 import React from 'react'
 import './Place.css'
+import { Icon } from 'react-mdl'
 
 export default (props) =>
-    <div id="icon" >
-        <img id="pic2" src={props.icon} onClick={function(){
-            props.selectShop(props.shopId)
-         }}/>   
+        <Icon name="room" />
 
-    </div>
 
 
     
