@@ -32,13 +32,13 @@ import 'react-mdl/extra/material.js';
 ReactDOM.render(
     <Provider store={store}>
         <Router history={browserHistory}>
-            <Route path="/" component={App} >
+            <Route path="/" component={App} onEnter={() => store.dispatch(fetchProducts())}>
                 <IndexRoute component={Dashboard} />
-                <Route path="/products" component={Products} onEnter={() => store.dispatch(fetchProducts())}/>
+                <Route path="/products" component={Products} />
                 <Route path="/products/availability" component={Availability}/>
                 <Route path="/products/:id" component={Product}/>
                 <Route path="/shops" component={Shops}/>
-                <Route path="/shops/:viewVariant" component={Shops} onEnter={() => store.dispatch(fetchProducts())}/>
+                <Route path="/shops/:viewVariant" component={Shops} />
                 <Route path="/maps" component={Maps}/>
                 <Route path="/favorites" component={Favorites}/>
                 <Route path="/login" component={Login}/>

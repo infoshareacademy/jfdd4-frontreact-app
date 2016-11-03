@@ -20,10 +20,14 @@ const SearchResults = ({
     products
 }) =>(
     <div>
+
         {products.filter(product => {
             if (searchTerm === '') return false
             return product.name.indexOf(searchTerm) !== -1
-        }).map( product =>  <Link to={"/products/" + product.id}> {product.name} </Link>)}
+        }).map( product =>
+            <ul>
+            <Link to={"/products/" + product.id}> {product.name} </Link></ul>)}
+
     </div>
 )
 
