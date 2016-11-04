@@ -26,7 +26,7 @@ export default class Menu extends Component {
                         <Item path={`/maps`}>
                             Mapy
                         </Item>
-                        <Item path={`/list`}>
+                        <Item path={`/shoppingList`}>
                             Lista zakupów
                         </Item>
                     </Nav>
@@ -49,6 +49,8 @@ export default class Menu extends Component {
                     </Nav>
 
             </Navbar>
+
         );
     }
 }
+
