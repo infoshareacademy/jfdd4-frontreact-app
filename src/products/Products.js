@@ -31,7 +31,8 @@ const mapStateToProps = (state) => ({
             return result;
         }
     },
-    fetchingProducts: state.productsData.fetchingProducts
+    fetchingProducts: state.productsData.fetchingProducts,
+    favorites: state.favorites
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -46,6 +47,7 @@ const mapDispatchToProps = (dispatch) => ({
 const Products = ({
     fetchingProducts,
     products,
+    favorites,
     availableFilters,
     activeFilter,
     activateFilter,
@@ -76,7 +78,9 @@ const Products = ({
         <div>
             {products
                 .filter(activeFilter.predicate)
-                .map(product => (
+                .map(product => {
+                    let favs = favorites.favoriteProducts.filter( favMark => favMark.productId === product.id );
+                    return (
                     <ul>
                         <div>
                             <Col xs={10} sm={6} md={4} lg={3} key={product.id} >
@@ -105,7 +109,8 @@ const Products = ({
                                             <li className="list-group-item">
                                                 <div className="card-block">
                                                      <span className="icon-left">
-                                                         <ButtonAddToFavorite onClick={() => addToFavorites(product.id)} />
+                                                         <ButtonAddToFavorite shouldBeRed={favs.length > 0}
+                                                                              onClick={() => favs.length > 0 ? deleteFavorite(favs) : addToFavorites(product.id)} />
                                                      </span>
                                                     <span className="icon-center">
                                                         <ButtonShowOnMap />
@@ -118,7 +123,7 @@ const Products = ({
                                                     <button onClick={() => addToFavorites(product.id)}>
                                                     Add favorites
                                                     </button>
-                                                    <button onClick={() => deleteFavorite(...}>
+                                                    <button onClick={() => deleteFavorite(favorites.favoriteProducts.filter( favMark => favMark.productId === product.id ))}>
                                                     Del favorites
                                                     </button>
                                                 </div>
@@ -129,7 +134,7 @@ const Products = ({
                             </Col>
                         </div>
                     </ul>
-                ))}
+                )})}
         </div>
     </div>
 )

@@ -62,7 +62,10 @@ export function addToFavorites (productId, favoriteProducts) {
                 name: "BLEBLE",
             })})
             .then(response => response.json())
-            .then(products => dispatch(addToFavoritesEnd(productId)))
+            .then(products => {
+                dispatch(addToFavoritesEnd(productId))
+                dispatch(fetchFavorites())
+            })
     }
 }
 
@@ -80,12 +83,15 @@ export function addToFavorites (productId, favoriteProducts) {
 //     }
 // }
 
-export function deleteFavorite(id) {
+export function deleteFavorite(favMarks) {
     return function (dispatch) {
-        return fetch('http://rest.learncode.academy/api/FrontReact2/products/' + id, {
-            method: 'DELETE'
-        })
-            .then(response => dispatch(fetchFavorites()))
+        return Promise.all(
+            favMarks.map(
+                favMark => fetch('http://rest.learncode.academy/api/FrontReact2/products/' + favMark.id, {
+                    method: 'DELETE'
+                }).then(response => dispatch(fetchFavorites()))
+            )
+        ).then(() => dispatch(fetchFavorites()))
     }
 }
 
