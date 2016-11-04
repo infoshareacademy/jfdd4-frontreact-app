@@ -29,7 +29,7 @@ function addToFavoritesEnd (productId) {
     }
 }
 
-export function addToFavorites (productId) {
+export function addToFavorites (productId, favoriteProducts) {
     return function (dispatch) {
         dispatch(addToFavoritesBegin(productId))
         return fetch("http://rest.learncode.academy/api/FrontReact2/products", {

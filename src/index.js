@@ -39,7 +39,7 @@ ReactDOM.render(
         <Router history={browserHistory}>
             <Route path="/" component={App} onEnter={() => store.dispatch(fetchProducts())}>
                 <IndexRoute component={Dashboard} />
-                <Route path="/products" component={Products} onEnter={() => store.dispatch(fetchFavorites())}>
+                <Route path="/products" component={Products} onEnter={() => store.dispatch(fetchFavorites())}/>
                 <Route path="/products/availability" component={Availability}/>
                 <Route path="/products/:id" component={Product}/>
                 <Route path="/shops" component={Shops}/>
