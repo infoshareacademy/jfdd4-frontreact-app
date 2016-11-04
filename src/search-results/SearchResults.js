@@ -20,7 +20,7 @@ const SearchResults = ({
     products
 }) =>(
     <div>
-
+        <div className="break"></div>
         {products.filter(product => {
             if (searchTerm === '') return false
             return product.name.toLowerCase().indexOf(searchTerm) !== -1

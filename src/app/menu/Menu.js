@@ -12,8 +12,8 @@ import Search from '../../search/Search'
 export default class Menu extends Component {
     render() {
         return (
-            <Navbar navbar navbar-default navbar-fixed-top>
-                    <Nav>
+            <Navbar className="navbar-fixed-top" >
+                    <Nav >
                         <Item path={`/`}>
                             <IconButton name="home" />
                         </Item>
@@ -26,7 +26,7 @@ export default class Menu extends Component {
                         <Item path={`/maps`}>
                             Mapy
                         </Item>
-                        <Item path={`/list`}>
+                        <Item path={`/shoppingList`}>
                             Lista zakupów
                         </Item>
                     </Nav>
@@ -49,6 +49,8 @@ export default class Menu extends Component {
                     </Nav>
 
             </Navbar>
+
         );
     }
 }
+
