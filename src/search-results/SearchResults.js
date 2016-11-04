@@ -23,10 +23,11 @@ const SearchResults = ({
 
         {products.filter(product => {
             if (searchTerm === '') return false
-            return product.name.indexOf(searchTerm) !== -1
+            return product.name.toLowerCase().indexOf(searchTerm) !== -1
         }).map( product =>
             <ul>
-            <Link to={"/products/" + product.id}> {product.name} </Link></ul>)}
+                <Link to={"/products/" + product.id}> {product.name} </Link>
+            </ul>)}
 
     </div>
 )
