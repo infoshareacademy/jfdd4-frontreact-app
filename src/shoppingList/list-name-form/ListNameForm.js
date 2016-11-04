@@ -10,7 +10,7 @@ export default class ListNameForm extends React.Component {
     constructor() {
         super()
         this.state = {
-            name: ''
+            name: '....'
         }
     }
 
@@ -19,13 +19,13 @@ export default class ListNameForm extends React.Component {
             <form onSubmit={(event) => {
             console.log('WTF')
                 event.preventDefault()
-                this.props.handleSubmit(this.state.name, this.props.items)
+                this.props.handleSubmit(this.props.items, this.state.name)
             }}>
                 <input
                     type="text"
                     defaultValue={this.state.name}
                     onChange={(event) => this.setState({
-                        name: event.target.name
+                        name: event.target.value
                     })} />
                 <button>Zapisz Listę</button>
             </form>

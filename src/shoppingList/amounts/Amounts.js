@@ -17,11 +17,12 @@ const mapDispatchToProps = (dispatch) => ({
 
 })
 
-const Amounts = ({amounts, addProduct, updateQuantity}) => (
+const Amounts = ({amounts, addProduct, updateQuantity, params}) => (
    
     <Well>
         <Col>
             {amounts
+                .filter(amounts => amounts.id === parseInt(params.productId))
                 .map(amounts => {
                     return <tr key={amounts.id}>
                         <td>

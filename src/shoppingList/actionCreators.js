@@ -48,7 +48,7 @@ function saveListEnd() {
     }
 }
 
-export function saveList(listName, shoppingList) {
+export function saveList(shoppingList, name) {
     return function (dispatch) {
         dispatch(saveListBegin())
         return fetch('http://rest.learncode.academy/api/sugero/savedlists', {
@@ -58,13 +58,12 @@ export function saveList(listName, shoppingList) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                listName: listName, 
-                shoppingList: shoppingList
-
+                shoppingList: shoppingList,
+                name: name
             })
         })
             .then(response => response.json())
-            .then(product => {
+            .then(listName => {
                 dispatch(saveListEnd())
             })
     }
