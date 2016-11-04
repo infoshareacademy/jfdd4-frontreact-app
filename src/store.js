@@ -3,11 +3,25 @@ import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
 import productsReducer from './products/reducer'
 import persistState from 'redux-localstorage'
+import shoppingListReducer from './shoppingList/reducer'
+import amountsReducer from './shoppingList/amounts/reducer'
+import oldListReducer from './shoppingList/old-lists/reducer'
+
+import mapsReducer from './maps/reducer'
+import shopsReducer from './shops/reducer'
+import searchReducer from './search/reducer'
+    
 import favoritesReducer from './products/reducer'
 
 let reducer = combineReducers({
     productsData: productsReducer,
-    favorites: favoritesReducer
+    favorites: favoritesReducer,
+    mapsDate: mapsReducer,
+    shopsData: shopsReducer,
+    search: searchReducer,
+    amountsData: amountsReducer,
+    shoppingListData: shoppingListReducer,
+    oldListData: oldListReducer
 })
 
 // Create a Redux store holding the state of your app.

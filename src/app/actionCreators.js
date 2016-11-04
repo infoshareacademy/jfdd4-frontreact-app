@@ -29,25 +29,7 @@ function addToFavoritesEnd (productId) {
     }
 }
 
-// function deleteFavoriteBegin (id, productId) {
-//     return {
-//         type: DELETE_FAVORITE_BEGIN,
-//         id: id,
-//         productId: productId
-//     }
-// }
-//
-// function deleteFavoriteEnd (id, productId) {
-//     return {
-//         type: DELETE_FAVORITE_END,
-//         id: id,
-//         productId: productId
-//     }
-// }
-
-
-
-export function addToFavorites (productId, favoriteProducts) {
+export function addToFavorites (productId) {
     return function (dispatch) {
         dispatch(addToFavoritesBegin(productId))
         return fetch("http://rest.learncode.academy/api/FrontReact2/products", {

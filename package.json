@@ -16,6 +16,7 @@
     "react-bootstrap": "^0.30.5",
     "react-dom": "^15.3.2",
     "react-google-login": "^2.5.2",
+    "react-redux": "^4.4.5",
     "react-icons": "^2.2.1",
     "react-mdl": "^1.7.2",
     "react-redux": "^4.4.5",

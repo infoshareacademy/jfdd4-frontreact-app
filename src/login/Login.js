@@ -8,7 +8,6 @@ const mapStateToProps = (state) => ({
 class Login extends React.Component {
     render() {
         return (
-
             <GoogleLogin
                 clientId="287909334341-a9d7rvs2g737tlm1vibohhn0a4kn5bj0.apps.googleusercontent.com"
                 onSuccess={console.log}

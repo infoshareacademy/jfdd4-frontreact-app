@@ -11,7 +11,7 @@ import { Card, CardTitle, CardActions, Button, Icon } from 'react-mdl';
 export default (props) =>
 
 <Row>
-    <div style={{ height: '150px'}}></div>
+    <div style={{ height: '200px'}}></div>
      <Col xs={12} md={4}>
          <Link to={'/products'}  style={{ textDecoration: 'none',  textAlign: 'center'}}>
              <Card shadow={0} style={{width: '280px', height: '320px', margin: '20px auto 20px'}}>

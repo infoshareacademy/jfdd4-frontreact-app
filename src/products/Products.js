@@ -61,6 +61,7 @@ const Products = ({
         <div className="break"></div>
         <div className="break"></div>
 
+
         <div className="filter">
             {availableFilters.map(filterName => (
                 <Tab>
@@ -90,7 +91,9 @@ const Products = ({
                                     </li>
                                     <div className="card-image">
                                         <Image className="size" src={product.image}/>
-                                        <ButtonAddToList />
+                                        <Link to={'/amounts/' + product.id}>
+                                            <ButtonAddToList/>
+                                        </Link>
                                     </div>
                                     <div className="card-content">
                                         <ul className="list-group list-group-flush">
