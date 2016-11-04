@@ -17,8 +17,7 @@ let reducer = combineReducers({
     favorites: favoritesReducer,
     mapsDate: mapsReducer,
     shopsData: shopsReducer,
-    search: searchReducer
-    favorites: favoritesReducer,
+    search: searchReducer,
     amountsData: amountsReducer,
     shoppingListData: shoppingListReducer,
     oldListData: oldListReducer

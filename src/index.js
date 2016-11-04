@@ -9,7 +9,6 @@ import Availability from './products/availability/Availability';
 import Shops from './shops/Shops';
 import Maps from './maps/Maps';
 import ShoppingList from './shoppingList/ShoppingList';
-import { fetchProducts } from './products/actionCreators'
 import { fetchMaps } from './maps/actionCreators'
 import {fetchProducts } from './products/actionCreators'
 import {fetchAmounts} from './shoppingList/amounts/actionCreators'
