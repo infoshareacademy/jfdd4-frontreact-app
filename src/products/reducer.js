@@ -9,7 +9,7 @@ import {
 } from '../app/actionTypes'
 
 const initialState = {
-    availableFilters: ['cereals', 'oils', 'rices', 'fruits', 'fishs', 'breads'],
+    availableFilters: ['cereals', 'oils', 'rices', 'fruits', 'fish', 'breads'],
     activeFilterNames: [],
     products: [],
     fetchingProducts: false,
@@ -17,9 +17,16 @@ const initialState = {
 }
 
 export default (state=initialState, action) => {
+    console.log(action.type);
     switch (action.type) {
         case ACTIVATE_FILTER:
+            console.log("before");
+            console.log("name = " + action.nameOfFilterToActivate);
+            console.log("names = " + state.activeFilterNames);
+
+
             var filterIndex = state.activeFilterNames.indexOf(action.nameOfFilterToActivate);
+            console.log("after");
             if (filterIndex > -1){
                 state.activeFilterNames.splice(filterIndex, 1)
             } else {

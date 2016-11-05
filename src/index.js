@@ -31,9 +31,6 @@ import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/material.js';
 
 
-
-
-
 ReactDOM.render(
     <Provider store={store}>
         <Router history={browserHistory}>

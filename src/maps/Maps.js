@@ -1,11 +1,8 @@
 import React from 'react'
 import GoogleMap from 'google-map-react'
 import Place from './place/Place'
-import Info from './info/Info'
-import {finalState} from '../data/dataShops'
-import {Modal, Button} from 'react-bootstrap'
+
 import './Maps.css'
-import {Well, PageHeader} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {Spinner} from 'react-mdl';
 import {Icon} from 'react-mdl';
@@ -46,49 +43,42 @@ class Maps extends React.Component {
 
         return (
             <div>
-                {
-                    products
-                        .filter(
-                            function (product) {
-                                if (productId == product.id) {
-                                    return true
-                                }
-                            }
-                        )
-                        .map(
-                            function (product) {
-                                return (
-                                    <div>
-                                        <div id="MAP">
-                                            <GoogleMap
-                                                bootstrapURLKeys={{key: 'AIzaSyCIGFuueBb3ewt-Ewe7ySfhE9ZdHVjdPsc'}}
-                                                center={[54.408636, 18.588977]}
-                                                zoom={13}
-                                                options={createMapOptions}>
+                {products
+                    .filter( product => (productId == product.id)
+                    )
+                    .map(
+                        function (product) {
+                            return (
+                                <div>
+                                    <div id="MAP">
+                                        <GoogleMap
+                                            bootstrapURLKeys={{key: 'AIzaSyCIGFuueBb3ewt-Ewe7ySfhE9ZdHVjdPsc'}}
+                                            center={[54.408636, 18.588977]}
+                                            zoom={13}
+                                            options={createMapOptions}>
 
-
-                                                {shops
-                                                    .filter(
-                                                        shop => {
-                                                            return product.shops.indexOf(shop.id) !== -1;
-                                                        }
-                                                    )
-                                                    .map(
-                                                        shop =>
-                                                            <Place
-                                                                lat={shop.location.lat}
-                                                                lng={shop.location.lng}
-                                                            >
-                                                                <Icon name="room"/>
-                                                            </Place>
-                                                    )
-                                                }
-                                            </GoogleMap>
-                                        </div>
+                                            {shops
+                                                .filter(
+                                                    shop => {
+                                                        return product.shops.indexOf(shop.id) !== -1;
+                                                    }
+                                                )
+                                                .map(
+                                                    shop =>
+                                                        <Place
+                                                            lat={shop.location.lat}
+                                                            lng={shop.location.lng}
+                                                        >
+                                                            <Icon name="room"/>
+                                                        </Place>
+                                                )
+                                            }
+                                        </GoogleMap>
                                     </div>
-                                )
-                            }
-                        )
+                                </div>
+                            )
+                        }
+                    )
                 }
             </div>
         )

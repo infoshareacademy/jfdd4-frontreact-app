@@ -7,7 +7,6 @@ import shoppingListReducer from './shoppingList/reducer'
 import amountsReducer from './shoppingList/amounts/reducer'
 import oldListReducer from './shoppingList/old-lists/reducer'
 
-import mapsReducer from './maps/reducer'
 import shopsReducer from './shops/reducer'
 import searchReducer from './search/reducer'
     
@@ -16,7 +15,6 @@ import favoritesReducer from './products/reducer'
 let reducer = combineReducers({
     productsData: productsReducer,
     favorites: favoritesReducer,
-    mapsDate: mapsReducer,
     shopsData: shopsReducer,
     search: searchReducer,
     amountsData: amountsReducer,

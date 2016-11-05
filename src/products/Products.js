@@ -64,14 +64,12 @@ const Products = ({
 
         <div className="filter">
             {availableFilters.map(filterName => (
-                <Tab>
                     <ButtonGroup key={filterName}
                                  style={{padding: '0 10px', fontSize: '12', textAlign: 'center'}}
                                  onClick={() => activateFilter(filterName)}
                                  className={filterName === activeFilter.name ? 'active' : ''}>
                             {filters[filterName].label}
                     </ButtonGroup>
-                </Tab>
             ))}
         </div>
         <div className="break"></div>
@@ -123,12 +121,6 @@ const Products = ({
                                                             <ButtonMoreInformation />
                                                         </Link>
                                                      </span>
-                                                    <button onClick={() => addToFavorites(product.id)}>
-                                                    Add favorites
-                                                    </button>
-                                                    <button onClick={() => deleteFavorite(favorites.favoriteProducts.filter( favMark => favMark.productId === product.id ))}>
-                                                    Del favorites
-                                                    </button>
                                                 </div>
                                             </li>
                                         </ul>
