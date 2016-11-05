@@ -20,6 +20,14 @@ const ModalX = React.createClass({
 
     render() {
          return (
+        <div>
+         <Button
+             bsStyle="primary"
+             bsSize="large"
+             onClick={this.open}
+         >
+             Launch demo modal
+         </Button>
             <Modal show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
                         <Modal.Title>Modal heading</Modal.Title>
@@ -31,7 +39,7 @@ const ModalX = React.createClass({
                         <Button onClick={this.close}>Close</Button>
                     </Modal.Footer>
                 </Modal>
-        );
+            </div>)
     }
 });
 

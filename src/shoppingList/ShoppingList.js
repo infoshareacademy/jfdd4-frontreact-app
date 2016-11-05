@@ -53,9 +53,9 @@ const ShoppingList = ({items, deleteItem, saveList}) => (
         <Col>
             <ListNameForm items={items} handleSubmit={saveList} />
         </Col>
-        <Button onClick ={ModalX}>
+
             <ModalX/>
-        </Button>
+
     </Well>
 );
 
