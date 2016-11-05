@@ -6,14 +6,14 @@ import persistState from 'redux-localstorage'
 import favoritesReducer from './app/favoriteReducer'
 import shoppingListReducer from './shoppingList/reducer'
 import amountsReducer from './shoppingList/amounts/reducer'
-import oldListReducer from './shoppingList/old-lists/reducer'
+import oldListsReducer from './shoppingList/old-lists/reducer'
 
 let reducer = combineReducers({
     productsData: productsReducer,
     favorites: favoritesReducer,
     amountsData: amountsReducer,
     shoppingListData: shoppingListReducer,
-    oldListData: oldListReducer
+    oldListsData: oldListsReducer
 })
 
 

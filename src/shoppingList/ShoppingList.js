@@ -51,6 +51,9 @@ const ShoppingList = ({items, deleteItem, saveList}) => (
         <Col>
             <ListNameForm items={items} handleSubmit={saveList} />
         </Col>
+        <Button >
+            Zapisane listy
+        </Button>
     </Well>
 );
 

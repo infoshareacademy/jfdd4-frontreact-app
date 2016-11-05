@@ -14,9 +14,9 @@ import fetch from 'isomorphic-fetch'
 
 export function fetchList() {
     return function (dispatch) {
-        return fetch('http://rest.learncode.academy/api/sugero/list')
+        return fetch('http://rest.learncode.academy/api/sugero/lists')
             .then(response => response.json())
-            .then(items => dispatch({
+            .then(list => dispatch({
                 type: RECEIVE_LIST,
                 list: list
             }))
