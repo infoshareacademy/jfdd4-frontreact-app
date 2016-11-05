@@ -6,6 +6,8 @@ import {Well, PageHeader, Row, Button, Col, Grid} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import ListNameForm from './list-name-form/ListNameForm'
 import {deleteItem, saveList} from './actionCreators'
+import ModalX from './old-lists/modal/Modal'
+
 
 const mapStateToProps = (state) => ({
     items: state.shoppingListData.items,
@@ -51,8 +53,8 @@ const ShoppingList = ({items, deleteItem, saveList}) => (
         <Col>
             <ListNameForm items={items} handleSubmit={saveList} />
         </Col>
-        <Button >
-            Zapisane listy
+        <Button onClick ={ModalX}>
+            <ModalX/>
         </Button>
     </Well>
 );

@@ -24,14 +24,7 @@ const OldList = ({list, shoppingList}) => (
                     </MenuItem> ))}
                 </DropdownButton>
             </Col>
-            <Col>
-                {shoppingList
-                    .map (shoppingList => (
-                        <ListGroup>
-                                <ListGroupItem>{shoppingList.name} x {shoppingList.quantity} za </ListGroupItem>
-                        </ListGroup>
-                    ))}
-            </Col>
+
             </Row>
         </Grid>
     </Well>
