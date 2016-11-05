@@ -3,11 +3,12 @@
  */
 import React from 'react'
 import {Modal, Button} from 'react-bootstrap'
-import OldLists from '../OldLists'
+import Amounts from '../../amounts/Amounts'
+import ButtonAddToList  from '../../../products/button/ButtonAddToList'
 
-const ModalX = React.createClass({
+const ModalY = React.createClass({
     getInitialState() {
-        return { showModal: true };
+        return { showModal: false };
     },
 
     close() {
@@ -21,19 +22,13 @@ const ModalX = React.createClass({
     render() {
          return (
         <div>
-         <Button
-             bsStyle="primary"
-             bsSize="large"
-             onClick={this.open}
-         >
-             Launch demo modal
-         </Button>
+            <ButtonAddToList  onClick={this.open}/>
             <Modal show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
                         <Modal.Title>Modal heading</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <OldLists/>
+                        <Amounts/>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={this.close}>Close</Button>
@@ -43,4 +38,4 @@ const ModalX = React.createClass({
     }
 });
 
-export default ModalX
+export default ModalY

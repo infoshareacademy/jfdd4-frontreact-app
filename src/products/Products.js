@@ -13,6 +13,7 @@ import { Link } from 'react-router'
 import { Col, Image, Button, ButtonGroup, Modal } from 'react-bootstrap'
 import { Spinner} from 'react-mdl';
 import ShoppingList from '../shoppingList/ShoppingList'
+import ModalY from '../shoppingList/amounts/modal/ModalY'
 
 const mapStateToProps = (state) => ({
     products: state.productsData.products,
@@ -71,7 +72,7 @@ const Products = ({
                                         <Image className="size" src={product.image}/>
                                         <Link to={'/amounts/' + product.id}>
                                         <ButtonAddToList/>
-                                        </Link>    
+                                        </Link>
                                     </div>
                                     <div className="card-content">
                                         <ul className="list-group list-group-flush">

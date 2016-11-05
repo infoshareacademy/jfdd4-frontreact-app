@@ -2,10 +2,10 @@
  * Created by kbro2 on 30.10.2016.
  */
 import React from 'react'
-import {Well, Col} from 'react-bootstrap'
+import {Well, Col, Modal, Button} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import ListForm from './list-form/ListForm'
-import { addProduct, updateQuantity} from './actionCreators'
+import { addProduct, updateQuantity, openModal, closeModal} from './actionCreators'
     
 const mapStateToProps = (state) => ({
    amounts: state.amountsData.amounts
@@ -20,7 +20,11 @@ const mapDispatchToProps = (dispatch) => ({
 const Amounts = ({amounts, addProduct, updateQuantity, params}) => (
    
     <Well>
-        <Col>
+        <Modal show={() => openModal()} onHide={() => closeModal()}>
+            <Modal.Header closeButton>
+                <Modal.Title>Modal heading</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
             {amounts
                 .filter(amounts => amounts.id === parseInt(params.productId))
                 .map(amounts => {
@@ -44,7 +48,11 @@ const Amounts = ({amounts, addProduct, updateQuantity, params}) => (
                       </tr>
                 })}
 
-        </Col>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button onClick={() => this.setState({ showModal: false})}>Close</Button>
+            </Modal.Footer>
+        </Modal>
     </Well>
     
 );
