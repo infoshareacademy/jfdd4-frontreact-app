@@ -1,30 +1,61 @@
 import React from 'react'
-import { Well, PageHeader, Table } from 'react-bootstrap'
+import { Row, Col} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
 import 'react-bootstrap'
+import { Link } from 'react-router'
+import './Dashboard.css'
+import { Card, CardTitle, CardActions, Button, Icon } from 'react-mdl';
+
 
 export default (props) =>
-
     <div>
-        <Well>
-        <PageHeader>Wybierzesz najlepsze produkty<br />
-            <small> Nie ruszając się z domu. Nigdy nie było to takie proste.</small></PageHeader>
-                <samp>
-        Nasza aplikacja to obsługa ułatwienia dostepu, która pomaga użytkownikom korzystac w sposób wygodny i prosty
-        na tworzenie listy zakupowej na podstawie preferencji użytkownika.
-            <br /><br />
-        Dodaje ona możliwość prezentowania informacji o sklepach i produktach oraz o lokalizowaniu ich w oparciu o mapy.
-
-            <br /><br />
-                    <h3>Główne cechy aplikacji :</h3><br />
-                    <div className="alert alert-success" role="alert">
-                     - dynamika,<br />
-                     - dostępność na urządzenia mobilne,<br />
-                     - prostota,<br />
-                    - lokalizacja sklepów w oparciu o bieżące położenie użytkownika,<br />
-                        - tworzenie listy produktow i sklepow.<br />
-                </div>
-                </samp>
-        </Well>
+        <Row>
+            <Col xs={12} md={12}>
+                <div className='dashboard-break'></div>
+                <p className='dashboard-text'>
+                    Wybierz najlepsze produkty ekologiczne, sprawdź dostępność w sklepach oraz stwórz listę zakupową.
+                </p>
+            </Col>
+        </Row>
+        <Row>
+            <div className='dashboard-break'></div>
+            <Col xs={12} md={4}>
+                <Link to={'/products'} style={{textDecoration: 'none', textAlign: 'center'}}>
+                    <Card shadow={0} style={{width: '280px', height: '320px', margin: '20px auto 20px'}}>
+                        <CardTitle expand style={{background: '#00A493', color: '#fff'}}>
+                            <Icon name="search" style={{color: '#fff', fontSize: '80px', margin: 'auto'}}/>
+                        </CardTitle>
+                        <CardActions border>
+                            <Button>WYBIERZ PRODUKTY</Button>
+                        </CardActions>
+                    </Card>
+                </Link>
+            </Col>
+            <Col xs={12} md={4}>
+                <Link to={'/shoppingList'} style={{textDecoration: 'none', textAlign: 'center'}}>
+                    <Card shadow={0} style={{width: '280px', height: '320px', margin: '20px auto 20px'}}>
+                        <CardTitle expand style={{background: '#00A493', color: '#fff'}}>
+                            <Icon name="add_shopping_cart" style={{color: '#fff', fontSize: '80px', margin: 'auto'}}/>
+                        </CardTitle>
+                        <CardActions border>
+                            <Button>TWOJA LISTA ZAKUPÓW</Button>
+                        </CardActions>
+                    </Card>
+                </Link>
+            </Col>
+            {/*background: '#276D73'*/}
+            <Col xs={12} md={4}>
+                <Link to={'/maps'} style={{textDecoration: 'none', textAlign: 'center'}}>
+                    <Card shadow={0} style={{width: '280px', height: '320px', margin: '20px auto 20px'}}>
+                        <CardTitle expand style={{background: '#00A493', color: '#fff'}}>
+                            <Icon name="add_location" style={{color: '#fff', fontSize: '80px', margin: 'auto'}}/>
+                        </CardTitle>
+                        <CardActions border>
+                            <Button>ZOBACZ NA MAPIE</Button>
+                        </CardActions>
+                    </Card>
+                </Link>
+            </Col>
+        </Row>
     </div>

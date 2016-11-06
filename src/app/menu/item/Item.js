@@ -6,8 +6,9 @@ export default (props) =>
     <li className="App-Menu-Item">
         <Link
             to={props.path}
-            activeClassName="active"
-            onlyActiveOnIndex={props.activeWhenMatchingExactly}>
+            activeClassName="active menu-display"
+            onlyActiveOnIndex={props.activeWhenMatchingExactly}
+        >
             {props.children}
         </Link>
     </li>

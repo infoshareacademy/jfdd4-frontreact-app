@@ -1,42 +1,26 @@
 import React from 'react'
-import { Well, Glyphicon, PageHeader, Table, Button, ButtonGroup, ButtonToolbar } from 'react-bootstrap'
+import { Well, Glyphicon, PageHeader, Table, Button } from 'react-bootstrap'
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
 import { markShopAsFavorite, getFavoriteShops, dissMarkShopAsFavorite } from'../marketFavorites/favoriteShops'
-import {
-    initialState as initialShopsState,
-    finalState as finalShopsState
-} from '../data/dataShops'
-import {
-    initialState as initialProductsState,
-    finalState as finalProductsState
-} from '../data/dataProducts'
 import { Link } from 'react-router'
+import { connect } from 'react-redux'
 
-export default class Shops extends React.Component {
-    constructor() {
-        super()
+const mapStateToProps = (state) => ({
+    shops: state.shopsData.shops,
+    products: state.productsData.products,
+    fetchingShops: state.shopsData.fetchingShops
+})
 
-        this.state = {
-            shops: finalShopsState.shops,
-            shopsData: initialShopsState,
-            productsData: initialProductsState
-        }
-    }
-
-    componentWillMount() {
-        var context = this;
-        context.setState({productsData: finalProductsState}),
-            context.setState({ shopsData: finalShopsState})
-
-    }
-
+ class Shops extends React.Component {
+     
     render() {
         var
             favourites = getFavoriteShops(),
             forceUpdate = this.forceUpdate.bind(this),
-            shopsData = this.state.shopsData,
-            productsData = this.state.productsData,
-            viewVariant = this.props.params.viewVariant;
+            viewVariant = this.props.params.viewVariant,
+            shops = this.props.shops,
+            products = this.props.products;
+
 
         // console.log(this.props.params.viewVariant);
         // console.log(productsData.products);
@@ -65,7 +49,7 @@ export default class Shops extends React.Component {
                         transitionName="example"
                         transitionEnterTimeout={500}
                         transitionLeaveTimeout={300}>
-                    {this.state.shops.map(function (shop) {
+                    {shops.map(function (shop) {
                         return (
                             <tr className={favourites.find(shopId => shopId === shop.id) ? 'favourite' : ''} key={shop.id}>
                                     <td>{shop.name}</td>
@@ -74,7 +58,7 @@ export default class Shops extends React.Component {
                                 <Button bsStyle="danger" onClick={() => {dissMarkShopAsFavorite(shop);forceUpdate(); alert("Usunięto sklep z ulubionych")}}><Glyphicon glyph="glyphicon glyphicon-remove" aria-hidden="true"/></Button>
                                 {viewVariant === 'with-products' ?
                                     <ul>
-                                        {productsData.products.filter(function (product) {
+                                        {products.filter(function (product) {
                                             for( var i = 0; i < product.shops.length; i++ ){
                                                 if (product.shops[i] === shop.id) {
                                                     return true;
@@ -101,3 +85,6 @@ export default class Shops extends React.Component {
     }
 
 }
+
+
+export default connect(mapStateToProps)(Shops)

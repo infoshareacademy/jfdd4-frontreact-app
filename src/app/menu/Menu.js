@@ -1,50 +1,47 @@
 import React, {Component} from 'react';
-import './Menu.css'
 import Item from './item/Item'
-import { Grid, Row, Col, Well , Navbar, Nav } from 'react-bootstrap'
-import GoogleLogin from 'react-google-login';
+import { Nav, Navbar } from 'react-bootstrap'
+import { IconButton  } from 'react-mdl';
+import Login from '../../login/Login';
+import Search from '../../search/Search'
+
 
 export default class Menu extends Component {
-
     render() {
         return (
-            <Navbar inverse className="App-Menu">
-                <Navbar.Header>
-                    <Navbar.Brand>
-                        </Navbar.Brand>
-                    <Navbar.Toggle />
-                    </Navbar.Header>
+            <Navbar className="navbar-fixed-top inverse collapseOnSelect">
+                <Navbar.Toggle />
                 <Navbar.Collapse>
                     <Nav>
-                        <Nav><Item path={`/`}>Strona Główna</Item></Nav>
-                        <Nav>
-                            <Item path={`/products`}>
-                                Produkty
-                            </Item>
-
-                        </Nav>
-                        <Nav><Item path={`/shops`}>Sklepy</Item></Nav>
-                        <Nav>
-                            <Item path={`/maps`}>
-                                Mapy
-                            </Item>
-                        </Nav>
+                        <Item path={`/`}>
+                            <IconButton name="home"/>
+                            Sugero
+                        </Item>
                     </Nav>
-                    <Navbar.Form pullRight>
-                        <GoogleLogin
-                            clientId="287909334341-a9d7rvs2g737tlm1vibohhn0a4kn5bj0.apps.googleusercontent.com"
-                            onSuccess={console.log}
-                            onFailure={console.log}
-                            className="btn btn-default btn-sm">
-                             Log in with Google
-                        </GoogleLogin>
-                    </Navbar.Form>
-                    <Nav pullRight>
-                        <Nav><Item path={`/favorites`}>Ulubione</Item></Nav>
+                    <Nav>
+                        <Item eventKey={1} path={`/products`} >
+                            Produkty
+                        </Item>
+                        <Item eventKey={2} path={`/shops`} >
+                            Sklepy
+                        </Item>
+                        <Item eventKey={3} path={`/shoppingList`} >
+                            Lista zakupów
+                        </Item>
+                        <Item eventKey={4} path={`/favorites`} >
+                            <IconButton style={{listStyleType: 'none', listStyle: 'none'}} name="favorite" />
+                        </Item>
+                    </Nav>
+                    <Nav pullRight >
+                        <Item>
+                            <Search eventKey={5}/>
+                        </Item>
+                        <Item>
+                            <Login eventKey={6}/>
+                        </Item>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-        );
+        )
     }
 }
-

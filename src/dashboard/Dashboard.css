@@ -1,0 +1,38 @@
+.main-icon {
+    width: 100%;
+    min-width: 250px;
+    max-width: 300px;
+    height: 100%;
+    min-height: 250px;
+    max-height: 300px;
+    margin-top: 50px;
+    background-color: #f6f6f6;
+}
+
+
+.text-icon {
+    display: inline-block;
+    width: 35%;
+    font-size: 10px;
+    text-align: center;
+}
+
+.dashboard-text {
+    font-size: 2rem;
+    text-align: center;
+    line-height: 3rem;
+    padding: 10px 50px;
+}
+
+.dashboard-break {
+    height: 60px;
+}
+
+@media (max-width: 612px) {
+    .dashboard-text {
+        font-size: 1.5rem;
+    }
+    .dashboard-break {
+        height: 40px;
+    }
+}

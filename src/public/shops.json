@@ -1,0 +1,45 @@
+[
+  {
+    "id" : 1,
+    "name" : "Lidl",
+    "adres": "Hynka 67, Gdańsk",
+    "opened" : "od 8:00 do 21:00",
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut consequat diam. Pellentesque sed velit pharetra, condimentum arcu non, gravida est. Suspendisse viverra, libero eu semper consectetur, enim erat dignissim sem, eu placerat sapien justo non dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed ullamcorper porttitor est in ullamcorper."
+
+  },
+  {
+    "id" : 2,
+    "name" : "Biedronka",
+    "adres": "Czerwony Dwór 19, Gdańsk",
+    "opened" : "od 8:00 do 21:00",
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut consequat diam. Pellentesque sed velit pharetra, condimentum arcu non, gravida est. Suspendisse viverra, libero eu semper consectetur, enim erat dignissim sem, eu placerat sapien justo non dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed ullamcorper porttitor est in ullamcorper."
+  },
+
+  {
+    "id": 3,
+    "name": "Tesco",
+    "opened": "od 6:00 do 24:00",
+    "adres": "Obrońców Wybrzeża 21, Gdańsk",
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut consequat diam. Pellentesque sed velit pharetra, condimentum arcu non, gravida est. Suspendisse viverra, libero eu semper consectetur, enim erat dignissim sem, eu placerat sapien justo non dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed ullamcorper porttitor est in ullamcorper."
+
+
+
+  },
+  {
+    "id": 4,
+    "name": "Stokrotka",
+    "opened": "od 6:00 do 24:00",
+    "adres": "Kołobrzeska 44M, Gdańsk",
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut consequat diam. Pellentesque sed velit pharetra, condimentum arcu non, gravida est. Suspendisse viverra, libero eu semper consectetur, enim erat dignissim sem, eu placerat sapien justo non dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed ullamcorper porttitor est in ullamcorper."
+
+
+  },
+  {
+    "id": 5,
+    "name": "Żabka",
+    "opened": "od 6:00 do 23:00",
+    "adres": "Kołobrzeska 7, Gdańsk",
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut consequat diam. Pellentesque sed velit pharetra, condimentum arcu non, gravida est. Suspendisse viverra, libero eu semper consectetur, enim erat dignissim sem, eu placerat sapien justo non dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed ullamcorper porttitor est in ullamcorper."
+
+  }
+]

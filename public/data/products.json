@@ -1,0 +1,93 @@
+[
+    {
+        "id": 1,
+        "name": "Kasza Jaglana 500 g",
+        "description": "Kasza Jaglana jest smaczna, zdrowa i tania. Określana królowa kasz. Jaglani rycerze bronią namietnie jej doskonałości i mają rację!",
+        "price": 4.99,
+        "category": "kasza",
+        "shops": [1, 2, 3, 4, 5],
+        "image": "/imageProduct/millet.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Oliwa z oliwek 500 ml",
+        "description": "Oliwa z oliwek z Grecji, dokładniej z Knosos jest jedną z najsmaczniejszych oliw na świecie. Doskoanala do sałatek.",
+        "price": 29.99,
+        "category": "olej",
+        "shops": [1, 2,  4],
+        "image": "/imageProduct/oil.jpg"
+
+    },
+    {
+        "id": 3,
+        "name": "Olej kokosowy 1 kg",
+        "description": "Interesujący kokosowy smak i zapach. Tłoczony na zimno. Na chleb, do pieczenia i smażenia. Uznany za najzdrowszy olej świata",
+        "price": 19.99,
+        "category": "olej",
+        "shops": [2, 4],
+        "image": "/imageProduct/oil-coconut.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Makaron Razowy 500 g",
+        "description": "Ekonoliczny makaron z pszenicy orkiszowej z pełnego przemialu. Nie polecany dla bezglutenowców",
+        "price": 2.49,
+        "category": "makaron",
+        "shops": [5],
+        "image": "/imageProduct/wheat-pasta.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Ryż Basmati 500 g",
+        "description": "Subtelny ryż basmati biały charakteryzuje się subtelnym smakiem i niepowtarzalnym aromatem. Stanowi najszlachetniejsza odmianę ryżu na świecie.",
+        "price": 3.99,
+        "category": "ryż",
+        "shops": [1, 3,  4],
+        "image": "/imageProduct/rice.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Morele Suszone 500 g",
+        "description": "Ekologiczne morele suszone smakują przepysznie jako przekąska oraz dodatek do ciepłej owsianki.",
+        "price": 12.49,
+        "category": "owoce",
+        "shops": [1],
+        "image": "/imageProduct/dried-apricots.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Łosos Norweski 1 kg",
+        "description": "Produkt idealny jako przystawka do sałatek i pieczywa. Dzięki bogatym kwasom tłuszczowym omega 3 i 6 jest produktem bardzo zdrowym.",
+        "price": 66.66,
+        "category": "ryby",
+        "shops": [1, 2, 5],
+        "image": "/imageProduct/salmon.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Tuńczyk 1 kg",
+        "description": "Produkt idealny jako przystawka do sałatek i pieczywa.",
+        "price": 66.66,
+        "category": "ryby",
+        "shops": [2, 4],
+        "image": "/imageProduct/tuna.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Tatar z łososia 125 g",
+        "description": "Gotowy pyszny tatar z łososia, idealny zamiennik zdrowego posiłku.",
+        "price": 9.99,
+        "category": "ryby",
+        "shops": [1],
+        "image": "/imageProduct/salmon-tartare.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Chleb gryczany 500 g",
+        "description": "Świeży chleb bezglutenowy Bio 500 g z farmy świetokrzyskiej. Polecany dla koneserów zdrowej żywności.",
+        "price": 5.99,
+        "category": "pieczywo",
+        "shops": [4],
+        "image": "/imageProduct/buckwheat-bread.jpg"
+    }
+]
