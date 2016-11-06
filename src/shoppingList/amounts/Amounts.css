@@ -19,3 +19,9 @@ td
 {
 width: 600px;
 }
+
+#close:hover
+{
+    text-decoration: none;
+    color: red;
+}

@@ -12,12 +12,11 @@ import MapShops from './mapAllShops/Maps';
 import ShoppingList from './shoppingList/ShoppingList';
 import { fetchProducts } from './products/actionCreators'
 import { fetchFavorites } from './app/actionCreators'
-import { fetchAmounts } from './shoppingList/amounts/actionCreators'
-import { fetchItems } from './shoppingList/actionCreators'
+
 import { fetchCoordinate } from './mapProduct/actionCreators'
 
 import { fetchMaps } from './maps/actionCreators'
-import {fetchProducts } from './products/actionCreators'
+
 import {fetchAmounts} from './shoppingList/amounts/actionCreators'
 import {fetchItems} from './shoppingList/actionCreators'
 import {fetchList} from './shoppingList/old-lists/actionCreators'

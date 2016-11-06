@@ -6,6 +6,7 @@ import {Modal, Button} from 'react-bootstrap'
 import OldLists from '../OldLists'
 import "../../ShoppingList.css"
 
+
 const ModalX = React.createClass({
     getInitialState() {
         return { showModal: false };

@@ -51,7 +51,9 @@ const Amounts = ({amounts, addProduct, updateQuantity, params}) => (
                 <div>W każdym z powyższych sklepów jest wskazana liczba artykułów, wybież odpowiednią ilość i dodaj do listy</div>
                 </Modal.Body>
             <Modal.Footer>
-                <Button onClick={() => closeModal()}>Close</Button>
+                <Button  >
+                    <a id="close" href={"../products"}> Close</a>
+               </Button>
             </Modal.Footer>
         </Modal>
     </Well>
