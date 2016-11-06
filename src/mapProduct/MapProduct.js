@@ -6,12 +6,8 @@ import GoogleMap from 'google-map-react'
 import Place from './place/Place'
 import {Icon} from 'react-mdl';
 import './MapsProduct.css';
-// import { getPosition } from 'redux-effects-geolocation';
-// import { getLocation } from 'redux-effects-geolocation';
 
 import {connect} from 'react-redux'
-
-
 
 const mapStateToProps = (state) => ({
     products: state.productsData.products,
@@ -19,22 +15,6 @@ const mapStateToProps = (state) => ({
     shops: state.shopsData.shops,
     coordinate: state.mapProduct.coordinate
 })
-
-
-
-// function getLocation() {
-//     if (navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(showPosition);
-//     } else {
-//         console.log("Geolocation is not supported by this browser.");
-//     }
-// }
-//
-// function showPosition(position) {
-//     console.log ("Latitude: " + position.coords.latitude +
-//     "<br>Longitude: " + position.coords.longitude);
-// }
-//
 
 
 function createMapOptions(maps) {
@@ -113,6 +93,9 @@ class MapProduct extends React.Component {
                             }
                         )
                 }
+                <Link to={'/products'}>
+                    <ButtonBack />
+                </Link>
             </div>
         )
     }
