@@ -10,7 +10,8 @@ import './Product.css'
 const mapStateToProps = (state) => ({
     products: state.productsData.products,
     fetchingProducts: state.productsData.fetchingProducts,
-    shops: state.shopsData.shops
+    shops: state.shopsData.shops,
+
 })
 
 
@@ -21,7 +22,8 @@ class Product extends React.Component {
             fetchingShops,
             products,
             shops,
-            params
+            params,
+
         } = this.props
 
         return (

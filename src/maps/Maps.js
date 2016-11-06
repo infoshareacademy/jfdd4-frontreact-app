@@ -11,7 +11,8 @@ import {Link} from 'react-router'
 const mapStateToProps = (state) => ({
     products: state.productsData.products,
     fetchingProducts: state.productsData.fetchingProducts,
-    shops: state.shopsData.shops
+    shops: state.shopsData.shops,
+    amounts: state.amountsData.amounts
 })
 
 function createMapOptions(maps) {
@@ -37,7 +38,8 @@ class Maps extends React.Component {
             fetchingShops,
             products,
             shops,
-            productId
+            productId,
+            amounts
         } = this.props
 
         return (
@@ -69,13 +71,20 @@ class Maps extends React.Component {
                                                         }
                                                     )
                                                     .map(
-                                                        shop =>
+                                                        shop => {
+                                                            var amount = amounts
+                                                                .filter(amount => amount.id == product.id  )
+                                                                .map(amount => amount.amounts[shop.name]);
+                                                            var tooltipMsg = shop.name + ", dostępność: " + amount + "szt";
+                                                            return (
                                                             <Place
                                                                 lat={shop.location.lat}
                                                                 lng={shop.location.lng}
+                                                                tooltip={tooltipMsg}
+
                                                             >
-                                                                <Icon name="room"/>
-                                                            </Place>
+                                                            </Place>);
+                                                        }
                                                     )
                                                 }
                                             </GoogleMap>

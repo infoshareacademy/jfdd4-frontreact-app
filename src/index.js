@@ -38,7 +38,7 @@ ReactDOM.render(
                 <IndexRoute component={Dashboard} />
                 <Route path="/products" component={Products} onEnter={() => store.dispatch(fetchFavorites())}/>
                 <Route path="/products/availability" component={Availability}/>
-                <Route path="/products/:id" component={Product}/>
+                <Route path="/products/:id" component={Product} onEnter={() => {store.dispatch(fetchAmounts(store.getState().amountsData.amounts))}}/>
                 <Route path="/shops" component={Shops}/>
                 <Route path="/shops/:viewVariant" component={Shops}/>
                 <Route path="/maps" component={MapShops}/>

@@ -7,6 +7,7 @@ import Place from './place/Place'
 import {Icon} from 'react-mdl';
 import './MapsProduct.css';
 import { Spinner } from 'react-mdl';
+import { Tooltip, OverlayTrigger  } from 'react-bootstrap';
 
 import {connect} from 'react-redux'
 
@@ -58,7 +59,7 @@ class MapProduct extends React.Component {
         return (
             <div className="map2 polaroid">
                 <li className="card-header">
-                    MAPA
+                    PRODUKT DOSTĘPNY W NAJBLIŻSZYM SKLEPIE
                 </li>
                 {
                     products
@@ -92,8 +93,8 @@ class MapProduct extends React.Component {
                                                             <Place
                                                                 lat={shop.location.lat}
                                                                 lng={shop.location.lng}
+                                                                tooltip={shop.name}
                                                             >
-                                                                <Icon name="room"/>
                                                             </Place>
                                                     )
                                                 }
