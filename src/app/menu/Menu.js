@@ -31,9 +31,9 @@ export default class Menu extends Component {
                             <Icon name="shopping_basket" />
                             Lista zakupów
                         </Item>
-                        <Item eventKey={4} path={`/favorites`} >
-                            <IconButton style={{listStyleType: 'none', listStyle: 'none'}} name="favorite" />
-                        </Item>
+                        {/*<Item eventKey={4} path={`/favorites`} >*/}
+                            {/*<IconButton style={{listStyleType: 'none', listStyle: 'none'}} name="favorite" />*/}
+                        {/*</Item>*/}
                     </Nav>
                     <Nav pullRight >
                         <Item>

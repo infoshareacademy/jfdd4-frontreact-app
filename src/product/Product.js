@@ -5,7 +5,6 @@ import ButtonBack  from './button/ButtonBack'
 import GoogleMap from 'google-map-react'
 import Map from '../maps/Maps'
 import {connect} from 'react-redux'
-import './Product.css'
 
 const mapStateToProps = (state) => ({
     products: state.productsData.products,
@@ -13,7 +12,6 @@ const mapStateToProps = (state) => ({
     shops: state.shopsData.shops,
 
 })
-
 
 class Product extends React.Component {
     render() {
@@ -25,6 +23,12 @@ class Product extends React.Component {
             params,
         } = this.props
 
+        var productsList = [
+            'Oliwa z oliwek 500 ml', 'Olej kokosowy 1 kg', 'Makaron Razowy 500 g',
+            'Ryż Basmati 500 g', 'Tatar z łososia 125 g', 'Chleb gryczany 500 g',
+            'Tuńczyk 1 kg', 'Łosos Norweski 1 kg', 'Morele Suszone 500 g'
+        ];
+        var rand = productsList[Math.floor(Math.random() * productsList.length)];
         return (
 
             <div>
@@ -44,9 +48,7 @@ class Product extends React.Component {
                                     <div className="product polaroid">
                                         <Row>
                                             <Col className="card-content" xs={12} sm={3} md={3} lg={3}>
-                                                <div>
-                                                    <Image className="size2 img-responsive" src={product.image}/>
-                                                </div>
+                                                <Image className="img-responsive" src={product.image}/>
                                             </Col>
                                             <Col className="card-content-right" xs={12} sm={9} md={9} lg={9}>
                                                 <div className="card-content">
@@ -78,6 +80,12 @@ class Product extends React.Component {
                                                                         )
                                                                     }
                                                                 </span>
+                                                        </li>
+                                                        <li className="list-group-item">
+
+
+                                                            <span className="product-left-side">INNI KUPILI RÓWNIEŻ:</span>
+                                                            <span className="product-right-side">{rand}</span>
                                                         </li>
                                                     </ul>
                                                 </div>
