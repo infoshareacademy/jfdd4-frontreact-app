@@ -9,7 +9,7 @@ import { markProductAsFavorite, dissmarkProductAsFavorite, addToFavorites, delet
 import filters from './filters'
 import './Products.css'
 import { Link } from 'react-router'
-import { Col, Image, ButtonGroup } from 'react-bootstrap'
+import { Col, Image, ButtonGroup, ButtonToolbar, Button } from 'react-bootstrap'
 import { Spinner, Tab } from 'react-mdl';
 
 
@@ -58,20 +58,22 @@ const Products = ({
 
     <div>
         <div className="break"></div>
-        <div className="break"></div>
+
 
 
         <div className="filter">
-            {availableFilters.map(filterName => (
-                <Tab>
-                    <ButtonGroup key={filterName}
-                                 style={{padding: '0 10px', fontSize: '12', textAlign: 'center'}}
-                                 onClick={() => activateFilter(filterName)}
-                                 className={filterName === activeFilter.name ? 'active' : ''}>
-                        {filters[filterName].label}
-                    </ButtonGroup>
-                </Tab>
-            ))}
+            <ButtonToolbar>
+                <ButtonGroup bsSize = "large">
+                    {availableFilters.map(filterName => (
+                        <Button key={filterName}
+                                style={{padding: '5px 10px ', fontSize: '12', textAlign: 'center'}}
+                                onClick={() => activateFilter(filterName)}
+                                className={filterName === activeFilter.name ? 'active' : ''}>
+                            {filters[filterName].label}
+                        </Button>
+                    ))}
+                </ButtonGroup>
+            </ButtonToolbar>
         </div>
         <div className="break"></div>
         {fetchingProducts ? <Spinner singleColor/> : null}
