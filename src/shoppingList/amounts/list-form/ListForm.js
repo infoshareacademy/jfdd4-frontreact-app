@@ -1,7 +1,9 @@
 import React from 'react'
 import {Button, Row, Col} from 'react-bootstrap'
 import './ListForm.css'
-
+import ButtonAddToList from './buttons/ButtonAddToList'
+import RemoveButton from './buttons/RemoveButton'
+import AddButton from './buttons/AddButton'
 class ListForm extends React.Component {
     constructor() {
         super();

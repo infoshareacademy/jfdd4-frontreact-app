@@ -11,11 +11,8 @@ import filters from './filters'
 import './Products.css'
 import { Link } from 'react-router'
 import { Col, Image, Button, ButtonGroup, Modal } from 'react-bootstrap'
-import { Spinner} from 'react-mdl';
 import ShoppingList from '../shoppingList/ShoppingList'
 import ModalY from '../shoppingList/amounts/modal/ModalY'
-
-import { Col, Image, ButtonGroup,  } from 'react-bootstrap'
 import { Spinner, Tabs, Tab } from 'react-mdl';
 
 

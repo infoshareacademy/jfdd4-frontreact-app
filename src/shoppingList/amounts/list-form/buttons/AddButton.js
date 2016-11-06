@@ -1,16 +1,12 @@
 import React, {Component} from 'react';
 import { FABButton, Icon } from 'react-mdl';
-import '../Products.css';
-
-const style = {
-    marginRight: 20,
-};
+import '../ListForm.css';
 
 export default class ButtonAddToList extends Component {
     render() {
         return (
-            <FABButton mini colored ripple ClassName="mdl-button-action">
-                <Icon name="add"/>
+            <FABButton mini ripple ClassName="mdl-button-navigation">
+                <Icon name="chevron right"/>
             </FABButton>
         )
     }
