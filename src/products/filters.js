@@ -15,7 +15,7 @@ const filters = {
         label: "OWOCE",
         predicate: product => product.category === 'owoce'
     },
-    fishs : {
+    fish : {
         label: "RYBY",
         predicate: product => product.category === 'ryby'
     },

@@ -31,7 +31,7 @@ const mapStateToProps = (state) => ({
         }
     },
     fetchingProducts: state.productsData.fetchingProducts,
-    favorites: state.favorites
+    favorites: state.productsData
 })
 
 const mapDispatchToProps = (dispatch) => ({

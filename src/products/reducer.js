@@ -9,7 +9,7 @@ import {
 } from '../app/actionTypes'
 
 const initialState = {
-    availableFilters: ['cereals', 'oils', 'rices', 'fruits', 'fishs', 'breads'],
+    availableFilters: ['cereals', 'oils', 'rices', 'fruits', 'fish', 'breads'],
     activeFilterNames: [],
     products: [],
     fetchingProducts: false,
@@ -20,26 +20,15 @@ export default (state=initialState, action) => {
     console.log(action.type);
     switch (action.type) {
         case ACTIVATE_FILTER:
-            console.log("before");
-            console.log("name = " + action.nameOfFilterToActivate);
-            console.log("names = " + state.activeFilterNames);
-
-            // nasty hack
-            if (state.activeFilterNames == undefined) {
-                return Object.assign({}, state, {
-                    activeFilterNames:  state.activeFilterNames
-                })
-            }
-
-            var filterIndex = state.activeFilterNames.indexOf(action.nameOfFilterToActivate);
-            console.log("after");
+            var newActiveFilterNames = state.activeFilterNames;
+            var filterIndex = newActiveFilterNames.indexOf(action.nameOfFilterToActivate);
             if (filterIndex > -1){
-                state.activeFilterNames.splice(filterIndex, 1)
+                newActiveFilterNames.splice(filterIndex, 1)
             } else {
-                state.activeFilterNames = state.activeFilterNames.concat(action.nameOfFilterToActivate)
+                newActiveFilterNames = newActiveFilterNames.concat(action.nameOfFilterToActivate)
             }
             return Object.assign({}, state, {
-                activeFilterNames:  state.activeFilterNames
+                activeFilterNames:  newActiveFilterNames
             })
         case REQUEST_PRODUCTS:
             return Object.assign({}, state, {

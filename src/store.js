@@ -11,13 +11,12 @@ import mapsReducer from './maps/reducer'
 import mapProductReducer from './mapProduct/reducer'
 import shopsReducer from './shops/reducer'
 import searchReducer from './search/reducer'
-    
-import favoritesReducer from './products/reducer'
+
 
 
 let reducer = combineReducers({
     productsData: productsReducer,
-    favorites: favoritesReducer,
+    // favorites: productsReducer,
     mapsDate: mapsReducer,
     mapProduct:  mapProductReducer,
     shopsData: shopsReducer,
