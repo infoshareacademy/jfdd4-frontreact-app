@@ -1,6 +1,7 @@
 import { ACTIVATE_FILTER, REQUEST_PRODUCTS, RECEIVE_PRODUCTS } from './actionTypes'
 import fetch from 'isomorphic-fetch'
 
+
 export function activateFilter(filterName) {
     return {
         type: ACTIVATE_FILTER,
@@ -23,7 +24,7 @@ function receiveProducts (products) {
 
 export function fetchProducts () {
     return function (dispatch) {
-        dispatch(requestProducts())
+        dispatch(requestProducts());
         return fetch(`${process.env.PUBLIC_URL}/data/products.json`)
             .then(response => response.json())
             .then(products => dispatch(receiveProducts(products)))

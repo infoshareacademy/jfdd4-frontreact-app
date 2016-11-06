@@ -5,7 +5,7 @@ import ButtonBack  from './button/ButtonBack'
 import GoogleMap from 'google-map-react'
 import Map from '../maps/Maps'
 import {connect} from 'react-redux'
-
+import './Product.css'
 
 const mapStateToProps = (state) => ({
     products: state.productsData.products,
@@ -43,7 +43,9 @@ class Product extends React.Component {
                                     <div className="product polaroid">
                                         <Row>
                                             <Col className="card-content" xs={12} sm={3} md={3} lg={3}>
-                                                <Image className="img-responsive" src={product.image}/>
+                                                <div>
+                                                    <Image className="size2 img-responsive" src={product.image}/>
+                                                </div>
                                             </Col>
                                             <Col Col xs={12} sm={9} md={9} lg={9}>
                                                 <div className="card-content">

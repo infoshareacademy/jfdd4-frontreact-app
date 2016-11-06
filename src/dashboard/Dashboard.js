@@ -14,7 +14,7 @@ export default (props) =>
             <Col xs={12} md={12}>
                 <div className='dashboard-break'></div>
                 <p className='dashboard-text'>
-                    Wybierz najlepsze produkty ekologiczne, sprawdź dostepność w sklepach oraz stwórz listę zakupową.
+                    Wybierz najlepsze produkty ekologiczne, sprawdź dostępność w sklepach oraz stwórz listę zakupową.
                 </p>
             </Col>
         </Row>
