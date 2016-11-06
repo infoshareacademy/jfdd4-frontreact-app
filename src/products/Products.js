@@ -15,6 +15,7 @@ import { Spinner} from 'react-mdl';
 import ShoppingList from '../shoppingList/ShoppingList'
 import ModalY from '../shoppingList/amounts/modal/ModalY'
 
+
 const mapStateToProps = (state) => ({
     products: state.productsData.products,
     availableFilters: state.productsData.availableFilters,

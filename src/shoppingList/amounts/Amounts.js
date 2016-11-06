@@ -6,7 +6,8 @@ import {Well, Col, Modal, Button} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import ListForm from './list-form/ListForm'
 import { addProduct, updateQuantity, openModal, closeModal} from './actionCreators'
-    
+import './Amounts.css'
+
 const mapStateToProps = (state) => ({
    amounts: state.amountsData.amounts
 })
@@ -20,9 +21,9 @@ const mapDispatchToProps = (dispatch) => ({
 const Amounts = ({amounts, addProduct, updateQuantity, params}) => (
    
     <Well>
-        <Modal show={() => openModal()} onHide={() => closeModal()}>
+        <Modal className="Modal" show={() => openModal()} onHide={() => closeModal()}>
             <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
+                <Modal.Title>Dodaj do listy</Modal.Title>
             </Modal.Header>
             <Modal.Body>
             {amounts
@@ -30,7 +31,7 @@ const Amounts = ({amounts, addProduct, updateQuantity, params}) => (
                 .map(amounts => {
                     return <tr key={amounts.id}>
                         <td>
-                            <h3>{amounts.name}</h3>
+                            <a className="productName" >{amounts.name}</a>
                             {Object
                                 .keys(amounts.amounts)
                                 .map(
@@ -44,13 +45,13 @@ const Amounts = ({amounts, addProduct, updateQuantity, params}) => (
                                             addToList={addProduct}
                                             Quantitis={updateQuantity}                                      />
                                 )}
-                        </td> 
+                        </td>
                       </tr>
                 })}
-
-            </Modal.Body>
+                <div>W każdym z powyższych sklepów jest wskazana liczba artykułów, wybież odpowiednią ilość i dodaj do listy</div>
+                </Modal.Body>
             <Modal.Footer>
-                <Button onClick={() => this.setState({ showModal: false})}>Close</Button>
+                <Button onClick={() => closeModal()}>Close</Button>
             </Modal.Footer>
         </Modal>
     </Well>

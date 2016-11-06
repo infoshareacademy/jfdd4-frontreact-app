@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import ListNameForm from './list-name-form/ListNameForm'
 import {deleteItem, saveList} from './actionCreators'
 import ModalX from './old-lists/modal/ModalX'
+import ModalX from './old-lists/modal/ModalX'
 
 
 const mapStateToProps = (state) => ({
@@ -53,9 +54,7 @@ const ShoppingList = ({items, deleteItem, saveList}) => (
         <Col>
             <ListNameForm items={items} handleSubmit={saveList} />
         </Col>
-
             <ModalX/>
-
     </Well>
 );
 
