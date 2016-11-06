@@ -23,7 +23,6 @@ class Product extends React.Component {
             products,
             shops,
             params,
-
         } = this.props
 
         return (

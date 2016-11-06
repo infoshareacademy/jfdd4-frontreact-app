@@ -81,7 +81,6 @@ class Maps extends React.Component {
                                                                 lat={shop.location.lat}
                                                                 lng={shop.location.lng}
                                                                 tooltip={tooltipMsg}
-
                                                             >
                                                             </Place>);
                                                         }

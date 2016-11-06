@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Item from './item/Item'
 import { Nav, Navbar } from 'react-bootstrap'
-import { IconButton  } from 'react-mdl';
+import { IconButton, Icon  } from 'react-mdl';
 import Login from '../../login/Login';
 import Search from '../../search/Search'
 
@@ -20,12 +20,15 @@ export default class Menu extends Component {
                     </Nav>
                     <Nav>
                         <Item eventKey={1} path={`/products`} >
+                            <Icon name="search" />
                             Produkty
                         </Item>
                         <Item eventKey={2} path={`/shops`} >
+                            <Icon name="shop" />
                             Sklepy
                         </Item>
                         <Item eventKey={3} path={`/shoppingList`} >
+                            <Icon name="shopping_basket" />
                             Lista zakupów
                         </Item>
                         <Item eventKey={4} path={`/favorites`} >
