@@ -6,13 +6,11 @@ import GoogleMap from 'google-map-react'
 import Map from '../maps/Maps'
 import {connect} from 'react-redux'
 
-
 const mapStateToProps = (state) => ({
     products: state.productsData.products,
     fetchingProducts: state.productsData.fetchingProducts,
     shops: state.shopsData.shops
 })
-
 
 class Product extends React.Component {
     render() {
@@ -24,6 +22,12 @@ class Product extends React.Component {
             params
         } = this.props
 
+        var productsList = [
+            'Oliwa z oliwek 500 ml', 'Olej kokosowy 1 kg', 'Makaron Razowy 500 g',
+            'Ryż Basmati 500 g', 'Tatar z łososia 125 g', 'Chleb gryczany 500 g',
+            'Tuńczyk 1 kg', 'Łosos Norweski 1 kg', 'Morele Suszone 500 g'
+        ];
+        var rand = productsList[Math.floor(Math.random() * productsList.length)];
         return (
 
             <div>
@@ -75,6 +79,12 @@ class Product extends React.Component {
                                                                         )
                                                                     }
                                                                 </span>
+                                                        </li>
+                                                        <li className="list-group-item">
+
+
+                                                            <span className="product-left-side">INNI KUPILI RÓWNIEŻ:</span>
+                                                            <span className="product-right-side">{rand}</span>
                                                         </li>
                                                     </ul>
                                                 </div>
