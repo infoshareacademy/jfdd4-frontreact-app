@@ -1,7 +1,7 @@
 import { REQUEST_COORDINATE, RECEIVE_COORDINATE } from './actionTypes'
 
 const initialState = {
-    coordinate: [],
+    coordinate: null,
     fetchingCoordinate: false,
 }
 
