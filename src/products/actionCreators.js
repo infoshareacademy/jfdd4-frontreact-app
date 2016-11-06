@@ -3,6 +3,7 @@ import fetch from 'isomorphic-fetch'
 
 
 export function activateFilter(filterName) {
+    console.log("activate filter");
     return {
         type: ACTIVATE_FILTER,
         nameOfFilterToActivate: filterName
