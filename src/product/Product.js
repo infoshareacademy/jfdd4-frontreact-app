@@ -1,81 +1,71 @@
-import React, { Component } from 'react';
-import {
-    initialState as initialProductsState,
-    finalState as finalProductsState
-} from '../data/dataProducts'
-import {
-    initialState as initialShopsState,
-    finalState as finalShopsState
-} from '../data/dataShops'
-import { Link } from 'react-router'
-import { Glyphicon, Grid, Col, Row, Image } from 'react-bootstrap'
+import React, {Component} from 'react';
+import {Link} from 'react-router'
+import {Glyphicon, Grid, Col, Row, Image} from 'react-bootstrap'
 import ButtonBack  from './button/ButtonBack'
+import GoogleMap from 'google-map-react'
+import Map from '../maps/Maps'
+import {connect} from 'react-redux'
 
 
-export default class Product extends React.Component {
-    constructor() {
-        super()
+const mapStateToProps = (state) => ({
+    products: state.productsData.products,
+    fetchingProducts: state.productsData.fetchingProducts,
+    shops: state.shopsData.shops
+})
 
-        this.state = {
-            products: finalProductsState.products,
-            productsData: initialProductsState
-        }
-    }
 
-    componentWillMount() {
-        var context = this;
-        context.setState({productsData: finalProductsState}),
-            context.setState({products: finalProductsState.products}),
-        context.setState({shops: finalShopsState.shops})
-    }
-
-    render(){
-        var productsData = this.state.productsData,
-            productData = this.props.params,
-            productId = this.props.params.id,
-            allProducts = this.state.products;
+class Product extends React.Component {
+    render() {
+        var {
+            fetchingProducts,
+            fetchingShops,
+            products,
+            shops,
+            params
+        } = this.props
 
         return (
 
             <div>
-                    <div>&#x2002;</div>
-                     <div>
-                        {productsData.products
-                            .filter(
-                                function(product) {
-                                    if(productId == product.id){
-                                      return  true
-                                    }
+                <div style={{height: '20px'}}>&#x2002;</div>
+                <div>
+                    {products
+                        .filter(
+                            function (product) {
+                                if (params.id == product.id) {
+                                    return true
                                 }
-                            )
-                            .map(
-                                function (product) {
-                                    return (
-                                        <div className="product polaroid">
-                                            <Row>
-                                                <Col className="card-content" xs={12} sm={3} md={3} lg={3}>
-                                                        <Image className ="img-responsive" src={product.image}/>
-                                                </Col>
-                                                <Col Col xs={12} sm={9} md={9} lg={9}>
-                                                    <div className="card-content">
-                                                        <ul className="list-group list-group-flush">
-                                                            <li className="list-group-item">
-                                                                <span className="product-left-side">NAZWA</span>
-                                                                <span className="product-right-side">{product.name}</span>
-                                                            </li>
-                                                            <li className="list-group-item">
-                                                                <span className="product-left-side">OPIS</span>
-                                                                <span className="product-right-side">{product.description}</span>
-                                                            </li>
-                                                            <li className="list-group-item">
-                                                                <span className="product-left-side">CENA</span>
-                                                                <span className="product-right-side">{product.price} zł</span>
-                                                            </li>
-                                                            <li className="list-group-item">
-                                                                <span className="product-left-side">DOSTĘPNOŚĆ</span>
-                                                                <span className="product-right-side"  key={product.id}>
-                                                                    {finalShopsState
-                                                                        .shops
+                            }
+                        )
+                        .map(
+                            function (product) {
+                                return (
+                                    <div className="product polaroid">
+                                        <Row>
+                                            <Col className="card-content" xs={12} sm={3} md={3} lg={3}>
+                                                <Image className="img-responsive" src={product.image}/>
+                                            </Col>
+                                            <Col Col xs={12} sm={9} md={9} lg={9}>
+                                                <div className="card-content">
+                                                    <ul className="list-group list-group-flush">
+                                                        <li className="list-group-item">
+                                                            <span className="product-left-side">NAZWA</span>
+                                                            <span className="product-right-side">{product.name}</span>
+                                                        </li>
+                                                        <li className="list-group-item">
+                                                            <span className="product-left-side">OPIS</span>
+                                                            <span
+                                                                className="product-right-side">{product.description}</span>
+                                                        </li>
+                                                        <li className="list-group-item">
+                                                            <span className="product-left-side">CENA</span>
+                                                            <span className="product-right-side">{product.price}
+                                                                zł</span>
+                                                        </li>
+                                                        <li className="list-group-item">
+                                                            <span className="product-left-side">DOSTĘPNOŚĆ</span>
+                                                            <span className="product-right-side" key={product.id}>
+                                                                    {shops
                                                                         .filter(
                                                                             shop =>
                                                                             product.shops.indexOf(shop.id) !== -1
@@ -85,21 +75,23 @@ export default class Product extends React.Component {
                                                                         )
                                                                     }
                                                                 </span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </Col>
-                                                <Col Col xs={12} sm={12} md={12} lg={12}>
-                                                    <h1>MAPA</h1>
-                                                </Col>
-                                            </Row>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </Col>
+                                            <Col Col xs={12} sm={12} md={12} lg={12}>
+                                                <div>
+                                                    <Map productId={product.id} />
+                                                </div>
+                                            </Col>
+                                        </Row>
 
-                                        </div>
-                                    )
-                                }
-                            )
-                        }
-                    </div>
+                                    </div>
+                                )
+                            }
+                        )
+                    }
+                </div>
                 <Link to={'/products'}>
                     <ButtonBack />
                 </Link>
@@ -109,3 +101,4 @@ export default class Product extends React.Component {
     }
 }
 
+export default connect(mapStateToProps)(Product)

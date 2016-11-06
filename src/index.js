@@ -8,6 +8,7 @@ import Product from './product/Product';
 import Shops from './shops/Shops';
 import Maps from './maps/Maps';
 import ShoppingList from './shoppingList/ShoppingList';
+import { fetchMaps } from './maps/actionCreators'
 import {fetchProducts } from './products/actionCreators'
 import {fetchAmounts} from './shoppingList/amounts/actionCreators'
 import {fetchItems} from './shoppingList/actionCreators'
@@ -50,6 +51,7 @@ ReactDOM.render(
                 <Route path="/old-lists" component={OldLists} onEnter={() => {store.dispatch(fetchList(store.getState().oldListsData.list))}}/>
                 <Route path="/favorites" component={Favorites}/>
                 <Route path="/login" component={Login}/>
+                <Redirect from="*" to="/" />
             </Route>
         </Router>
     </Provider>,

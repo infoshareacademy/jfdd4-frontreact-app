@@ -1,22 +1,22 @@
 import React, {Component} from 'react';
 import './Menu.css'
 import Item from './item/Item'
-import { Grid, Row, Col, Well , Navbar, Nav, NavItem } from 'react-bootstrap'
-import { Layout, Header, Textfield, Drawer, Navigation, Content } from 'react-mdl';
+import {  Row, Col, Navbar, Nav } from 'react-bootstrap'
+import { Textfield } from 'react-mdl';
 import { IconButton  } from 'react-mdl';
-import Login from '../../login/Login'
-import GoogleLogin from 'react-google-login';
+import Login from '../../login/Login';
+import Search from '../../search/Search'
+
+
 
 export default class Menu extends Component {
-
     render() {
         return (
-            <Navbar navbar navbar-default>
-                    <Nav>
+            <Navbar className="navbar-fixed-top" >
+                    <Nav >
                         <Item path={`/`}>
-                        <IconButton name="home" />
-                    </Item>
-
+                            <IconButton name="home" />
+                        </Item>
                         <Item path={`/products`}>
                             Produkty
                         </Item>
@@ -30,19 +30,23 @@ export default class Menu extends Component {
                             Lista zakupów
                         </Item>
                     </Nav>
-                    <Navbar.Form pullRight>
+
+                    <Navbar.Form pullLeft>
+                        <Search />
+                    </Navbar.Form>
+                    <Nav pullRight>
                         <Textfield
                             value=""
                             onChange={() => {}}
                             label="Search"
                             expandable
                             expandableIcon="search"
-                        />
+                            />
                         <Item path={`/favorites`}>
-                            <IconButton style={{listStyleType: 'none', listStyle: 'none'}} name="favorite" />
+                                <IconButton style={{listStyleType: 'none', listStyle: 'none'}} name="favorite" />
                         </Item>
                         <Login />
-                    </Navbar.Form>
+                    </Nav>
 
             </Navbar>
 

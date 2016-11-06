@@ -8,20 +8,25 @@ import shoppingListReducer from './shoppingList/reducer'
 import amountsReducer from './shoppingList/amounts/reducer'
 import oldListsReducer from './shoppingList/old-lists/reducer'
 
+import mapsReducer from './maps/reducer'
+import shopsReducer from './shops/reducer'
+import searchReducer from './search/reducer'
+    
 let reducer = combineReducers({
     productsData: productsReducer,
     favorites: favoritesReducer,
+    mapsDate: mapsReducer,
+    shopsData: shopsReducer,
+    search: searchReducer,
     amountsData: amountsReducer,
     shoppingListData: shoppingListReducer,
     oldListsData: oldListsReducer
 })
 
-
 // Create a Redux store holding the state of your app.
 // Its API is { subscribe, dispatch, getState }.
 const loggerMiddleware = createLogger()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
 
 let store = createStore(
     reducer,

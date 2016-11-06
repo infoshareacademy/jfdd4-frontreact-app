@@ -28,6 +28,8 @@ function addToFavoritesEnd (productId) {
     }
 }
 
+
+
 export function addToFavorites (productId) {
     return function (dispatch) {
         dispatch(addToFavoritesBegin(productId))
@@ -45,3 +47,4 @@ export function addToFavorites (productId) {
             .then(products => dispatch(addToFavoritesEnd(productId)))
     }
 }
+
