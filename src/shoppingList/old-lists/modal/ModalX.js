@@ -4,6 +4,7 @@
 import React from 'react'
 import {Modal, Button} from 'react-bootstrap'
 import OldLists from '../OldLists'
+import "../../ShoppingList.css"
 
 const ModalX = React.createClass({
     getInitialState() {
@@ -22,11 +23,12 @@ const ModalX = React.createClass({
          return (
         <div>
          <Button
-             bsStyle="primary"
-             bsSize="large"
+             id="btn-show"
+             bsStyle="success"
+             bsSize="default"
              onClick={this.open}
          >
-             Launch demo modal
+             Listy Zapisane
          </Button>
             <Modal show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
