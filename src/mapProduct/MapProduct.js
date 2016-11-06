@@ -92,8 +92,8 @@ class MapProduct extends React.Component {
                                                 {shops
                                                     .filter(
                                                         shop => {
-                                                            var neariestShopId = getNeariestShopId(shops, coordinate, product);
-                                                            return shop.id ==  neariestShopId;
+                                                            var nearestShopId = getNearestShopId(shops, coordinate, product);
+                                                            return shop.id ==  nearestShopId;
                                                         }
                                                     )
                                                     .map(
@@ -123,22 +123,20 @@ class MapProduct extends React.Component {
 //     " " + "Longitude: " + position.coords.longitude);
 
 
-function getNeariestShopId (shops, coordinate,product){
+function getNearestShopId(shops, coordinate, product) {
     var minDistance = Number.MAX_VALUE;
     // var minDistance = getDistanceFromLatLonInKm (coordinate.coords.latitude, coordinate.coords.longitude, shops[0].location.lat, shops[0].location.lng);
     var x = -1;
     for (var i = 0; i < shops.length; i++) {
         if (product.shops.indexOf(shops[i].id) !== -1) {
-        var shopDistance = getDistanceFromLatLonInKm (coordinate.coords.latitude, coordinate.coords.longitude, shops[i].location.lat, shops[i].location.lng);
-        if (minDistance > shopDistance){
-            minDistance = shopDistance;
-            x = i;
-        }
+            var shopDistance = getDistanceFromLatLonInKm(coordinate.coords.latitude, coordinate.coords.longitude, shops[i].location.lat, shops[i].location.lng);
+            if (minDistance > shopDistance) {
+                minDistance = shopDistance;
+                x = i;
+            }
         }
     }
     return shops[x].id
-
-
 }
 
 function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
