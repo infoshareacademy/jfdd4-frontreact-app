@@ -5,7 +5,6 @@ import { markShopAsFavorite, getFavoriteShops, dissMarkShopAsFavorite } from'../
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
-
 const mapStateToProps = (state) => ({
     shops: state.shopsData.shops,
     products: state.productsData.products,
@@ -13,10 +12,7 @@ const mapStateToProps = (state) => ({
 })
 
  class Shops extends React.Component {
-
-
-
-
+     
     render() {
         var
             favourites = getFavoriteShops(),

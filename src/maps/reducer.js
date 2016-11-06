@@ -13,6 +13,7 @@ export default (state=initialState, action) => {
             return Object.assign({}, state, {
                 fetchingMaps: true
             })
+        
         case RECEIVE_MAPS:
             return Object.assign({}, state, {
                 coordinate: action.coordinate,

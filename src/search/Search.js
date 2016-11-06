@@ -1,6 +1,4 @@
-/**
- * Created by Piotr on 2016-10-29.
- */
+
 import React from 'react'
 import { connect } from 'react-redux'
 import {Form, FormGroup, FormControl} from 'react-bootstrap'

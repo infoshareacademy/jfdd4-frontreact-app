@@ -1,37 +1,20 @@
-
 import React from 'react'
 import GoogleMap from 'google-map-react'
 import Place from './place/Place'
-import Info from './info/Info'
-import {finalState} from '../data/dataShops'
-import {Modal, Button} from 'react-bootstrap'
 import './Maps.css'
-import {Well , PageHeader } from 'react-bootstrap'
-import { connect} from 'react-redux'
-import { Spinner } from 'react-mdl';
+import {connect} from 'react-redux'
+import {Spinner} from 'react-mdl';
+import {Icon} from 'react-mdl';
+import {Link} from 'react-router'
 
 
 const mapStateToProps = (state) => ({
-    coordinate: state.mapsDate.coordinate,
-    fetchingCoordinate: state.mapsDate.fetchingCoordinate
+    products: state.productsData.products,
+    fetchingProducts: state.productsData.fetchingProducts,
+    shops: state.shopsData.shops
 })
 
-
-
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        console.log("Geolocation is not supported by this browser.");
-    }
-}
-function showPosition(position) {
-    return ("Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude);
-}
-
-function createMapOptions (maps) {
+function createMapOptions(maps) {
 
     return {
         panControl: true,
@@ -44,88 +27,76 @@ function createMapOptions (maps) {
         mapTypeControlOptions: {
             position: maps.ControlPosition.TOP_RIGHT
         }
-     }
+    }
 }
 
-class Shops extends React.Component {
-    constructor() {
-        super()
-        //
-        // this.state = {
-        //     shops: [],
-        //     showModal: false
-        // }
-    }
-
-    // componentWillMount() {
-    //     var context = this;
-    //     context.setState({shops: finalState.shops})
-    // }
-
-
-
+class Maps extends React.Component {
     render() {
         var {
-            coordinate, //dany sklep
-            fetchingCoordinate
-        }=this.props;
-        
-        console.log('!', this.props.coordinate)
-        
-        
-        // var scope = this;
-        //
-        // var selectShop = function (shopId) {
-        //     scope.setState({
-        //         selectedShop: scope.state.shops.find(function (s) {
-        //             return s.id == shopId;
-        //         }),
-        //         showModal: true
-        //     });
-        // };
+            fetchingProducts,
+            fetchingShops,
+            products,
+            shops,
+            productId
+        } = this.props
 
-        // var shop = this.state.selectedShop || {};
-        // console.log('onrender', shop);
-
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            } else {
-                console.log("Geolocation is not supported by this browser.");
-            }
-        }
-        
-        function showPosition(position) {
-            return ("Latitude: " + position.coords.latitude +
-            "<br>Longitude: " + position.coords.longitude);
-        }
-    
         return (
-            
-            
-                <Well>
-                    {fetchingCoordinate ? <Spinner singleColor /> : null}
-                    
-                    <PageHeader>Mapy
-                        <small> znajdź najbliższe sklepy w Twojej okolicy.</small></PageHeader>
-            <div id="MAP">
-                <GoogleMap
-                    bootstrapURLKeys={{key: 'AIzaSyCIGFuueBb3ewt-Ewe7ySfhE9ZdHVjdPsc'}}
-                    center={[54.408636, 18.588977]}
-                    zoom={13}
-                    options={createMapOptions}>
-                    {coordinate.map((singleShop) => <Place
-                    lat={singleShop.location.lat}
-                    lng={singleShop.location.lng}
-                    icon={singleShop.icon}
-                    ></Place>)}
+            <div>
+                {
+                    products
+                        .filter(
+                            function (product) {
+                                if (productId == product.id) {
+                                    return true
+                                }
+                            }
+                        )
+                        .map(
+                            function (product) {
+                                return (
+                                    <div>
+                                        <div className="map">
+                                            <GoogleMap
+                                                bootstrapURLKeys={{key: 'AIzaSyCIGFuueBb3ewt-Ewe7ySfhE9ZdHVjdPsc'}}
+                                                center={[54.408636, 18.588977]}
+                                                zoom={13}
+                                                options={createMapOptions}>
 
-                </GoogleMap>
-
+                                                {shops
+                                                    .filter(
+                                                        shop => {
+                                                            return product.shops.indexOf(shop.id) !== -1;
+                                                        }
+                                                    )
+                                                    .map(
+                                                        shop =>
+                                                            <Place
+                                                                lat={shop.location.lat}
+                                                                lng={shop.location.lng}
+                                                            >
+                                                                <Icon name="room"/>
+                                                            </Place>
+                                                    )
+                                                }
+                                            </GoogleMap>
+                                        </div>
+                                    </div>
+                                )
+                            }
+                        )
+                }
             </div>
-                </Well>
         )
     }
+
 }
 
-export default connect(mapStateToProps)(Shops)
+export default connect(mapStateToProps)(Maps)
+
+
+
+
+
+
+
+

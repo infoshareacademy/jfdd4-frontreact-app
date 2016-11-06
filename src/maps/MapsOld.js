@@ -1,9 +1,3 @@
-/**
- * Created by kbeata on 02.11.16.
- */
-/**
- * Created by karol on 12.10.16.
- */
 import React from 'react'
 import GoogleMap from 'google-map-react'
 import Place from './place/Place'
@@ -20,10 +14,15 @@ function getLocation() {
         console.log("Geolocation is not supported by this browser.");
     }
 }
+
 function showPosition(position) {
-    return ("Latitude: " + position.coords.latitude +
+    console.log("Latitude: " + position.coords.latitude +
     "<br>Longitude: " + position.coords.longitude);
 }
+getLocation();
+
+
+
 
 function createMapOptions (maps) {
 

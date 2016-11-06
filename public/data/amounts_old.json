@@ -1,0 +1,113 @@
+[
+  {
+    "id": 1,
+    "name": "Kasza Jaglana 500 g",
+    "amounts": {
+      "Lidl": 5,
+      "Biedonka": 10,
+      "Tesco": 50,
+      "Stokrotka": 12,
+      "Żabka": 2
+    }
+  },
+  {
+    "id": 2,
+    "name": "Oliwa z oliwek 500 ml",
+    "amounts": {
+      "Lidl": 3,
+      "Biedonka": 15,
+      "Tesco": 0,
+      "Stokrotka": 12,
+      "Żabka": 4
+    }
+  },
+  {
+    "id": 3,
+    "name": "Olej kokosowy 1 kg",
+    "amounts": {
+      "Lidl": 8,
+      "Biedonka":32,
+      "Tesco": 4,
+      "Stokrotka": 5,
+      "Żabka": 2
+    }
+  },
+  {
+    "id": 4,
+    "name": "Makaron Razowy 500 g",
+    "description": "Ekonoliczny makaron z pszenicy orkiszowej z pelnego przemialu. Nie polecany dla bezglutenowcow",
+    "amounts": {
+      "Lidl": 3,
+      "Biedonka": 3,
+      "Tesco": 0,
+      "Stokrotka": 7,
+      "Żabka": 5
+    }
+  },
+  {
+    "id": 5,
+    "name": "Ryz Basmati 500 g",
+    "amounts": {
+      "Lidl": 22,
+      "Biedonka": 12,
+      "Tesco": 12,
+      "Stokrotka": 1,
+      "Żabka": 3
+    }
+  },
+  {
+    "id": 6,
+    "name": "Morele Suszone 500 g",
+    "amounts": {
+      "Lidl": 2,
+      "Biedonka": 8,
+      "Tesco": 4,
+      "Stokrotka": 4,
+      "Żabka": 7
+    }
+  },
+  {
+    "id": 7,
+    "name": "Losos Norweski 1 kg",
+    "amounts": {
+      "Lidl": 13,
+      "Biedonka": 2,
+      "Tesco": 8,
+      "Stokrotka": 0,
+      "Żabka": 0
+    }
+  },
+  {
+    "id": 8,
+    "name": "Tunczyk 1 kg",
+    "amounts": {
+      "Lidl": 3,
+      "Biedonka": 3,
+      "Tesco": 0,
+      "Stokrotka": 7,
+      "Żabka": 5
+    }
+  },
+  {
+    "id": 9,
+    "name": "Tatar z lososia 125 g",
+    "amounts": {
+      "Lidl": 2,
+      "Biedonka": 27,
+      "Tesco": 22,
+      "Stokrotka": 9,
+      "Żabka": 3
+    }
+  },
+  {
+    "id": 10,
+    "name": "Chleb gryczany 500 g",
+    "amounts": {
+      "Lidl": 2,
+      "Biedonka": 1,
+      "Tesco": 0,
+      "Stokrotka": 0,
+      "Żabka": 0
+    }
+  }
+]
