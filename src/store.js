@@ -10,11 +10,11 @@ import oldListReducer from './shoppingList/old-lists/reducer'
 import shopsReducer from './shops/reducer'
 import searchReducer from './search/reducer'
     
-import favoritesReducer from './products/reducer'
+
 
 let reducer = combineReducers({
     productsData: productsReducer,
-    favorites: favoritesReducer,
+    favorites: productsReducer,
     shopsData: shopsReducer,
     search: searchReducer,
     amountsData: amountsReducer,
