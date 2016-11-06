@@ -47,7 +47,7 @@ class Product extends React.Component {
                                                     <Image className="size2 img-responsive" src={product.image}/>
                                                 </div>
                                             </Col>
-                                            <Col Col xs={12} sm={9} md={9} lg={9}>
+                                            <Col className="card-content-right" xs={12} sm={9} md={9} lg={9}>
                                                 <div className="card-content">
                                                     <ul className="list-group list-group-flush">
                                                         <li className="list-group-item">
