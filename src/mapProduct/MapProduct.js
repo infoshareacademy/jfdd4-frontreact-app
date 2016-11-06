@@ -1,18 +1,39 @@
-import React from 'react'
+import React, {Component} from 'react';
+import {Link} from 'react-router'
+import {Glyphicon, Grid, Col, Row, Image} from 'react-bootstrap'
+import ButtonBack  from '../product/button/ButtonBack'
 import GoogleMap from 'google-map-react'
 import Place from './place/Place'
-import './Maps.css'
-import {connect} from 'react-redux'
-import {Spinner} from 'react-mdl';
 import {Icon} from 'react-mdl';
-import {Link} from 'react-router'
+// import { getPosition } from 'redux-effects-geolocation';
+// import { getLocation } from 'redux-effects-geolocation';
+
+import {connect} from 'react-redux'
 
 
 const mapStateToProps = (state) => ({
     products: state.productsData.products,
     fetchingProducts: state.productsData.fetchingProducts,
-    shops: state.shopsData.shops
+    shops: state.shopsData.shops,
+    // coordinate: state.coordinate
 })
+
+
+
+// function getLocation() {
+//     if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(showPosition);
+//     } else {
+//         console.log("Geolocation is not supported by this browser.");
+//     }
+// }
+//
+// function showPosition(position) {
+//     console.log ("Latitude: " + position.coords.latitude +
+//     "<br>Longitude: " + position.coords.longitude);
+// }
+//
+
 
 function createMapOptions(maps) {
 
@@ -30,14 +51,15 @@ function createMapOptions(maps) {
     }
 }
 
-class Maps extends React.Component {
+class MapProduct extends React.Component {
     render() {
         var {
             fetchingProducts,
             fetchingShops,
             products,
             shops,
-            productId
+            params,
+
         } = this.props
 
         return (
@@ -46,7 +68,7 @@ class Maps extends React.Component {
                     products
                         .filter(
                             function (product) {
-                                if (productId == product.id) {
+                                if (params.id == product.id) {
                                     return true
                                 }
                             }
@@ -91,12 +113,5 @@ class Maps extends React.Component {
 
 }
 
-export default connect(mapStateToProps)(Maps)
 
-
-
-
-
-
-
-
+export default connect(mapStateToProps)(MapProduct)

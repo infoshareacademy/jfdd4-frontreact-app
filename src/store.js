@@ -8,15 +8,18 @@ import amountsReducer from './shoppingList/amounts/reducer'
 import oldListReducer from './shoppingList/old-lists/reducer'
 
 import mapsReducer from './maps/reducer'
+import mapReducer from './maps/reducer'
 import shopsReducer from './shops/reducer'
 import searchReducer from './search/reducer'
     
 import favoritesReducer from './products/reducer'
 
+
 let reducer = combineReducers({
     productsData: productsReducer,
     favorites: favoritesReducer,
     mapsDate: mapsReducer,
+    mapProduct: mapReducer,
     shopsData: shopsReducer,
     search: searchReducer,
     amountsData: amountsReducer,
@@ -34,7 +37,7 @@ let store = createStore(
     composeEnhancers(
         applyMiddleware(
             thunkMiddleware, // lets us dispatch() functions
-            loggerMiddleware
+            loggerMiddleware,
         ),
         persistState(['favorites'])
     )
@@ -45,3 +48,4 @@ store.subscribe(() => {
 })
 
 export default store
+

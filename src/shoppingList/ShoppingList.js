@@ -14,7 +14,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     deleteItem: (itemId) => dispatch(deleteItem(itemId)),
     saveList: (shoppingList, name) => dispatch(saveList(shoppingList, name))
-
 });
 
 const ShoppingList = ({items, deleteItem, saveList}) => (
