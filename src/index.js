@@ -9,6 +9,7 @@ import Availability from './products/availability/Availability';
 import Shops from './shops/Shops';
 import Maps from './maps/Maps';
 import MapProduct from './mapProduct/MapProduct';
+import MapShops from './mapAllShops/Maps';
 import ShoppingList from './shoppingList/ShoppingList';
 import { fetchProducts } from './products/actionCreators'
 import { fetchFavorites } from './app/actionCreators'
@@ -39,7 +40,7 @@ ReactDOM.render(
                 <Route path="/products/:id" component={Product}/>
                 <Route path="/shops" component={Shops}/>
                 <Route path="/shops/:viewVariant" component={Shops}/>
-                <Route path="/maps" component={Maps}/>
+                <Route path="/maps" component={MapShops}/>
                 <Route path="/products/map/:id" component={MapProduct}/>
                 <Route path="/shoppingList" component={ShoppingList} onEnter={() => {store.dispatch(fetchItems(store.getState().shoppingListData.items))}}/>
                 <Route path="/amounts/:productId" component={Amounts} onEnter={() => {store.dispatch(fetchAmounts(store.getState().amountsData.amounts))}}/>

@@ -1,0 +1,27 @@
+#info
+{
+    float: left;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#pic1
+{
+    float: left;
+    height: 135px;
+    width: 210px;
+}
+
+#text_maxi
+{
+    float: left;
+}
+
+#link1
+{
+    float: left;
+}
+#link2
+{
+    float: right;
+}
