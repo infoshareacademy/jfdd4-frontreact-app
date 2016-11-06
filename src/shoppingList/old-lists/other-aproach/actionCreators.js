@@ -4,7 +4,7 @@
 
 
 import {
-    RECEIVE_LIST
+    RECEIVE_LIST, OPEN_MODAL, CLOSE_MODAL
 
 } from './actionTypes'
 
@@ -22,3 +22,15 @@ export function fetchList() {
             }))
     }}
 
+export function openModal(result) {
+    return {
+        currentResult: result,
+        type: OPEN_MODAL
+    };
+}
+
+export function closeModal() {
+    return {
+        type: CLOSE_MODAL
+    };
+}

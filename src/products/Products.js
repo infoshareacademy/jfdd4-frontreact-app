@@ -1,6 +1,8 @@
 import React from 'react'
+import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
 import { connect } from 'react-redux'
 import { activateFilter } from './actionCreators'
+import { markProductAsFavorite, dissmarkProductAsFavorite, addToFavorites } from '../app/actionCreators'
 import ButtonAddToList  from './button/ButtonAddToList'
 import ButtonAddToFavorite from './button/ButtonAddToFavorite'
 import ButtonShowOnMap from './button/ButtonShowOnMap'
@@ -11,6 +13,10 @@ import './Products.css'
 import { Link } from 'react-router'
 import { Col, Image, ButtonGroup, ButtonToolbar, Button } from 'react-bootstrap'
 import { Spinner, Tab } from 'react-mdl';
+import { Col, Image, Button, ButtonGroup, Modal } from 'react-bootstrap'
+import ShoppingList from '../shoppingList/ShoppingList'
+import ModalY from '../shoppingList/amounts/modal/ModalY'
+import { Spinner, Tabs, Tab } from 'react-mdl';
 
 
 const mapStateToProps = (state) => ({
@@ -30,23 +36,20 @@ const mapStateToProps = (state) => ({
             return result;
         }
     },
-    fetchingProducts: state.productsData.fetchingProducts,
-    favorites: state.productsData
+    fetchingProducts: state.productsData.fetchingProducts
 })
 
 const mapDispatchToProps = (dispatch) => ({
     activateFilter: (filterId) => dispatch(activateFilter(filterId)),
     favoriteProduct: (productId) => dispatch(markProductAsFavorite(productId)),
     dissmarkProduct: (productId) => dispatch(dissmarkProductAsFavorite(productId)),
-    addToFavorites: (productId) => dispatch(addToFavorites(productId)),
-    deleteFavorite: (id) => dispatch(deleteFavorite(id))
+    addToFavorites: (productId) => dispatch(addToFavorites(productId))
 })
 
 
 const Products = ({
     fetchingProducts,
     products,
-    favorites,
     availableFilters,
     activeFilter,
     activateFilter,

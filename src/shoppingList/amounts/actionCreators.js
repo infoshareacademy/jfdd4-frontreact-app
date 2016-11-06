@@ -5,7 +5,9 @@ import {
     GET_AMOUNTS,
     RECEIVE_AMOUNTS,
     ADD_PRODUCT_BEGIN,
-    ADD_PRODUCT_END
+    ADD_PRODUCT_END,
+    OPEN_MODAL,
+    CLOSE_MODAL
 } from './actionTypes'
 
 import fetch from 'isomorphic-fetch'
@@ -78,3 +80,17 @@ export function addProduct(itemId, quantity, price, productName, shopName) {
     }
 }
 
+
+export function openModal(result) {
+    return {
+        currentResult: result,
+        type: OPEN_MODAL
+    };
+}
+
+export function closeModal(result) {
+    return {
+        currentResult: result,
+        type: CLOSE_MODAL
+    };
+}

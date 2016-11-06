@@ -1,0 +1,24 @@
+.cart
+{
+   float: right;
+}
+
+.clear
+{
+    clear: both;
+}
+
+#shop
+{
+    width: 240px;
+    float: left;
+}
+
+.quantity
+{
+
+}
+.mdl-button--floating-action
+{
+    float: left;
+}

@@ -6,6 +6,9 @@ import {Well, PageHeader, Row, Button, Col, Grid} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import ListNameForm from './list-name-form/ListNameForm'
 import {deleteItem, saveList} from './actionCreators'
+import ModalX from './old-lists/modal/ModalX'
+import './ShoppingList.css'
+
 
 const mapStateToProps = (state) => ({
     items: state.shoppingListData.items,
@@ -19,6 +22,10 @@ const mapDispatchToProps = (dispatch) => ({
 const ShoppingList = ({items, deleteItem, saveList}) => (
     <Well>
         <PageHeader>Lista Zakupów</PageHeader>
+        <div>
+            <ModalX />
+               <div className="clean"/>
+        </div>
         <Grid>
             {items
                 .map(item => (
