@@ -17,7 +17,7 @@ const mapStateToProps = (state) => ({
     products: state.productsData.products,
     availableFilters: state.productsData.availableFilters,
     activeFilter: {
-        name: state.productsData.activeFilterNames,
+        names: state.productsData.activeFilterNames,
         predicate: product => {
             if (state.productsData.activeFilterNames.length === 0 ) {
                 return true;
@@ -68,7 +68,7 @@ const Products = ({
                         <Button key={filterName}
                                 style={{padding: '5px 10px ', fontSize: '12', textAlign: 'center'}}
                                 onClick={() => activateFilter(filterName)}
-                                className={filterName === activeFilter.name ? 'active' : ''}>
+                                className={activeFilter.names.indexOf(filterName) > -1 ? 'active' : ''}>
                             {filters[filterName].label}
                         </Button>
                     ))}
