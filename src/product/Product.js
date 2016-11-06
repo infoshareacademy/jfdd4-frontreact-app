@@ -75,6 +75,20 @@ class Product extends React.Component {
                                                                         )
                                                                     }
                                                                 </span>
+                                                            </li>
+                                                        <li className="list-group-item">
+                                                            <span className="product-left-side">INNI KUPILI Z TYM PRODUKTEM RÓWNIEŻ</span>
+                                                            <span className="product-right-side" key={products.id===2}>
+                                                                    {shops
+                                                                        .filter(
+                                                                            shop =>
+                                                                            product.shops.indexOf(shop.id) !== -1
+                                                                        )
+                                                                        .map(
+                                                                            shop => <td>{shop.name}&nbsp;</td>
+                                                                        )
+                                                                    }
+                                                                </span>
                                                         </li>
                                                     </ul>
                                                 </div>

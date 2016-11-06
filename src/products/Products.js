@@ -6,13 +6,12 @@ import ButtonAddToList  from './button/ButtonAddToList'
 import ButtonAddToFavorite from './button/ButtonAddToFavorite'
 import ButtonShowOnMap from './button/ButtonShowOnMap'
 import ButtonMoreInformation  from './button/ButtonMoreInformation'
-import { markProductAsFavorite, dissmarkProductAsFavorite, addToFavorites, deleteFavorite } from '../app/actionCreators'
+import { markProductAsFavorite, dissmarkProductAsFavorite, addToFavorites, deleteFavorite,fetchFavorites } from '../app/actionCreators'
 import filters from './filters'
 import './Products.css'
 import { Link } from 'react-router'
-import { Col, Image, ButtonGroup,  } from 'react-bootstrap'
+import { Col, Image, ButtonGroup, ButtonToolbar,Button  } from 'react-bootstrap'
 import { Spinner, Tabs, Tab } from 'react-mdl';
-
 
 const mapStateToProps = (state) => ({
     products: state.productsData.products,
@@ -40,7 +39,7 @@ const mapDispatchToProps = (dispatch) => ({
     favoriteProduct: (productId) => dispatch(markProductAsFavorite(productId)),
     dissmarkProduct: (productId) => dispatch(dissmarkProductAsFavorite(productId)),
     addToFavorites: (productId) => dispatch(addToFavorites(productId)),
-    deleteFavorite: (id) => dispatch(deleteFavorite(id))
+    deleteFavorite: (id) => dispatch(deleteFavorite(id)),
 })
 
 
@@ -54,27 +53,25 @@ const Products = ({
     favoriteProduct,
     dissmarkProduct,
     addToFavorites,
-    deleteFavorite
+    deleteFavorite,
 }) => (
 
     <div>
         <div className="break"></div>
         <div className="break"></div>
-
-
         <div className="filter">
-            {availableFilters.map(filterName => (
-                <Tab>
-                    <ButtonGroup key={filterName}
-                                 style={{padding: '0 10px', fontSize: '12', textAlign: 'center'}}
+            <ButtonToolbar>
+                <ButtonGroup bsSize = "large">
+                    {availableFilters.map(filterName => (
+                    <Button key={filterName}
+                                 style={{padding: '10px 10px ', fontSize: '16', textAlign: 'center'}}
                                  onClick={() => activateFilter(filterName)}
                                  className={filterName === activeFilter.name ? 'active' : ''}>
                             {filters[filterName].label}
-                    </ButtonGroup>
-                </Tab>
+                    </Button>
             ))}
+                </ButtonGroup></ButtonToolbar>
         </div>
-        <div className="break"></div>
         {fetchingProducts ? <Spinner singleColor /> : null}
         <div>
             {products

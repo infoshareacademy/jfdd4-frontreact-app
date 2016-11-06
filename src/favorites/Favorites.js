@@ -1,15 +1,11 @@
 import React from "react"
-
-import {
-    ToastContainer,
-    ToastMessage,
-
-} from 'react-toastr';
+import { deleteFavorite } from '../app/actionCreators'
+import { ToastContainer, ToastMessage } from 'react-toastr';
 
 
 const ToastMessageFactory = React.createFactory(ToastMessage.animation);
 
-export default class App extends React.Component {
+export default class Favorites extends React.Component {
 
     addAlert = this.addAlert.bind(this);
     clearAlert = this.clearAlert.bind(this);
@@ -42,12 +38,7 @@ export default class App extends React.Component {
                     <button className="primary" onClick={this.addAlert}>
                         Hello
                     </button>
-                    <button className="primary" onClick={this.clearAlert}>
-                        CLEAR
-                    </button>
                 </div>
-
-                
             </div>
         );
     }

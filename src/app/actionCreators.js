@@ -29,6 +29,9 @@ function addToFavoritesEnd (productId) {
     }
 }
 
+
+
+
 export function addToFavorites (productId, favoriteProducts) {
     return function (dispatch) {
         dispatch(addToFavoritesBegin(productId))

@@ -33,18 +33,17 @@ import 'react-mdl/extra/material.js';
 
 
 
-
 ReactDOM.render(
     <Provider store={store}>
         <Router history={browserHistory}>
-            <Route path="/" component={App} onEnter={() => store.dispatch(fetchProducts())}>
+            <Route path="/" component={App} onEnter={() => store.dispatch(fetchFavorites())}>
                 <IndexRoute component={Dashboard} />
-                <Route path="/products" component={Products} onEnter={() => store.dispatch(fetchFavorites())}/>
+                <Route path="/products" component={Products} onEnter={() => store.dispatch(fetchProducts())}/>
                 <Route path="/products/availability" component={Availability}/>
                 <Route path="/products/:id" component={Product}/>
                 <Route path="/shops" component={Shops}/>
                 <Route path="/shops/:viewVariant" component={Shops}/>
-                <Route path="/maps" component={Maps}/>
+                <Route path="/maps" component={Maps} onEnter={() => store.dispatch(fetchMaps())}/>
                 <Route path="/shoppingList" component={ShoppingList} onEnter={() => {store.dispatch(fetchItems(store.getState().shoppingListData.items))}}/>
                 <Route path="/amounts/:productId" component={Amounts} onEnter={() => {store.dispatch(fetchAmounts(store.getState().amountsData.amounts))}}/>
                 <Route path="/favorites" component={Favorites}/>
