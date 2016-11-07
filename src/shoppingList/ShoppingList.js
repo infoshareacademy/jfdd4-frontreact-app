@@ -8,6 +8,7 @@ import ListNameForm from './list-name-form/ListNameForm'
 import {deleteItem, saveList} from './actionCreators'
 import ModalX from './old-lists/modal/ModalX'
 import './ShoppingList.css'
+import ButtonClose from './button/ButtonClose'
 
 
 const mapStateToProps = (state) => ({
@@ -43,9 +44,12 @@ const ShoppingList = ({items, deleteItem, saveList}) => (
                             ze sklepu {item.shopName}
                         </Col>
                         <Col md={1}>
-                          <Button onClick={() => deleteItem(item.id)}>
-                                 Usuń
-                            </Button>
+                          // <Button onClick={() => deleteItem(item.id)}>
+                          //        Usuń
+                          //   </Button>
+                            
+                            <ButtonClose onClick={() => deleteItem(item.id)} />
+                           
                         </Col>
                        
                     </Row>))

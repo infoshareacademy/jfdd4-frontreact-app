@@ -18,8 +18,9 @@ import { fetchCoordinate } from './mapProduct/actionCreators'
 import { fetchMaps } from './maps/actionCreators'
 
 import {fetchAmounts} from './shoppingList/amounts/actionCreators'
-import {fetchItems} from './shoppingList/actionCreators'
 import {fetchList} from './shoppingList/old-lists/actionCreators'
+import {fetchItems} from './shoppingList/actionCreators'
+
 import Availability from'./products/availability/Availability.js'
 import Favorites from './favorites/Favorites';
 import Amounts from './shoppingList/amounts/Amounts'
@@ -54,7 +55,10 @@ ReactDOM.render(
                 <Route path="/shops/:viewVariant" component={Shops}/>
                 <Route path="/maps" component={MapShops}/>
                 <Route path="/products/map/:id" component={MapProduct} onEnter={() => store.dispatch(fetchCoordinate())}/>
-                <Route path="/shoppingList" component={ShoppingList} onEnter={() => {store.dispatch(fetchItems(store.getState().shoppingListData.items))}}/>
+                <Route path="/shoppingList" component={ShoppingList} onEnter={() => {
+                    store.dispatch(fetchItems(store.getState().shoppingListData.items))
+                    store.dispatch(fetchList(store.getState().oldListsData.list))
+                    }}/>
                 <Route path="/amounts/:productId" component={Amounts} onEnter={() => {store.dispatch(fetchAmounts(store.getState().amountsData.amounts))}}/>
                 <Route path="/old-lists" component={OldLists} onEnter={() => {store.dispatch(fetchList(store.getState().oldListsData.list))}}/>
                 <Route path="/favorites" component={Favorites}/>

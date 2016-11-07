@@ -24,11 +24,7 @@ const OldList = ({list, shoppingList}) => (
                     </MenuItem> ))}
                 </DropdownButton>
             </Col>
-            {/*<dir>*/}
-            {/*<Button  >*/}
-                    {/*<a id="close" href={"../shoppingList"}> Wróć </a>*/}
-            {/*</Button>*/}
-            {/*</dir>*/}
+            
             </Row>
         </Grid>
     </Well>

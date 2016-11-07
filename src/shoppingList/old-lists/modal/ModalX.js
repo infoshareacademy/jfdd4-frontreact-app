@@ -33,7 +33,7 @@ const ModalX = React.createClass({
          </Button>
             <Modal show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Modal heading</Modal.Title>
+                        <Modal.Title>Zapisane Listy</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <OldLists/>
