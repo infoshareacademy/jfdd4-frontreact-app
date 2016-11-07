@@ -23,10 +23,7 @@ export default class Menu extends Component {
                             <Icon name="search" />
                             Produkty
                         </Item>
-                        <Item eventKey={2} path={`/shops`} >
-                            <Icon name="shop" />
-                            Sklepy
-                        </Item>
+                       
                         <Item eventKey={3} path={`/shoppingList`} >
                             <Icon name="shopping_basket" />
                             Lista zakupów
