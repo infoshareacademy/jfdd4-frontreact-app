@@ -131,3 +131,12 @@
 .btn-group {
     padding: 5px;
 }
+
+.btn.active, .btn:active {
+    background-color : rgb(0, 164, 147) !important;
+    color : white !important;
+}
+
+.btn.active:focus, .btn:focus {
+    outline:0;
+}

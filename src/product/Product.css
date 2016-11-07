@@ -22,3 +22,11 @@
     position: relative;
     text-align: center;
 }
+
+.card-content {
+    padding-right : 0px;
+}
+
+.card-content-right {
+    padding-left : 0px;
+}

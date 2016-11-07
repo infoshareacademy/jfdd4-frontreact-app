@@ -82,9 +82,10 @@ export default class MapShops extends React.Component {
 
 
         return (
-            <Well>
-                <PageHeader>Mapy
-                    <small> znajdź najbliższe sklepy w Twojej okolicy.</small></PageHeader>
+            <div className="map2 polaroid">
+                <li className="card-header">
+                    SKLEPY Z EKOLOGICZNYMI PRODUKTAMI
+                </li>
                 <div id="MAP">
                     <GoogleMap
                         bootstrapURLKeys={{key: 'AIzaSyCIGFuueBb3ewt-Ewe7ySfhE9ZdHVjdPsc'}}
@@ -111,7 +112,7 @@ export default class MapShops extends React.Component {
                     </Modal>
 
                 </div>
-            </Well>
+            </div>
         )
     }
 } 

@@ -9,7 +9,8 @@ import {connect} from 'react-redux'
 const mapStateToProps = (state) => ({
     products: state.productsData.products,
     fetchingProducts: state.productsData.fetchingProducts,
-    shops: state.shopsData.shops
+    shops: state.shopsData.shops,
+
 })
 
 class Product extends React.Component {
@@ -19,7 +20,7 @@ class Product extends React.Component {
             fetchingShops,
             products,
             shops,
-            params
+            params,
         } = this.props
 
         var productsList = [
@@ -49,7 +50,7 @@ class Product extends React.Component {
                                             <Col className="card-content" xs={12} sm={3} md={3} lg={3}>
                                                 <Image className="img-responsive" src={product.image}/>
                                             </Col>
-                                            <Col Col xs={12} sm={9} md={9} lg={9}>
+                                            <Col className="card-content-right" xs={12} sm={9} md={9} lg={9}>
                                                 <div className="card-content">
                                                     <ul className="list-group list-group-flush">
                                                         <li className="list-group-item">
