@@ -51,7 +51,7 @@ function saveListEnd() {
 export function saveList(shoppingList, name) {
     return function (dispatch) {
         dispatch(saveListBegin())
-        return fetch('http://rest.learncode.academy/api/sugero/savedlists', {
+        return fetch('http://rest.learncode.academy/api/sugero/lists', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

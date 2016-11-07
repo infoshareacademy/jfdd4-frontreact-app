@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import { FABButton, Icon } from 'react-mdl';
-import '../Products.css';
+import '../../products/Products.css';
 
 const style = {
     marginRight: 20,
 };
 
-export default class ButtonAddToList extends Component {
+export default class ButtonClose extends Component {
     render() {
         return (
             <FABButton mini colored ripple ClassName="mdl-button-action">
@@ -15,3 +15,4 @@ export default class ButtonAddToList extends Component {
         )
     }
 };
+

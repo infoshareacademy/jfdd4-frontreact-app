@@ -1,7 +1,8 @@
 
 import {
     RECEIVE_LIST
-} from './actionTypes'
+}
+from './actionTypes'
 
 const initialState = {
    list: [],
@@ -15,3 +16,4 @@ export default (state = initialState, action) => {
             return state
     }
 }
+

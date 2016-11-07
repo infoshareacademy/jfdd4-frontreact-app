@@ -1,0 +1,27 @@
+.instruct
+{
+    float: left;
+}
+
+.clear
+{
+    clear: both;
+}
+
+.productName
+{
+    color: forestgreen;
+    font-size: 20px;
+    font-weight: bold;
+    align-content: center;
+}
+td
+{
+width: 600px;
+}
+
+#close:hover
+{
+    text-decoration: none;
+    color: red;
+}
