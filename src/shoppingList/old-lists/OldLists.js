@@ -38,7 +38,7 @@ class OldList extends React.Component {
 
                         <Col>
                             {this.state.list !== null ?
-                                this.state.list.shoppingList.map( item => <p>{item.productName}</p>) : 'wybierz listę'
+                                this.state.list.shoppingList.map( item => <p>{item.productName} w ilości {item.quantity} produkt,  za {item.price} ze sklepu {item.shopName}  </p>) : 'wybierz listę'
                             }
                             </Col>
                     </Row>
