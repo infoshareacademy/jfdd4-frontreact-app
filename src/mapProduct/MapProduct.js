@@ -6,6 +6,8 @@ import GoogleMap from 'google-map-react'
 import Place from './place/Place'
 import {Icon} from 'react-mdl';
 import './MapsProduct.css';
+import { Spinner } from 'react-mdl';
+import { Tooltip, OverlayTrigger  } from 'react-bootstrap';
 
 import {connect} from 'react-redux'
 
@@ -13,7 +15,8 @@ const mapStateToProps = (state) => ({
     products: state.productsData.products,
     fetchingProducts: state.productsData.fetchingProducts,
     shops: state.shopsData.shops,
-    coordinate: state.mapProduct.coordinate
+    coordinate: state.mapProduct.coordinate,
+    fetchingCoordinate : state.mapProduct.fetchingCoordinate
 })
 
 
@@ -38,16 +41,25 @@ class MapProduct extends React.Component {
         var {
             fetchingProducts,
             fetchingShops,
+            fetchingCoordinate,
             products,
             shops,
             params,
             coordinate
         } = this.props
 
+        if (fetchingCoordinate) {
+            return (
+                <div className="map2 polaroid">
+                    <Spinner className="loading"/>
+                </div>
+            );
+        }
+
         return (
             <div className="map2 polaroid">
                 <li className="card-header">
-                    MAPA
+                    PRODUKT DOSTĘPNY W NAJBLIŻSZYM SKLEPIE
                 </li>
                 {
                     products
@@ -81,8 +93,8 @@ class MapProduct extends React.Component {
                                                             <Place
                                                                 lat={shop.location.lat}
                                                                 lng={shop.location.lng}
+                                                                tooltip={shop.name}
                                                             >
-                                                                <Icon name="room"/>
                                                             </Place>
                                                     )
                                                 }
@@ -99,16 +111,11 @@ class MapProduct extends React.Component {
             </div>
         )
     }
-
 }
-
-// console.log("Latitude: " + position.coords.latitude +
-//     " " + "Longitude: " + position.coords.longitude);
 
 
 function getNearestShopId(shops, coordinate, product) {
     var minDistance = Number.MAX_VALUE;
-    // var minDistance = getDistanceFromLatLonInKm (coordinate.coords.latitude, coordinate.coords.longitude, shops[0].location.lat, shops[0].location.lng);
     var x = -1;
     for (var i = 0; i < shops.length; i++) {
         if (product.shops.indexOf(shops[i].id) !== -1) {
@@ -122,6 +129,7 @@ function getNearestShopId(shops, coordinate, product) {
     return shops[x].id
 }
 
+// copy from http://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula
 function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
     var R = 6371; // Radius of the earth in km
     var dLat = deg2rad(lat2-lat1);  // deg2rad below

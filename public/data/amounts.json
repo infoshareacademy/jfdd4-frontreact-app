@@ -7,7 +7,7 @@
     "category": "kasze",
     "amounts": {
       "Lidl": 5,
-      "Biedonka": 10,
+      "Biedronka": 10,
       "Tesco": 50,
       "Stokrotka": 12,
       "Żabka": 2
@@ -22,7 +22,7 @@
     "category": "olej",
     "amounts": {
       "Lidl": 3,
-      "Biedonka": 15,
+      "Biedronka": 15,
       "Tesco": 0,
       "Stokrotka": 12,
       "Żabka": 4
@@ -37,7 +37,7 @@
     "category": "olej",
     "amounts": {
       "Lidl": 8,
-      "Biedonka":32,
+      "Biedronka":32,
       "Tesco": 4,
       "Stokrotka": 5,
       "Żabka": 2
@@ -52,7 +52,7 @@
    "category": "makaron",
     "amounts": {
       "Lidl": 3,
-      "Biedonka": 3,
+      "Biedronka": 3,
       "Tesco": 0,
       "Stokrotka": 7,
       "Żabka": 5
@@ -67,7 +67,7 @@
     "category": "ryż",
     "amounts": {
       "Lidl": 22,
-      "Biedonka": 12,
+      "Biedronka": 12,
       "Tesco": 12,
       "Stokrotka": 1,
       "Żabka": 3
@@ -82,7 +82,7 @@
     "category": "owoce suszone",
     "amounts": {
       "Lidl": 2,
-      "Biedonka": 8,
+      "Biedronka": 8,
       "Tesco": 4,
       "Stokrotka": 4,
       "Żabka": 7
@@ -97,7 +97,7 @@
     "category": "ryby",
     "amounts": {
       "Lidl": 13,
-      "Biedonka": 2,
+      "Biedronka": 2,
       "Tesco": 8,
       "Stokrotka": 0,
       "Żabka": 0
@@ -112,7 +112,7 @@
     "category": "ryby",
     "amounts": {
       "Lidl": 3,
-      "Biedonka": 3,
+      "Biedronka": 3,
       "Tesco": 0,
       "Stokrotka": 7,
       "Żabka": 5
@@ -127,7 +127,7 @@
     "category": "ryby",
     "amounts": {
       "Lidl": 2,
-      "Biedonka": 27,
+      "Biedronka": 27,
       "Tesco": 22,
       "Stokrotka": 9,
       "Żabka": 3
@@ -142,7 +142,7 @@
     "category": "chleb",
     "amounts": {
       "Lidl": 2,
-      "Biedonka": 1,
+      "Biedronka": 1,
       "Tesco": 0,
       "Stokrotka": 0,
       "Żabka": 0
